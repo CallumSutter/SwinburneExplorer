@@ -4,6 +4,10 @@ using Swinburneexplorer;
 
 public class GameController
 {
+	public static Window gameWindow;
+	public const int WINDOW_HEIGHT = 800;
+	public const int WINDOW_WIDTH = 600;
+	
     public static void Main(string[] args)
     {
         //Constants for directions
@@ -25,9 +29,8 @@ public class GameController
 
         Player _player = new Player(location1);
 
-        //new game window
-        Window gameWindow;
-        gameWindow = new Window("SwinExplorer", 800, 600);
+		//new game window
+		gameWindow = new Window("SwinExplorer", WINDOW_HEIGHT, WINDOW_WIDTH);
 
         do {
             //get user input

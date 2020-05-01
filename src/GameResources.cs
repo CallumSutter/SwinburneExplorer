@@ -17,8 +17,8 @@ namespace Resources
 	{
 		public const int ARROW_SIZE = 72;
 
-		public const double ARROW_Y = Program.WINDOW_HEIGHT * (3.8 / 5.0);
-		public const double ARROW_X = Program.WINDOW_WIDTH / 2.0 - ARROW_SIZE / 2.0;
+		public const double ARROW_Y = GameController.WINDOW_HEIGHT * (3.8 / 5.0);
+		public const double ARROW_X = GameController.WINDOW_WIDTH / 2.0 - ARROW_SIZE / 2.0;
 		public const double ARROW_X_OFFSET = 80;
 		public const double ARROW_Y_OFFSET = ARROW_SIZE / 2 + 10;
 
@@ -65,8 +65,8 @@ namespace Resources
 			Rectangle loadbar = new Rectangle();
 			loadbar.Height = 13;
 			loadbar.Width = 100;
-			loadbar.X = Program.WINDOW_WIDTH / 2 - 200;
-			loadbar.Y = 3 * Program.WINDOW_HEIGHT / 4;
+			loadbar.X = GameController.WINDOW_WIDTH / 2 - 200;
+			loadbar.Y = 3 * GameController.WINDOW_HEIGHT / 4;
 
 			uint loadBarDelay = 1000; //loadbar delay in ms
 			int barNum = 1;
@@ -74,55 +74,55 @@ namespace Resources
 			SplashKit.Delay(loadBarDelay);
 			DrawLoadingBar(barNum++, loadbar);
 			DrawLoadingText("Loading Fonts");
-			Program.gameWindow.Refresh();
+			GameController.gameWindow.Refresh();
 			LoadFonts();
 
-			Program.gameWindow.Clear(Color.White);
+			GameController.gameWindow.Clear(Color.White);
 
 			SplashKit.Delay(loadBarDelay);
 			DrawLoadingBar(barNum++, loadbar);
 			DrawLoadingText("Loading Images");
-			Program.gameWindow.Refresh();
+			GameController.gameWindow.Refresh();
 			LoadImages();
 
-			Program.gameWindow.Clear(Color.White);
+			GameController.gameWindow.Clear(Color.White);
 
 			SplashKit.Delay(loadBarDelay);
 			DrawLoadingBar(barNum++, loadbar);
 			DrawLoadingText("Loading Music");
-			Program.gameWindow.Refresh();
+			GameController.gameWindow.Refresh();
 			LoadMusic();
 
-			Program.gameWindow.Clear(Color.White);
+			GameController.gameWindow.Clear(Color.White);
 
 			SplashKit.Delay(loadBarDelay);
 			DrawLoadingBar(barNum++, loadbar);
 			DrawLoadingText("Loading Sounds");
-			Program.gameWindow.Refresh();
+			GameController.gameWindow.Refresh();
 			LoadSounds();
 
 			SplashKit.Delay(loadBarDelay);
 
-			Program.gameWindow.Clear(Color.White);
-			Program.gameWindow.DrawBitmap(GetImage("SwinLogo"), Program.WINDOW_WIDTH / 2 - GetImage("SwinLogo").Width / 2, Program.WINDOW_HEIGHT / 2 - GetImage("SwinLogo").Height / 2 - 50);
+			GameController.gameWindow.Clear(Color.White);
+			GameController.gameWindow.DrawBitmap(GetImage("SwinLogo"), GameController.WINDOW_WIDTH / 2 - GetImage("SwinLogo").Width / 2, GameController.WINDOW_HEIGHT / 2 - GetImage("SwinLogo").Height / 2 - 50);
 			Sprite s = new Sprite(GetImage("SwinLogo"));
-			Program.gameWindow.Refresh();
+			GameController.gameWindow.Refresh();
 
 			SplashKit.Delay(loadBarDelay);
 
 			DrawDirectionArrows();
-			Program.gameWindow.Refresh();
+			GameController.gameWindow.Refresh();
 		}
 
 		public static void DrawDirectionArrows()
 		{
 			Bitmap arrow = GetImage("sArrow");
 
-			Program.gameWindow.DrawBitmap(arrow, ARROW_X + ARROW_X_OFFSET, ARROW_Y, SplashKit.OptionRotateBmp(0));
-			Program.gameWindow.DrawBitmap(arrow, ARROW_X - ARROW_X_OFFSET, ARROW_Y, SplashKit.OptionRotateBmp(180));
+			GameController.gameWindow.DrawBitmap(arrow, ARROW_X + ARROW_X_OFFSET, ARROW_Y, SplashKit.OptionRotateBmp(0));
+			GameController.gameWindow.DrawBitmap(arrow, ARROW_X - ARROW_X_OFFSET, ARROW_Y, SplashKit.OptionRotateBmp(180));
 
-			Program.gameWindow.DrawBitmap(arrow, ARROW_X, ARROW_Y + ARROW_Y_OFFSET, SplashKit.OptionRotateBmp(90));
-			Program.gameWindow.DrawBitmap(arrow, ARROW_X, ARROW_Y - ARROW_Y_OFFSET, SplashKit.OptionRotateBmp(270));
+			GameController.gameWindow.DrawBitmap(arrow, ARROW_X, ARROW_Y + ARROW_Y_OFFSET, SplashKit.OptionRotateBmp(90));
+			GameController.gameWindow.DrawBitmap(arrow, ARROW_X, ARROW_Y - ARROW_Y_OFFSET, SplashKit.OptionRotateBmp(270));
 		}
 
 		public static ArrowDir? MouseInArrow()
@@ -177,7 +177,7 @@ namespace Resources
 		/// <param name="loadText"></param>
 		private static void DrawLoadingText(string loadText)
 		{
-			Program.gameWindow.DrawText(loadText, Color.Black, "arial", 12, Program.WINDOW_WIDTH / 2 - 195, 3 * Program.WINDOW_HEIGHT / 4 + 15);
+			GameController.gameWindow.DrawText(loadText, Color.Black, "arial", 12, GameController.WINDOW_WIDTH / 2 - 195, 3 * GameController.WINDOW_HEIGHT / 4 + 15);
 		}
 
 		/// <summary>
@@ -189,7 +189,7 @@ namespace Resources
 		{
 			while(count > 0)
 			{
-				Program.gameWindow.FillRectangle(Color.LimeGreen, loadBar);
+				GameController.gameWindow.FillRectangle(Color.LimeGreen, loadBar);
 				loadBar.X += loadBar.Width;
 				count--;
 			}
