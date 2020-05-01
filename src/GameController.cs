@@ -1,12 +1,13 @@
 using System;
 using SplashKitSDK;
 using Swinburneexplorer;
+using Resources;
 
 public class GameController
 {
 	public static Window gameWindow;
-	public const int WINDOW_HEIGHT = 800;
-	public const int WINDOW_WIDTH = 600;
+	public const int WINDOW_HEIGHT = 600;
+	public const int WINDOW_WIDTH = 800;
 	
     public static void Main(string[] args)
     {
@@ -30,9 +31,11 @@ public class GameController
         Player _player = new Player(location1);
 
 		//new game window
-		gameWindow = new Window("SwinExplorer", WINDOW_HEIGHT, WINDOW_WIDTH);
+		gameWindow = new Window("SwinExplorer", WINDOW_WIDTH , WINDOW_HEIGHT);
 
-        do {
+		GameResources.LoadingScreen();
+
+		do {
             //get user input
             SplashKit.ProcessEvents();
 
@@ -41,11 +44,18 @@ public class GameController
 
             //draws players location
             SplashKit.DrawBitmap(_player.Location.LocationImage, 0, 0);
-            //SplashKit.DrawBitmap(_player.Location.ForwardArrow, 0, 0);
-            //SplashKit.DrawBitmap(_player.Location.OtherArrow, 100, 100);
+			//SplashKit.DrawBitmap(_player.Location.ForwardArrow, 0, 0);
+			//SplashKit.DrawBitmap(_player.Location.OtherArrow, 100, 100);
+
+			GameResources.DrawDirectionArrows();
 
             //target 60 fps
             gameWindow.Refresh(60);
+
+			if (SplashKit.MouseClicked(MouseButton.LeftButton))
+			{
+				Console.WriteLine(GameResources.MouseInArrow().ToString());
+			}
 
             //if proper key is pressed, change locations in a direction
             if (SplashKit.KeyTyped(KeyCode.WKey)) {
