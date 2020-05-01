@@ -7,13 +7,13 @@ namespace Swinburneexplorer
 {
     public enum GameState
     {
-        //Player is at primary location
-        startLocation,
+        //Player is at main menu
+        MainMenu,
 
-        //Player is moving between locations
+        //Player is moving between locations/main game
         Travelling,
 
-        //Player has arrived at destination
-        finalDestination,
+        //Player is looking at the map
+        FullscreenMap,
     }
 }

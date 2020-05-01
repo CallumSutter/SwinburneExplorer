@@ -1,22 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Resources;
 using SplashKitSDK;
 
 namespace Swinburneexplorer
 {
-    class UI:IDraw
+    public class UI:IDraw
     {
         public void Draw()
         {
-            Window shapesWindow;
-            shapesWindow = new Window("Swinburne Explorer", 800, 600);
+            //draws players location
+            GameController.gameWindow.DrawBitmap(GameController._player.Location.LocationImage, 0, 0);
 
-            shapesWindow.Clear(Color.White);
-            shapesWindow.DrawText("Welcome to Swinburne Explorer!", Color.Blue, 300, 300);
-            shapesWindow.Refresh();
+            //draws current location
+            GameController.gameWindow.DrawRectangle(Color.Black, 250, 0, 300, 50);
+            GameController.gameWindow.FillRectangle(Color.Black, 250, 0, 300, 50);
+            string _location = "Current Location: " + GameController._player.Location.Name;
+            GameController.gameWindow.DrawText(_location, Color.White, 300, 20);
 
-            SplashKit.Delay(5000);
+            //draw map
+
+            //draw objectives
+
+            //draws arrows
+            GameResources.DrawDirectionArrows();
+
+            //target 60 fps
+            GameController.gameWindow.Refresh(60);
         }
         
     }

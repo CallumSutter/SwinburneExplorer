@@ -11,7 +11,7 @@ namespace Swinburneexplorer {
 		private Bitmap _otherArrowImage;
 		private bool [] _canGoInDirection;
 		private Location [] _connectedLocation;
-		private String _name;
+		private string _name;
 
 		/// <summary>
 		/// Initialiser for Location class
@@ -87,8 +87,18 @@ namespace Swinburneexplorer {
 			}
 		}
 
+		/// <summary>
+		/// getter for location name
+		/// </summary>
+		/// <returns></returns>
+		public string Name {
+			get {
+				return _name;
+			}
+		}
 
-			
+
+
 	}
 
 
