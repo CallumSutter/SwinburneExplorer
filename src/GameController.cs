@@ -1,13 +1,14 @@
 using System;
 using SplashKitSDK;
 using Swinburneexplorer;
-using Resources;
 
 public class GameController
 {
 	public static Window gameWindow;
 	public const int WINDOW_HEIGHT = 600;
 	public const int WINDOW_WIDTH = 800;
+
+	public static Map theMap;
 	
     public static void Main(string[] args)
     {
@@ -34,6 +35,8 @@ public class GameController
 		gameWindow = new Window("SwinExplorer", WINDOW_WIDTH , WINDOW_HEIGHT);
 
 		GameResources.LoadingScreen();
+		GameResources.PlayBGM();
+		theMap = new Map();
 
 		do {
             //get user input
@@ -48,13 +51,21 @@ public class GameController
 			//SplashKit.DrawBitmap(_player.Location.OtherArrow, 100, 100);
 
 			GameResources.DrawDirectionArrows();
+			theMap.Draw();
 
-            //target 60 fps
-            gameWindow.Refresh(60);
+			//target 60 fps
+			gameWindow.Refresh(60);
+
+			theMap.CheckMapClicked();
 
 			if (SplashKit.MouseClicked(MouseButton.LeftButton))
 			{
-				Console.WriteLine(GameResources.MouseInArrow().ToString());
+				ArrowDir? ArrowInput = GameResources.MouseInArrow();
+
+				if (ArrowInput != null)
+				{
+					Console.WriteLine(ArrowInput.ToString());
+				}
 			}
 
             //if proper key is pressed, change locations in a direction
@@ -62,26 +73,17 @@ public class GameController
                 if (_player.Location.GetLocationInDirection(FORWARD) != null) {
                     _player.Location = _player.Location.GetLocationInDirection(FORWARD);
                 }
-                else {
-                    gameWindow.Clear(Color.White);
-                }
             }
 
             if (SplashKit.KeyTyped(KeyCode.SKey)) {
                 if (_player.Location.GetLocationInDirection(BACKWARD) != null) {
                     _player.Location = _player.Location.GetLocationInDirection(BACKWARD);
                 }
-                else {
-                    gameWindow.Clear(Color.White);
-                }
             }
 
             if (SplashKit.KeyTyped(KeyCode.AKey)) {
-                if (_player.Location.GetLocationInDirection(LEFT) != null) {
+				if (_player.Location.GetLocationInDirection(LEFT) != null) {
                     _player.Location = _player.Location.GetLocationInDirection(LEFT);
-                }
-                else {
-                    gameWindow.Clear(Color.White);
                 }
             }
 
@@ -89,12 +91,7 @@ public class GameController
                 if (_player.Location.GetLocationInDirection(RIGHT) != null) {
                     _player.Location = _player.Location.GetLocationInDirection(RIGHT);
                 }
-                else {
-                    gameWindow.Clear(Color.White);
-                }
             }
-
-
         }
         while (!SplashKit.WindowCloseRequested(gameWindow));
 
