@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using SplashKitSDK;
 
-namespace Resources
+namespace Swinburneexplorer
 {
 	public enum ArrowDir
 	{
@@ -41,6 +41,7 @@ namespace Resources
 			_images = new Dictionary<string, Bitmap>();
 			_music = new Dictionary<string, Music>();
 			_loadingFont = new Font("arial", "/arial.ttf"); //default font.
+			_fonts.Add("arial", _loadingFont);
 		}
 
 		/// <summary>
@@ -53,7 +54,7 @@ namespace Resources
 				SplashKit.StopMusic();
 			}
 
-			SplashKit.PlayMusic(GetMusic("bgm"));
+			SplashKit.PlayMusic(GetMusic("USSR"),10,(float)0.5);
 		}
 
 		/// <summary>
@@ -212,6 +213,10 @@ namespace Resources
 			_images.Add("SwinLogo", new Bitmap("SwinLogo", "SwinLogo.png"));
 			_images.Add("Arrow", new Bitmap("Arrow", "Arrow.png"));
 			_images.Add("sArrow", new Bitmap("sArrow", "sArrow.png"));
+			_images.Add("sMap", new Bitmap("sMap", "sMap.png"));
+			//_images.Add("SwinMap", new Bitmap("SwinMap", "SwinMap.png"));
+			_images.Add("SwinMap", new Bitmap("SwinMap", "SwinMapPS.png"));
+			_images.Add("scroll", new Bitmap("scroll", "smallScroll.png"));
 		}
 
 		private static void LoadSounds()
@@ -222,6 +227,7 @@ namespace Resources
 		private static void LoadMusic()
 		{
 			_music.Add("bgm", new Music("bgm", "sogno.mp3"));
+			_music.Add("USSR", new Music("USSR", "USSR.ogg"));
 		}
 
 		private static void LoadFonts()
