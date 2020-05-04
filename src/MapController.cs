@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SplashKitSDK;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -8,6 +9,7 @@ namespace Swinburneexplorer {
             if (GameController.theMap.CheckMapClicked()) {
                 GameController._currentState = GameState.Travelling.ToString();
                 GameController.theMap.Fullscreen = false;
+                SplashKit.PlaySoundEffect(GameResources.GetSound("toggleMap"));
             }
         }
     }

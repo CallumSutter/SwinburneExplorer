@@ -220,7 +220,10 @@ namespace Swinburneexplorer
 
 		private static void LoadSounds()
 		{
-			//_sounds.Add("soundName", new SoundEffect("soundName", "Path"));
+			_sounds.Add("incorrect", new SoundEffect("incorrect", "wrong_direction.wav"));
+			_sounds.Add("correct", new SoundEffect("correct", "correct_direction.wav"));
+			_sounds.Add("menuSelect", new SoundEffect("menuSelect", "menu_select.wav"));
+			_sounds.Add("toggleMap", new SoundEffect("toggleMap", "openMap.wav"));
 		}
 
 		private static void LoadMusic()
