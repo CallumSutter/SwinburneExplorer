@@ -111,7 +111,6 @@ namespace Swinburneexplorer
 
 			SplashKit.Delay(loadBarDelay);
 
-			DrawDirectionArrows();
 			GameController.gameWindow.Refresh();
 		}
 

@@ -1,13 +1,14 @@
 using System;
 using SplashKitSDK;
 using Swinburneexplorer;
-using Resources;
+using System.Resources;
 
 public class GameController
 {
 	public static Window gameWindow;
     public static Player _player;
     public static UI _ui;
+    public static Map theMap;
 	public const int WINDOW_HEIGHT = 600;
 	public const int WINDOW_WIDTH = 800;
     //Constants for directions
@@ -40,12 +41,18 @@ public class GameController
         //Displays loading screen
 		GameResources.LoadingScreen();
 
+        //play background music
+        GameResources.PlayBGM();
+
+        //initialse map
+        theMap = new Map();
+
         //starting with travelling state
         _currentState = GameState.Travelling.ToString();
 
         do {
             //control for drawing to screen
-            gameWindow.Clear(Color.White);
+            gameWindow.Clear(Color.White);           
             switch (_currentState) {
                 case ("MainMenu"):
                     //Draw();
@@ -54,23 +61,24 @@ public class GameController
                     _ui.Draw();
                     break;
                 case ("FullscreenMap"):
-                    //Draw();
+                    theMap.Draw();
                     break;
                 default:
                     break;
             }
+            gameWindow.Refresh();
 
             //get user input and process events
             SplashKit.ProcessEvents();
             switch (_currentState) {
                 case ("MainMenu"):
-                    //HandleInput();
+                    //MainMenuController.HandleInput();
                     break;
                 case ("Travelling"):
                     TravellingController.HandleInput();
                     break;
                 case ("FullscreenMap"):
-                    //HandleInput();
+                    MapController.HandleInput();
                     break;
                 default:
                     break;

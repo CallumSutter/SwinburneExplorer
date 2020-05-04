@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Resources;
+using System.Resources;
 using SplashKitSDK;
 
 namespace Swinburneexplorer
@@ -20,6 +20,7 @@ namespace Swinburneexplorer
             GameController.gameWindow.DrawText(_location, Color.White, 300, 20);
 
             //draw map
+            GameController.theMap.Draw();
 
             //draw objectives
 

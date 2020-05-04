@@ -1,15 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Resources;
+using System.Resources;
 using SplashKitSDK;
 
 namespace Swinburneexplorer {
     public class TravellingController {
 
         public static void HandleInput() {
+            //check if the map icon was clicked on
+            if (GameController.theMap.CheckMapClicked()) {
+                GameController._currentState = GameState.FullscreenMap.ToString();
+                GameController.theMap.Fullscreen = true;
+            }
+
             //if mouse click on arrow, move to linked location (if there is one)
-            if (SplashKit.MouseClicked(MouseButton.LeftButton)) {
+            if (SplashKit.MouseClicked(MouseButton.LeftButton)) {             
                 string arrowDirectionClicked = GameResources.MouseInArrow().ToString();
                 switch (arrowDirectionClicked) {
                     case ("Up"):
