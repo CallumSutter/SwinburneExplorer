@@ -66,7 +66,7 @@ namespace Swinburneexplorer {
 					parsedDirection = GameController.RIGHT;
 					break;
 				default:
-					throw new InvalidOperationException($"{dirStr} is an invalid direction");
+					break;
 			}
 
 			return parsedDirection;
@@ -87,7 +87,7 @@ namespace Swinburneexplorer {
 			else {
 				PlayIncorrectSound();
 			}
-		}
+		} 
 
 		/// <summary>
 		/// Handle inputs for map
@@ -109,7 +109,9 @@ namespace Swinburneexplorer {
 			if (SplashKit.MouseClicked(MouseButton.LeftButton)) {
 				string arrowDirectionClicked = GameResources.MouseInArrow().ToString();
 
-				TryMove(arrowDirectionClicked);
+				if (arrowDirectionClicked != "") {
+					TryMove(arrowDirectionClicked);
+				}
 			}
 		}
 
