@@ -484,6 +484,9 @@ namespace Swinburneexplorer
 		}
 
 		private static void ConfigureLocations() {
+			//AGSE
+			getLocation("AGSE").AddConnectingLocation(getLocation("tunnel2"), BACKWARD);
+
 			//toTrain1
 			getLocation("toTrain1").AddConnectingLocation(getLocation("toTrain2"), FORWARD);
 			getLocation("toTrain1").AddConnectingLocation(getLocation("toAMDC1"), BACKWARD);
@@ -498,20 +501,512 @@ namespace Swinburneexplorer
 			getLocation("toTrain3").AddConnectingLocation(getLocation("toEN1"), LEFT);
 
 			//toTrain4
-			//getLocation("toTrain2").AddConnectingLocation(getLocation("toTrain3"), FORWARD);
+			getLocation("toTrain4").AddConnectingLocation(getLocation("toTrain5"), FORWARD);
 			getLocation("toTrain4").AddConnectingLocation(getLocation("toTrain3"), BACKWARD);
 
 			//toTrain5
-			//getLocation("toTrain2").AddConnectingLocation(getLocation("toTrain3"), FORWARD);
-			//getLocation("toTrain2").AddConnectingLocation(getLocation("toTrain1"), BACKWARD);
-
-			//toTrain5
-			//getLocation("toTrain2").AddConnectingLocation(getLocation("toTrain3"), FORWARD);
-			//getLocation("toTrain2").AddConnectingLocation(getLocation("toTrain1"), BACKWARD);
+			getLocation("toTrain5").AddConnectingLocation(getLocation("toTrain6"), FORWARD);
+			getLocation("toTrain5").AddConnectingLocation(getLocation("toTrain4"), BACKWARD);
+			getLocation("toTrain5").AddConnectingLocation(getLocation("AR"), LEFT);
 
 			//toTrain6
-			//getLocation("toTrain2").AddConnectingLocation(getLocation("toTrain3"), FORWARD);
-			//getLocation("toTrain2").AddConnectingLocation(getLocation("toTrain1"), BACKWARD);
+			getLocation("toTrain6").AddConnectingLocation(getLocation("toTrain7"), FORWARD);
+			getLocation("toTrain6").AddConnectingLocation(getLocation("toTrain5"), BACKWARD);
+			getLocation("toTrain6").AddConnectingLocation(getLocation("trainPark6"), LEFT);
+
+			//toTrain7
+			getLocation("toTrain7").AddConnectingLocation(getLocation("toTrain8"), RIGHT);
+			getLocation("toTrain7").AddConnectingLocation(getLocation("toTrain6"), BACKWARD);
+
+			//toTrain8
+			getLocation("toTrain8").AddConnectingLocation(getLocation("toTrain7"), LEFT);
+			getLocation("toTrain8").AddConnectingLocation(getLocation("Train"), RIGHT);
+			getLocation("toTrain8").AddConnectingLocation(getLocation("toTrain9"), BACKWARD);
+
+			//toTrain9
+			getLocation("toTrain9").AddConnectingLocation(getLocation("toTrain8"), FORWARD);
+			getLocation("toTrain9").AddConnectingLocation(getLocation("toTrain10"), BACKWARD);
+
+			//toTrain10
+			getLocation("toTrain10").AddConnectingLocation(getLocation("toTrain11"), FORWARD);
+			getLocation("toTrain10").AddConnectingLocation(getLocation("toTrain9"), LEFT);
+
+			//toTrain11
+			getLocation("toTrain11").AddConnectingLocation(getLocation("toTrain12"), FORWARD);
+			getLocation("toTrain11").AddConnectingLocation(getLocation("toTrain10"), BACKWARD);
+
+			//toTrain12
+			getLocation("toTrain12").AddConnectingLocation(getLocation("spw4"), FORWARD);
+			getLocation("toTrain12").AddConnectingLocation(getLocation("toTrain11"), BACKWARD);
+
+			//Train
+			getLocation("Train").AddConnectingLocation(getLocation("toTrain8"), BACKWARD);
+
+			//spw1
+			getLocation("spw1").AddConnectingLocation(getLocation("spw2"), BACKWARD);
+
+			//spw2
+			getLocation("spw2").AddConnectingLocation(getLocation("spw1"), RIGHT);
+			getLocation("spw2").AddConnectingLocation(getLocation("instreet9"), LEFT);
+
+			//spw3
+			getLocation("spw3").AddConnectingLocation(getLocation("spw4"), FORWARD);
+			getLocation("spw3").AddConnectingLocation(getLocation("spw2"), BACKWARD);
+
+			//spw4
+			getLocation("spw4").AddConnectingLocation(getLocation("spw3"), LEFT);
+			getLocation("spw4").AddConnectingLocation(getLocation("spw5"), FORWARD);
+			getLocation("spw4").AddConnectingLocation(getLocation("toTrain12"), BACKWARD);
+
+			//spw5
+			getLocation("spw5").AddConnectingLocation(getLocation("spw6"), FORWARD);
+			getLocation("spw5").AddConnectingLocation(getLocation("spw4"), BACKWARD);
+
+			//spw6
+			getLocation("spw6").AddConnectingLocation(getLocation("spw7"), FORWARD);
+			getLocation("spw6").AddConnectingLocation(getLocation("spw5"), BACKWARD);
+
+			//spw7
+			getLocation("spw7").AddConnectingLocation(getLocation("grassPath1"), FORWARD);
+			getLocation("spw7").AddConnectingLocation(getLocation("instreet8"), LEFT);
+			getLocation("spw7").AddConnectingLocation(getLocation("spw6"), BACKWARD);
+
+			//spw8
+			getLocation("spw8").AddConnectingLocation(getLocation("spw7"), FORWARD);
+			getLocation("spw8").AddConnectingLocation(getLocation("spw9"), BACKWARD);
+
+			//spw9
+			getLocation("spw9").AddConnectingLocation(getLocation("spw8"), FORWARD);
+			getLocation("spw9").AddConnectingLocation(getLocation("instreet8"), BACKWARD);
+
+			//grassPath1
+			getLocation("grassPath1").AddConnectingLocation(getLocation("grassPath2"), FORWARD);
+			getLocation("grassPath1").AddConnectingLocation(getLocation("spw7"), BACKWARD);
+
+			//grassPath2
+			getLocation("grassPath2").AddConnectingLocation(getLocation("grassPath3"), FORWARD);
+			getLocation("grassPath2").AddConnectingLocation(getLocation("grassPath1"), BACKWARD);
+
+			//grassPath3
+			getLocation("grassPath3").AddConnectingLocation(getLocation("grassPath4"), FORWARD);
+			getLocation("grassPath3").AddConnectingLocation(getLocation("grassPath2"), BACKWARD);
+
+			//grassPath4
+			getLocation("grassPath4").AddConnectingLocation(getLocation("grassPath5"), FORWARD);
+			getLocation("grassPath4").AddConnectingLocation(getLocation("grassPath3"), BACKWARD);
+
+			//grassPath5
+			getLocation("grassPath5").AddConnectingLocation(getLocation("grassPath6"), FORWARD);
+			getLocation("grassPath5").AddConnectingLocation(getLocation("grassPath4"), BACKWARD);
+
+			//grassPath6
+			getLocation("grassPath6").AddConnectingLocation(getLocation("tunnel3"), LEFT);
+			getLocation("grassPath6").AddConnectingLocation(getLocation("tunnel4"), RIGHT);
+			getLocation("grassPath6").AddConnectingLocation(getLocation("grassPath5"), BACKWARD);
+
+			//tunnel1
+			getLocation("tunnel1").AddConnectingLocation(getLocation("tunnel2"), FORWARD);
+			getLocation("tunnel1").AddConnectingLocation(getLocation("instreet2"), BACKWARD);
+
+			//tunnel2
+			getLocation("tunnel2").AddConnectingLocation(getLocation("tunnel3"), FORWARD);
+			getLocation("tunnel2").AddConnectingLocation(getLocation("AGSE"), LEFT);
+			getLocation("tunnel2").AddConnectingLocation(getLocation("tunnel1"), BACKWARD);
+
+			//tunnel3
+			getLocation("tunnel3").AddConnectingLocation(getLocation("tunnel4"), FORWARD);
+			getLocation("tunnel3").AddConnectingLocation(getLocation("tunnel2"), BACKWARD);
+			getLocation("tunnel3").AddConnectingLocation(getLocation("grassPath6"), RIGHT);
+			getLocation("tunnel3").AddConnectingLocation(getLocation("side1"), LEFT);
+
+			//tunnel4
+			getLocation("tunnel4").AddConnectingLocation(getLocation("toAMDC1"), FORWARD);
+			getLocation("tunnel4").AddConnectingLocation(getLocation("tunnel3"), BACKWARD);
+			getLocation("tunnel4").AddConnectingLocation(getLocation("grassPath1"), RIGHT);
+
+			//toAMDC1
+			getLocation("toAMDC1").AddConnectingLocation(getLocation("toAMDC2"), FORWARD);
+			getLocation("toAMDC1").AddConnectingLocation(getLocation("tunnel4"), BACKWARD);
+			getLocation("toAMDC1").AddConnectingLocation(getLocation("toTrain1"), RIGHT);
+			getLocation("toAMDC1").AddConnectingLocation(getLocation("sneak1"), LEFT);
+
+			//toAMDC2
+			getLocation("toAMDC2").AddConnectingLocation(getLocation("toAMDC3"), FORWARD);
+			getLocation("toAMDC2").AddConnectingLocation(getLocation("toAMDC1"), BACKWARD);
+			getLocation("toAMDC2").AddConnectingLocation(getLocation("AD"), RIGHT);
+
+			//toAMDC3
+			getLocation("toAMDC3").AddConnectingLocation(getLocation("toAMDC4"), FORWARD);
+			getLocation("toAMDC3").AddConnectingLocation(getLocation("toAMDC2"), BACKWARD);
+			getLocation("toAMDC3").AddConnectingLocation(getLocation("study"), RIGHT);
+			getLocation("toAMDC3").AddConnectingLocation(getLocation("toATC1"), LEFT);
+
+			//toAMDC4
+			getLocation("toAMDC4").AddConnectingLocation(getLocation("toAMDC5"), FORWARD);
+			getLocation("toAMDC4").AddConnectingLocation(getLocation("toAMDC3"), BACKWARD);
+			getLocation("toAMDC4").AddConnectingLocation(getLocation("toWestSide1"), RIGHT);
+
+			//toAMDC5
+			getLocation("toAMDC5").AddConnectingLocation(getLocation("northSide3"), FORWARD);
+			getLocation("toAMDC5").AddConnectingLocation(getLocation("toAMDC4"), BACKWARD);
+			getLocation("toAMDC5").AddConnectingLocation(getLocation("AMDC"), LEFT);
+
+			//AMDC
+			getLocation("AMDC").AddConnectingLocation(getLocation("toWestSide1"), LEFT);
+			getLocation("AMDC").AddConnectingLocation(getLocation("toAMDC4"), BACKWARD);
+			getLocation("AMDC").AddConnectingLocation(getLocation("toAMDC5"), RIGHT);
+
+			//study
+			getLocation("study").AddConnectingLocation(getLocation("toAMDC3"), BACKWARD);
+
+			//toWestSide1
+			getLocation("toWestSide1").AddConnectingLocation(getLocation("FS"), FORWARD);
+			getLocation("toWestSide1").AddConnectingLocation(getLocation("toAMDC4"), BACKWARD);
+			getLocation("toWestSide1").AddConnectingLocation(getLocation("AMDC"), RIGHT);
+
+			//toWestSide2
+			getLocation("toWestSide2").AddConnectingLocation(getLocation("westSide1"), LEFT);
+			getLocation("toWestSide2").AddConnectingLocation(getLocation("FS"), BACKWARD);
+
+			//FS
+			getLocation("FS").AddConnectingLocation(getLocation("toWestSide2"), FORWARD);
+			getLocation("FS").AddConnectingLocation(getLocation("toWestSide1"), BACKWARD);
+
+			//westSide1
+			getLocation("westSide1").AddConnectingLocation(getLocation("toWestSide2"), RIGHT);
+			getLocation("westSide1").AddConnectingLocation(getLocation("westSide2"), BACKWARD);
+
+			//westSide2
+			getLocation("westSide2").AddConnectingLocation(getLocation("westSide1"), FORWARD);
+			getLocation("westSide2").AddConnectingLocation(getLocation("stairs"), BACKWARD);
+
+			//stairs
+			getLocation("stairs").AddConnectingLocation(getLocation("westSide2"), LEFT);
+			getLocation("stairs").AddConnectingLocation(getLocation("westSide3"), RIGHT);
+
+			//westSide3
+			getLocation("westSide3").AddConnectingLocation(getLocation("stairs"), FORWARD);
+			getLocation("westSide3").AddConnectingLocation(getLocation("westSide4"), BACKWARD);
+
+			//westSide4
+			getLocation("westSide4").AddConnectingLocation(getLocation("sneak3"), RIGHT);
+			getLocation("westSide4").AddConnectingLocation(getLocation("westSide5"), BACKWARD);
+			getLocation("westSide4").AddConnectingLocation(getLocation("westSide3"), FORWARD);
+
+			//westSide5
+			getLocation("westSide5").AddConnectingLocation(getLocation("westSide4"), FORWARD);
+			getLocation("westSide5").AddConnectingLocation(getLocation("westSide6"), BACKWARD);
+
+			//westSide6
+			getLocation("westSide6").AddConnectingLocation(getLocation("side3"), RIGHT);
+			getLocation("westSide6").AddConnectingLocation(getLocation("westSide7"), BACKWARD);
+			getLocation("westSide6").AddConnectingLocation(getLocation("westSide5"), FORWARD);
+
+			//westSide7
+			getLocation("westSide7").AddConnectingLocation(getLocation("westSide6"), FORWARD);
+			getLocation("westSide7").AddConnectingLocation(getLocation("westSide8"), BACKWARD);
+
+			//westSide8
+			getLocation("westSide8").AddConnectingLocation(getLocation("westSide9"), RIGHT);
+			getLocation("westSide8").AddConnectingLocation(getLocation("westSide7"), FORWARD);
+
+			//westSide9
+			getLocation("westSide9").AddConnectingLocation(getLocation("westSide8"), RIGHT);
+			getLocation("westSide9").AddConnectingLocation(getLocation("westSide11"), LEFT);
+			getLocation("westSide9").AddConnectingLocation(getLocation("westSide10"), BACKWARD);
+
+			//westSide10
+			getLocation("westSide10").AddConnectingLocation(getLocation("westSide9"), FORWARD);
+			getLocation("westSide10").AddConnectingLocation(getLocation("instreet1"), BACKWARD);
+
+			//westSide11
+			getLocation("westSide11").AddConnectingLocation(getLocation("westSide12"), FORWARD);
+			getLocation("westSide11").AddConnectingLocation(getLocation("westSide9"), BACKWARD);
+
+			//westSide12
+			getLocation("westSide12").AddConnectingLocation(getLocation("westSide13"), FORWARD);
+			getLocation("westSide12").AddConnectingLocation(getLocation("westSide11"), BACKWARD);
+
+			//westSide13
+			getLocation("westSide13").AddConnectingLocation(getLocation("southSide6"), LEFT);
+			getLocation("westSide13").AddConnectingLocation(getLocation("westSide12"), BACKWARD);
+
+			//sneak1
+			getLocation("sneak1").AddConnectingLocation(getLocation("toAMDC1"), RIGHT);
+			getLocation("sneak1").AddConnectingLocation(getLocation("sneak2"), BACKWARD);
+
+			//sneak2
+			getLocation("sneak2").AddConnectingLocation(getLocation("sneak1"), FORWARD);
+			getLocation("sneak2").AddConnectingLocation(getLocation("sneak3"), BACKWARD);
+
+			//sneak3
+			getLocation("sneak3").AddConnectingLocation(getLocation("sneak2"), FORWARD);
+			getLocation("sneak3").AddConnectingLocation(getLocation("westSide4"), BACKWARD);
+
+			//southSide1
+			getLocation("southSide1").AddConnectingLocation(getLocation("toLodges1"), LEFT);
+			getLocation("southSide1").AddConnectingLocation(getLocation("southSide2"), BACKWARD);
+
+			//southSide2
+			getLocation("southSide2").AddConnectingLocation(getLocation("southSide1"), FORWARD);
+			getLocation("southSide2").AddConnectingLocation(getLocation("TC"), LEFT);
+			getLocation("southSide2").AddConnectingLocation(getLocation("southSide3"), BACKWARD);
+
+			//southSide3
+			getLocation("southSide3").AddConnectingLocation(getLocation("southSide2"), FORWARD);
+			getLocation("southSide3").AddConnectingLocation(getLocation("toSouthSide4"), LEFT);
+			getLocation("southSide3").AddConnectingLocation(getLocation("southSide4"), BACKWARD);
+
+			//southSide4
+			getLocation("southSide4").AddConnectingLocation(getLocation("southSide3"), FORWARD);
+			getLocation("southSide4").AddConnectingLocation(getLocation("toSouthSide4"), LEFT);
+			getLocation("southSide4").AddConnectingLocation(getLocation("southSide5"), BACKWARD);
+
+			//southSide5
+			getLocation("southSide5").AddConnectingLocation(getLocation("southSide4"), FORWARD);
+			getLocation("southSide5").AddConnectingLocation(getLocation("southSide6"), BACKWARD);
+
+			//southSide6
+			getLocation("southSide6").AddConnectingLocation(getLocation("southSide5"), FORWARD);
+			getLocation("southSide6").AddConnectingLocation(getLocation("westSide13"), BACKWARD);
+
+			//TA
+			getLocation("TA").AddConnectingLocation(getLocation("toSouthSide1"), LEFT);
+
+			//TB
+			getLocation("TB").AddConnectingLocation(getLocation("toSouthSide1"), RIGHT);
+
+			//TC
+			getLocation("TC").AddConnectingLocation(getLocation("southSide2"), BACKWARD);
+
+			//TD
+			getLocation("TD").AddConnectingLocation(getLocation("toLodges3"), BACKWARD);
+
+			//toSouthSide1
+			getLocation("toSouthSide1").AddConnectingLocation(getLocation("toSouthSide2"), FORWARD);
+			getLocation("toSouthSide1").AddConnectingLocation(getLocation("instreet2"), BACKWARD);
+			getLocation("toSouthSide1").AddConnectingLocation(getLocation("TA"), LEFT);
+			getLocation("toSouthSide1").AddConnectingLocation(getLocation("TB"), RIGHT);
+
+			//toSouthSide2
+			getLocation("toSouthSide2").AddConnectingLocation(getLocation("toSouthSide3"), FORWARD);
+			getLocation("toSouthSide2").AddConnectingLocation(getLocation("toSouthSide1"), BACKWARD);
+
+			//toSouthSide3
+			getLocation("toSouthSide3").AddConnectingLocation(getLocation("toSouthSide4"), FORWARD);
+			getLocation("toSouthSide3").AddConnectingLocation(getLocation("toSouthSide2"), BACKWARD);
+
+			//toSouthSide4
+			getLocation("toSouthSide4").AddConnectingLocation(getLocation("southSide4"), RIGHT);
+			getLocation("toSouthSide4").AddConnectingLocation(getLocation("southSide3"), LEFT);
+			getLocation("toSouthSide4").AddConnectingLocation(getLocation("toSouthSide3"), BACKWARD);
+
+			//toLodges1
+			getLocation("toLodges1").AddConnectingLocation(getLocation("toLodges2"), FORWARD);
+			getLocation("toLodges1").AddConnectingLocation(getLocation("southSide1"), BACKWARD);
+
+			//toLodges2
+			getLocation("toLodges2").AddConnectingLocation(getLocation("toLodges3"), FORWARD);
+			getLocation("toLodges2").AddConnectingLocation(getLocation("toLodges1"), BACKWARD);
+
+			//toLodges3
+			getLocation("toLodges3").AddConnectingLocation(getLocation("toLodges4"), FORWARD);
+			getLocation("toLodges3").AddConnectingLocation(getLocation("toLodges2"), BACKWARD);
+			getLocation("toLodges3").AddConnectingLocation(getLocation("TD"), LEFT);
+
+			//toLodges4
+			getLocation("toLodges4").AddConnectingLocation(getLocation("toLodges5"), FORWARD);
+			getLocation("toLodges4").AddConnectingLocation(getLocation("toLodges3"), BACKWARD);
+
+			//toLodges5
+			getLocation("toLodges5").AddConnectingLocation(getLocation("toLodges6"), FORWARD);
+			getLocation("toLodges5").AddConnectingLocation(getLocation("toLodges4"), BACKWARD);
+
+			//toLodges6
+			getLocation("toLodges6").AddConnectingLocation(getLocation("instreet7"), FORWARD);
+			getLocation("toLodges6").AddConnectingLocation(getLocation("toLodges5"), BACKWARD);
+
+			//instreet1
+			getLocation("instreet1").AddConnectingLocation(getLocation("westSide10"), FORWARD);
+			getLocation("instreet1").AddConnectingLocation(getLocation("instreet2"), BACKWARD);
+
+			//instreet2
+			getLocation("instreet2").AddConnectingLocation(getLocation("instreet1"), FORWARD);
+			getLocation("instreet2").AddConnectingLocation(getLocation("toSouthSide1"), LEFT);
+			getLocation("instreet2").AddConnectingLocation(getLocation("tunnel1"), RIGHT);
+			getLocation("instreet2").AddConnectingLocation(getLocation("instreet3"), BACKWARD);
+
+			//instreet3
+			getLocation("instreet3").AddConnectingLocation(getLocation("instreet2"), FORWARD);
+			getLocation("instreet3").AddConnectingLocation(getLocation("George"), BACKWARD);
+
+			//George
+			getLocation("George").AddConnectingLocation(getLocation("instreet3"), FORWARD);
+			getLocation("George").AddConnectingLocation(getLocation("instreet4"), BACKWARD);
+
+			//instreet4
+			getLocation("instreet4").AddConnectingLocation(getLocation("George"), FORWARD);
+			getLocation("instreet4").AddConnectingLocation(getLocation("instreet5"), BACKWARD);
+
+			//instreet5
+			getLocation("instreet5").AddConnectingLocation(getLocation("instreet4"), FORWARD);
+			getLocation("instreet5").AddConnectingLocation(getLocation("instreet6"), BACKWARD);
+
+			//instreet6
+			getLocation("instreet6").AddConnectingLocation(getLocation("instreet5"), FORWARD);
+			getLocation("instreet6").AddConnectingLocation(getLocation("instreet7"), BACKWARD);
+
+			//instreet7
+			getLocation("instreet7").AddConnectingLocation(getLocation("instreet6"), FORWARD);
+			getLocation("instreet7").AddConnectingLocation(getLocation("toLodges6"), LEFT);
+			getLocation("instreet7").AddConnectingLocation(getLocation("instreet8"), BACKWARD);
+
+			//instreet8
+			getLocation("instreet8").AddConnectingLocation(getLocation("instreet7"), FORWARD);
+			getLocation("instreet8").AddConnectingLocation(getLocation("spw9"), RIGHT);
+			getLocation("instreet8").AddConnectingLocation(getLocation("instreet9"), BACKWARD);
+
+			//instreet9
+			getLocation("instreet9").AddConnectingLocation(getLocation("instreet8"), FORWARD);
+			getLocation("instreet9").AddConnectingLocation(getLocation("spw2"), BACKWARD);
+			getLocation("instreet9").AddConnectingLocation(getLocation("studentCarPark"), LEFT);
+
+			//studentCarPark
+			getLocation("studentCarPark").AddConnectingLocation(getLocation("instreet9"), BACKWARD);
+
+			//AD
+			getLocation("AD").AddConnectingLocation(getLocation("toAMDC2"), BACKWARD);
+
+			//backOfAD
+			getLocation("backOfAD").AddConnectingLocation(getLocation("toEN2"), BACKWARD);
+
+			//toEN1
+			getLocation("toEN1").AddConnectingLocation(getLocation("toTrain3"), FORWARD);
+			getLocation("toEN1").AddConnectingLocation(getLocation("toEN2"), BACKWARD);
+
+			//toEN2
+			getLocation("toEN2").AddConnectingLocation(getLocation("toEN3"), FORWARD);
+			getLocation("toEN2").AddConnectingLocation(getLocation("backOfAD"), LEFT);
+			getLocation("toEN2").AddConnectingLocation(getLocation("toEN1"), BACKWARD);
+
+			//toEN3
+			getLocation("toEN3").AddConnectingLocation(getLocation("toEN4"), FORWARD);
+			getLocation("toEN3").AddConnectingLocation(getLocation("toEN2"), BACKWARD);
+
+			//toEN4
+			getLocation("toEN4").AddConnectingLocation(getLocation("EN"), FORWARD);
+			getLocation("toEN4").AddConnectingLocation(getLocation("toATC4"), LEFT);
+			getLocation("toEN4").AddConnectingLocation(getLocation("toEN3"), BACKWARD);
+
+			//toEN5
+			getLocation("toEN5").AddConnectingLocation(getLocation("toEN4"), FORWARD);
+			getLocation("toEN5").AddConnectingLocation(getLocation("toATC4"), LEFT);
+
+			//AR
+			getLocation("AR").AddConnectingLocation(getLocation("toTrain5"), BACKWARD);
+
+			//toATC1
+			getLocation("toATC1").AddConnectingLocation(getLocation("toAMDC3"), FORWARD);
+			getLocation("toATC1").AddConnectingLocation(getLocation("toATC2"), BACKWARD);
+
+			//toATC2
+			getLocation("toATC2").AddConnectingLocation(getLocation("toATC1"), FORWARD);
+			getLocation("toATC2").AddConnectingLocation(getLocation("toATC4"), BACKWARD);
+			getLocation("toATC2").AddConnectingLocation(getLocation("toATC3"), RIGHT);
+
+			//toATC3
+			getLocation("toATC3").AddConnectingLocation(getLocation("ATC"), FORWARD);
+			getLocation("toATC3").AddConnectingLocation(getLocation("toATC2"), BACKWARD);
+
+			//toATC4
+			getLocation("toATC4").AddConnectingLocation(getLocation("toATC2"), FORWARD);
+			getLocation("toATC4").AddConnectingLocation(getLocation("toEN4"), LEFT);
+			getLocation("toATC4").AddConnectingLocation(getLocation("toATC1"), RIGHT);
+
+			//ATC
+			getLocation("ATC").AddConnectingLocation(getLocation("toATC3"), BACKWARD);
+
+			//toAS1
+			getLocation("toAS1").AddConnectingLocation(getLocation("toEN5"), FORWARD);
+			getLocation("toAS1").AddConnectingLocation(getLocation("toAS2"), BACKWARD);
+
+			//toAS2
+			getLocation("toAS2").AddConnectingLocation(getLocation("toAS1"), FORWARD);
+			getLocation("toAS2").AddConnectingLocation(getLocation("toAS3"), BACKWARD);
+
+			//toAS3
+			getLocation("toAS3").AddConnectingLocation(getLocation("toAS2"), FORWARD);
+			getLocation("toAS3").AddConnectingLocation(getLocation("AS"), BACKWARD);
+
+			//toAS4
+			getLocation("toAS4").AddConnectingLocation(getLocation("AS"), FORWARD);
+			getLocation("toAS4").AddConnectingLocation(getLocation("toAS5"), BACKWARD);
+
+			//toAS5
+			getLocation("toAS5").AddConnectingLocation(getLocation("toAS4"), FORWARD);
+			getLocation("toAS5").AddConnectingLocation(getLocation("northSide1"), RIGHT);
+
+			//AS
+			getLocation("AS").AddConnectingLocation(getLocation("toAS3"), LEFT);
+			getLocation("AS").AddConnectingLocation(getLocation("toAS4"), BACKWARD);
+
+			//ATCOtherSide
+			getLocation("ATCOtherSide").AddConnectingLocation(getLocation("northSide2"), BACKWARD);
+
+			//northSide1
+			getLocation("northSide1").AddConnectingLocation(getLocation("northSide2"), FORWARD);
+			getLocation("northSide1").AddConnectingLocation(getLocation("toAS5"), LEFT);
+
+			//northSide2
+			getLocation("northSide2").AddConnectingLocation(getLocation("northSide3"), FORWARD);
+			getLocation("northSide2").AddConnectingLocation(getLocation("ATCOtherSide"), LEFT);
+			getLocation("northSide2").AddConnectingLocation(getLocation("northSide1"), BACKWARD);
+
+			//northSide3
+			getLocation("northSide3").AddConnectingLocation(getLocation("northSide4"), FORWARD);
+			getLocation("northSide3").AddConnectingLocation(getLocation("toAMDC5"), LEFT);
+			getLocation("northSide3").AddConnectingLocation(getLocation("northSide2"), BACKWARD);
+
+			//northSide4
+			getLocation("northSide4").AddConnectingLocation(getLocation("northSide3"), BACKWARD);
+
+			//trainPark1
+			getLocation("trainPark1").AddConnectingLocation(getLocation("trainPark4"), FORWARD);
+			getLocation("trainPark1").AddConnectingLocation(getLocation("trainPark3"), LEFT);
+			getLocation("trainPark1").AddConnectingLocation(getLocation("trainPark2"), RIGHT);
+
+			//trainPark2
+			getLocation("trainPark2").AddConnectingLocation(getLocation("trainPark1"), BACKWARD);
+
+			//trainPark3
+			getLocation("trainPark3").AddConnectingLocation(getLocation("trainPark1"), BACKWARD);
+
+			//trainPark4
+			getLocation("trainPark4").AddConnectingLocation(getLocation("trainPark5"), FORWARD);
+			getLocation("trainPark4").AddConnectingLocation(getLocation("trainPark1"), BACKWARD);
+
+			//trainPark5
+			getLocation("trainPark5").AddConnectingLocation(getLocation("trainPark6"), FORWARD);
+			getLocation("trainPark5").AddConnectingLocation(getLocation("trainPark4"), BACKWARD);
+
+			//trainPark6
+			getLocation("trainPark6").AddConnectingLocation(getLocation("toTrain6"), FORWARD);
+			getLocation("trainPark6").AddConnectingLocation(getLocation("trainPark5"), BACKWARD);
+
+			//side1
+			getLocation("side1").AddConnectingLocation(getLocation("side2"), FORWARD);
+			getLocation("side1").AddConnectingLocation(getLocation("tunnel3"), BACKWARD);
+
+			//side2
+			getLocation("side2").AddConnectingLocation(getLocation("side3"), FORWARD);
+			getLocation("side2").AddConnectingLocation(getLocation("side1"), BACKWARD);
+
+			//side3
+			getLocation("side3").AddConnectingLocation(getLocation("westSide6"), FORWARD);
+			getLocation("side3").AddConnectingLocation(getLocation("side2"), BACKWARD);
+
+			//EN
+			getLocation("EN").AddConnectingLocation(getLocation("toEN4"), BACKWARD);
 		}
 
 		private static void LoadSounds()

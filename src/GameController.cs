@@ -46,7 +46,7 @@ public class GameController
         //Location location1 = GameResources.getLocation("toLodges6");
 
         //initialse player
-        _player = new Player(GameResources.getLocation("toTrain1"));
+        _player = new Player(GameResources.getLocation("Train"));
 
         //initialse map
         theMap = new Map();
