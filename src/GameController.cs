@@ -9,8 +9,8 @@ public class GameController
     public static Player _player;
     public static UI _ui;
     public static Map theMap;
-	public const int WINDOW_HEIGHT = 600;
-	public const int WINDOW_WIDTH = 800;
+	public const int WINDOW_HEIGHT = 653;
+	public const int WINDOW_WIDTH = 1382;
     //Constants for directions
     public const int FORWARD = 0;
     public const int BACKWARD = 1;
@@ -23,17 +23,15 @@ public class GameController
         //initialise varaiables
         _ui = new UI();
 
-        Location location1 = new Location("location1.jpg", "1");
-        Location location2 = new Location("location2.jpg", "2");
-        Location location3 = new Location("placeholder.jpg", "3");
+        //Location location1 = new Location("location1.jpg", "1");
+        //Location location2 = new Location("location2.jpg", "2");
+        //Location location3 = new Location("placeholder.jpg", "3");
 
-        location1.AddConnectingLocation(location2, FORWARD);
-        location1.AddConnectingLocation(location3, BACKWARD);
+        //location1.AddConnectingLocation(location2, FORWARD);
+        //location1.AddConnectingLocation(location3, BACKWARD);
 
-        location2.AddConnectingLocation(location1, BACKWARD);
-        location3.AddConnectingLocation(location1, FORWARD);
-
-        _player = new Player(location1);
+        //location2.AddConnectingLocation(location1, BACKWARD);
+        //location3.AddConnectingLocation(location1, FORWARD);
 
 		//new game window
 		gameWindow = new Window("SwinExplorer", WINDOW_WIDTH , WINDOW_HEIGHT);
@@ -43,6 +41,12 @@ public class GameController
 
         //play background music
         GameResources.PlayBGM();
+
+        //add test location
+        //Location location1 = GameResources.getLocation("toLodges6");
+
+        //initialse player
+        _player = new Player(GameResources.getLocation("toTrain1"));
 
         //initialse map
         theMap = new Map();

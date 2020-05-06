@@ -19,8 +19,8 @@ namespace Swinburneexplorer {
 		/// <param name="locationImage">path of the image file, defaults to image folder in bin folder</param>
 		/// <param name="name">name of the location</param>
 		/// <returns></returns>
-		public Location(string locationImage, string name) {
-			_locationImage = new Bitmap(name, locationImage);
+		public Location(Bitmap locationImage, string name) {
+			_locationImage = locationImage;
 			_forwardArrowImage = new Bitmap("location", "forward_arrow.png");
 			_otherArrowImage = new Bitmap("location", "forward__backward_arrow.png");
 			_name = name;

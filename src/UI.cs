@@ -11,13 +11,13 @@ namespace Swinburneexplorer
         public void Draw()
         {
             //draws players location
-            GameController.gameWindow.DrawBitmap(GameController._player.Location.LocationImage, 0, 0);
+            GameController.gameWindow.DrawBitmap(GameController._player.Location.LocationImage, -1613, -760, SplashKit.OptionScaleBmp(0.3,0.3));
 
             //draws current location
-            GameController.gameWindow.DrawRectangle(Color.Black, 250, 0, 300, 50);
-            GameController.gameWindow.FillRectangle(Color.Black, 250, 0, 300, 50);
+            GameController.gameWindow.DrawRectangle(Color.Black, GameController.WINDOW_WIDTH/2 - 150, 0, 300, 50);
+            GameController.gameWindow.FillRectangle(Color.Black, GameController.WINDOW_WIDTH / 2 - 150, 0, 300, 50);
             string _location = "Current Location: " + GameController._player.Location.Name;
-            GameController.gameWindow.DrawText(_location, Color.White, 300, 20);
+            GameController.gameWindow.DrawText(_location, Color.White, GameController.WINDOW_WIDTH / 2 - 120, 20);
 
             //draw map
             GameController.theMap.Draw();
