@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Diagnostics;
 using SplashKitSDK;
 
 namespace Swinburneexplorer
@@ -219,7 +220,11 @@ namespace Swinburneexplorer
 		/// </summary>
 		/// <param name="locName"></param>
 		public static void LoadLocationImage(string locName) {
+			Stopwatch sw = new Stopwatch();
+			sw.Start();
 			_images.Add(locName, new Bitmap(locName, "campus/" + locName + ".jpg"));
+			sw.Stop();
+			Console.WriteLine($"Took {sw.ElapsedMilliseconds} to load campus/{locName}.jpg");
 		}
 
 		private static void LoadImages() {
