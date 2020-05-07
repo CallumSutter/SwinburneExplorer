@@ -10,7 +10,7 @@ namespace Swinburneexplorer
     {
         public void Draw()
         {
-            //draws players location
+			//draws players location
             GameController.gameWindow.DrawBitmap(GameController._player.Location.LocationImage, -1613, -760, SplashKit.OptionScaleBmp(0.3,0.3));
 
             //draws current location

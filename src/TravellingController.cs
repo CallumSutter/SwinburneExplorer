@@ -42,6 +42,15 @@ namespace Swinburneexplorer {
 		/// <param name="direction"></param>
 		public static void MovePlayer(int direction) {
 			GameController._player.Location = GameController._player.Location.GetLocationInDirection(direction);
+
+			LoadLocationImage(GameController._player.Location);
+		}
+
+		public static void LoadLocationImage(Location aLoc) {
+			if (aLoc.LocationImage == null) {
+				GameResources.LoadLocationImage(aLoc.Name);
+				aLoc.LocationImage = GameResources.GetImage(aLoc.Name);
+			}
 		}
 
 		/// <summary>

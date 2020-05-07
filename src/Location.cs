@@ -7,8 +7,6 @@ namespace Swinburneexplorer {
 	public class Location {
 
 		private Bitmap _locationImage;
-		private Bitmap _forwardArrowImage;
-		private Bitmap _otherArrowImage;
 		private bool [] _canGoInDirection;
 		private Location [] _connectedLocation;
 		private string _name;
@@ -19,10 +17,8 @@ namespace Swinburneexplorer {
 		/// <param name="locationImage">path of the image file, defaults to image folder in bin folder</param>
 		/// <param name="name">name of the location</param>
 		/// <returns></returns>
-		public Location(Bitmap locationImage, string name) {
-			_locationImage = locationImage;
-			_forwardArrowImage = new Bitmap("location", "forward_arrow.png");
-			_otherArrowImage = new Bitmap("location", "forward__backward_arrow.png");
+		public Location(string name) {
+			_locationImage = null;
 			_name = name;
 			_canGoInDirection = new bool[4];
 			_connectedLocation = new Location[4];
@@ -65,25 +61,8 @@ namespace Swinburneexplorer {
 			get {
 				return _locationImage;
 			}
-		}
-
-		/// <summary>
-		/// getter for forward arrow bitmap
-		/// </summary>
-		/// <returns></returns>
-		public Bitmap ForwardArrow {
-			get {
-				return _forwardArrowImage;
-			}
-		}
-
-		/// <summary>
-		/// getter for other arrow bitmap
-		/// </summary>
-		/// <returns></returns>
-		public Bitmap OtherArrow {
-			get {
-				return _otherArrowImage;
+			set	{
+				_locationImage = value;
 			}
 		}
 

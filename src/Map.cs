@@ -21,7 +21,7 @@ namespace Swinburneexplorer {
 		private int _textSize = 12;
 
 		public Map() {
-			GetImages();
+			SetMapResources();
 
 			_mapMask = new Rectangle();
 			_mapMask.Height = _mapIco.Height;
@@ -90,7 +90,7 @@ namespace Swinburneexplorer {
 		/// <summary>
 		/// Retrieve required resources
 		/// </summary>
-		private void GetImages() {
+		private void SetMapResources() {
 			_mapIco = GameResources.GetImage("sMap");
 			_mapImg = GameResources.GetImage("SwinMap");
 			_mapFont = GameResources.GetFont("arial");

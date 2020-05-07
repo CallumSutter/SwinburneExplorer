@@ -9,8 +9,8 @@ public class GameController
     public static Player _player;
     public static UI _ui;
     public static Map theMap;
-	public const int WINDOW_HEIGHT = 653;
-	public const int WINDOW_WIDTH = 1382;
+	public const int WINDOW_HEIGHT = 567;
+	public const int WINDOW_WIDTH = 1200;
     //Constants for directions
     public const int FORWARD = 0;
     public const int BACKWARD = 1;
@@ -47,6 +47,7 @@ public class GameController
 
         //initialse player
         _player = new Player(GameResources.getLocation("Train"));
+		TravellingController.LoadLocationImage(_player.Location);
 
         //initialse map
         theMap = new Map();
