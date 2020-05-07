@@ -9,8 +9,8 @@ public class GameController
     public static Player _player;
     public static UI _ui;
     public static Map theMap;
-	public const int WINDOW_HEIGHT = 567;
-	public const int WINDOW_WIDTH = 1200;
+	public const int WINDOW_HEIGHT = 583;
+	public const int WINDOW_WIDTH = 1235;
     //Constants for directions
     public const int FORWARD = 0;
     public const int BACKWARD = 1;

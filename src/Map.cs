@@ -5,8 +5,8 @@ using SplashKitSDK;
 
 namespace Swinburneexplorer {
 	public class Map : IDraw {
-		public const int MAP_OFFSET_X = 50;
-		public const int MAP_OFFSET_Y = 5;
+		public const int MAP_OFFSET_X = GameController.WINDOW_WIDTH / 2 - 350;
+		public const int MAP_OFFSET_Y = 0;
 
 		public const int SCROLL_OFFSET = 15;
 
