@@ -116,7 +116,7 @@ namespace Swinburneexplorer {
 		public static void HandleMouseTravelInput() {
 			//if mouse click on arrow, move to linked location (if there is one)
 			if (SplashKit.MouseClicked(MouseButton.LeftButton)) {
-				string arrowDirectionClicked = GameResources.MouseInArrow().ToString();
+				string arrowDirectionClicked = GameController._ui.CheckMouseInArrow().ToString();
 
 				if (arrowDirectionClicked != "") {
 					TryMove(arrowDirectionClicked);
@@ -138,11 +138,11 @@ namespace Swinburneexplorer {
 			}
 
 			if (SplashKit.KeyTyped(KeyCode.AKey)) {
-				TryMove("Right");
+				TryMove("Left");
 			}
 
 			if (SplashKit.KeyTyped(KeyCode.DKey)) {
-				TryMove("Left");
+				TryMove("Right");
 			}
 		}
 

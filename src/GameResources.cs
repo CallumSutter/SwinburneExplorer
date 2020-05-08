@@ -5,14 +5,6 @@ using SplashKitSDK;
 
 namespace Swinburneexplorer
 {
-	public enum ArrowDir
-	{
-		Up,
-		Left,
-		Down,
-		Right
-	}
-
 	public static class GameResources
 	{
 		public const int ARROW_SIZE = 72;

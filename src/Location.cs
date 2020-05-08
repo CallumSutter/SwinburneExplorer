@@ -5,11 +5,10 @@ using Swinburneexplorer;
 
 namespace Swinburneexplorer {
 	public class Location {
-
 		private Bitmap _locationImage;
-		private bool [] _canGoInDirection;
-		private Location [] _connectedLocation;
+		private Location[] _paths;
 		private string _name;
+		private string _desc;
 
 		/// <summary>
 		/// Initialiser for Location class
@@ -18,10 +17,35 @@ namespace Swinburneexplorer {
 		/// <param name="name">name of the location</param>
 		/// <returns></returns>
 		public Location(string name) {
-			_locationImage = null;
 			_name = name;
-			_canGoInDirection = new bool[4];
-			_connectedLocation = new Location[4];
+			_desc = null;
+
+			InitialiseLocation();
+		}
+
+		/// <summary>
+		/// Constructor overload for description
+		/// </summary>
+		/// <param name="name"></param>
+		/// <param name="desc"></param>
+		public Location(string name, string desc) {
+			_name = name;
+			_desc = desc;
+
+			InitialiseLocation();
+		}
+
+		/// <summary>
+		/// Initialise members not passed in through arguments
+		/// </summary>
+		private void InitialiseLocation() {
+			_locationImage = null;
+			_paths = new Location[4];
+
+			// initialise paths to null
+			for(int i = 0; i < 4; i++) {
+				_paths[i] = null;
+			}
 		}
 
 		/// <summary>
@@ -32,8 +56,11 @@ namespace Swinburneexplorer {
 		/// <param name="direction">Direction of the new location from current location</param>
 		/// <returns></returns>
 		public void AddConnectingLocation(Location location, int direction) {
-			_canGoInDirection[direction] = true;
-			_connectedLocation[direction] = location;
+			if (direction < 0 | direction > 3) {
+				return;
+			}
+
+			_paths[direction] = location;
 		}
 
 		/// <summary>
@@ -45,12 +72,11 @@ namespace Swinburneexplorer {
 		/// </param>
 		/// <returns>location in a specified direction, or null</returns>
 		public Location GetLocationInDirection(int direction) {
-			if (_canGoInDirection[direction]) {
-				return _connectedLocation[direction];
-			}
-			else {
+			if (direction < 0 | direction > 3) {
 				return null;
 			}
+
+			return _paths[direction];
 		}
 
 		/// <summary>
@@ -76,9 +102,21 @@ namespace Swinburneexplorer {
 			}
 		}
 
+		/// <summary>
+		/// Getter for location information
+		/// </summary>
+		public string GetInfo {
+			get {
+				return _desc;
+			}
+		}
 
-
+		public Location[] Paths
+		{
+			get
+			{
+				return _paths;
+			}
+		}
 	}
-
-
 }
