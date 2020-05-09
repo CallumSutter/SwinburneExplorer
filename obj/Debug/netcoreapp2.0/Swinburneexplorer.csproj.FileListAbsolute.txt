@@ -22,3 +22,6 @@ C:\Users\aetha\Documents\SWE20001\openproject\SwinburneExplorer\obj\Debug\netcor
 C:\Users\aetha\Documents\SWE20001\openproject\SwinburneExplorer\bin\Debug\netcoreapp2.0\NUnit3.TestAdapter.dll
 C:\Users\aetha\Documents\SWE20001\openproject\SwinburneExplorer\bin\Debug\netcoreapp2.0\NUnit3.TestAdapter.pdb
 C:\Users\aetha\Documents\SWE20001\openproject\SwinburneExplorer\bin\Debug\netcoreapp2.0\nunit.engine.netstandard.dll
+C:\Users\Jayden McQueen\Documents\Swinburne Semester 1 2020\Project Development 1 - Tools and Practices\HDProject\SwinburneExplorer\bin\Debug\netcoreapp2.0\NUnit3.TestAdapter.dll
+C:\Users\Jayden McQueen\Documents\Swinburne Semester 1 2020\Project Development 1 - Tools and Practices\HDProject\SwinburneExplorer\bin\Debug\netcoreapp2.0\NUnit3.TestAdapter.pdb
+C:\Users\Jayden McQueen\Documents\Swinburne Semester 1 2020\Project Development 1 - Tools and Practices\HDProject\SwinburneExplorer\bin\Debug\netcoreapp2.0\nunit.engine.netstandard.dll
