@@ -15,5 +15,8 @@ namespace Swinburneexplorer
 
         //Player is looking at the map
         FullscreenMap,
+
+        //Exiting game
+        Exit,
     }
 }

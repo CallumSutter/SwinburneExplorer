@@ -212,11 +212,11 @@ namespace Swinburneexplorer
 		/// </summary>
 		/// <param name="locName"></param>
 		public static void LoadLocationImage(string locName) {
-			Stopwatch sw = new Stopwatch();
-			sw.Start();
+			//Stopwatch sw = new Stopwatch();
+			//sw.Start();
 			_images.Add(locName, new Bitmap(locName, "campus/" + locName + ".jpg"));
-			sw.Stop();
-			Console.WriteLine($"Took {sw.ElapsedMilliseconds} to load campus/{locName}.jpg");
+			//sw.Stop();
+			//Console.WriteLine($"Took {sw.ElapsedMilliseconds} to load campus/{locName}.jpg");
 		}
 
 		private static void LoadImages() {
@@ -365,7 +365,7 @@ namespace Swinburneexplorer
 			_locations.Add("AR Building", new Location("AR Building"));
 			_locations.Add("AS Building", new Location("AS Building"));
 			_locations.Add("ATC Building", new Location("ATC Building"));
-			_locations.Add("ATC Building (Back)", new Location("ATC Bulding (Back)"));
+			_locations.Add("ATC Building (Back)", new Location("ATC Building (Back)"));
 			_locations.Add("backOfAD", new Location("backOfAD"));
 			_locations.Add("EN Building", new Location("EN Building"));
 			_locations.Add("FS Building", new Location("FS Building"));
@@ -555,6 +555,7 @@ namespace Swinburneexplorer
 
 			//spw2
 			getLocation("spw2").AddConnectingLocation(getLocation("spw1"), RIGHT);
+			getLocation("spw2").AddConnectingLocation(getLocation("spw3"), FORWARD);
 			getLocation("spw2").AddConnectingLocation(getLocation("instreet9"), LEFT);
 
 			//spw3
@@ -576,7 +577,7 @@ namespace Swinburneexplorer
 
 			//spw7
 			getLocation("spw7").AddConnectingLocation(getLocation("grassPath1"), FORWARD);
-			getLocation("spw7").AddConnectingLocation(getLocation("instreet8"), LEFT);
+			getLocation("spw7").AddConnectingLocation(getLocation("spw8"), LEFT);
 			getLocation("spw7").AddConnectingLocation(getLocation("spw6"), BACKWARD);
 
 			//spw8
@@ -654,7 +655,7 @@ namespace Swinburneexplorer
 			//toAMDC4
 			getLocation("toAMDC4").AddConnectingLocation(getLocation("toAMDC5"), FORWARD);
 			getLocation("toAMDC4").AddConnectingLocation(getLocation("toAMDC3"), BACKWARD);
-			getLocation("toAMDC4").AddConnectingLocation(getLocation("toWestSide1"), RIGHT);
+			getLocation("toAMDC4").AddConnectingLocation(getLocation("toWestSide1"), LEFT);
 
 			//toAMDC5
 			getLocation("toAMDC5").AddConnectingLocation(getLocation("northSide3"), FORWARD);
@@ -892,8 +893,8 @@ namespace Swinburneexplorer
 			getLocation("backOfAD").AddConnectingLocation(getLocation("toEN2"), BACKWARD);
 
 			//toEN1
-			getLocation("toEN1").AddConnectingLocation(getLocation("toTrain3"), FORWARD);
-			getLocation("toEN1").AddConnectingLocation(getLocation("toEN2"), BACKWARD);
+			getLocation("toEN1").AddConnectingLocation(getLocation("toTrain3"), BACKWARD);
+			getLocation("toEN1").AddConnectingLocation(getLocation("toEN2"), FORWARD);
 
 			//toEN2
 			getLocation("toEN2").AddConnectingLocation(getLocation("toEN3"), FORWARD);
@@ -910,8 +911,8 @@ namespace Swinburneexplorer
 			getLocation("toEN4").AddConnectingLocation(getLocation("toEN3"), BACKWARD);
 
 			//toEN5
-			getLocation("toEN5").AddConnectingLocation(getLocation("toEN4"), FORWARD);
-			getLocation("toEN5").AddConnectingLocation(getLocation("toATC4"), LEFT);
+			getLocation("toEN5").AddConnectingLocation(getLocation("toATC4"), FORWARD);
+			getLocation("toEN5").AddConnectingLocation(getLocation("toAS1"), LEFT);
 
 			//AR
 			getLocation("AR Building").AddConnectingLocation(getLocation("toTrain5"), BACKWARD);
@@ -932,7 +933,7 @@ namespace Swinburneexplorer
 			//toATC4
 			getLocation("toATC4").AddConnectingLocation(getLocation("toATC2"), FORWARD);
 			getLocation("toATC4").AddConnectingLocation(getLocation("toEN4"), LEFT);
-			getLocation("toATC4").AddConnectingLocation(getLocation("toATC1"), RIGHT);
+			getLocation("toATC4").AddConnectingLocation(getLocation("toEN5"), RIGHT);
 
 			//ATC
 			getLocation("ATC Building").AddConnectingLocation(getLocation("toATC3"), BACKWARD);
@@ -1036,7 +1037,7 @@ namespace Swinburneexplorer
 
 		private static void LoadFonts()
 		{
-			//_fonts.Add("fontName", new Font("fontName", "Path"));
+			_fonts.Add("gameFont", new Font("gameFont", "gameFont.ttf"));
 		}
 
 		public static Font GetFont(string fontName)

@@ -3,65 +3,47 @@ using SplashKitSDK;
 using Swinburneexplorer;
 using System.Resources;
 
-public class GameController
-{
-	public static Window gameWindow;
+public class GameController {
+    public static Window gameWindow;
     public static Player _player;
+    public static MainMenu _mainMenu;
     public static UI _ui;
     public static Map theMap;
-	public const int WINDOW_HEIGHT = 583;
-	public const int WINDOW_WIDTH = 1235;
+    public const int WINDOW_HEIGHT = 583;
+    public const int WINDOW_WIDTH = 1235;
     //Constants for directions
     public const int FORWARD = 0;
     public const int BACKWARD = 1;
     public const int LEFT = 2;
     public const int RIGHT = 3;
     public static string _currentState;
-	
-    public static void Main(string[] args)
-    {
+
+    public static void Main(string[] args) {
         //initialise varaiables
-
-        //Location location1 = new Location("location1.jpg", "1");
-        //Location location2 = new Location("location2.jpg", "2");
-        //Location location3 = new Location("placeholder.jpg", "3");
-
-        //location1.AddConnectingLocation(location2, FORWARD);
-        //location1.AddConnectingLocation(location3, BACKWARD);
-
-        //location2.AddConnectingLocation(location1, BACKWARD);
-        //location3.AddConnectingLocation(location1, FORWARD);
-
-		//new game window
-		gameWindow = new Window("SwinExplorer", WINDOW_WIDTH , WINDOW_HEIGHT);
+        //new game window
+        gameWindow = new Window("SwinExplorer", WINDOW_WIDTH, WINDOW_HEIGHT);
 
         //Displays loading screen
-		GameResources.LoadingScreen();
+        GameResources.LoadingScreen();
 
-		_ui = new UI();
+        //initialise Main Menu
+        _mainMenu = new MainMenu();
 
-		//play background music
-		GameResources.PlayBGM();
-
-        //add test location
-        //Location location1 = GameResources.getLocation("toLodges6");
-
-        //initialse player
-        _player = new Player(GameResources.getLocation("Train"));
-		TravellingController.LoadLocationImage(_player.Location);
+        //initialise UI
+        _ui = new UI();
 
         //initialse map
         theMap = new Map();
 
         //starting with travelling state
-        _currentState = GameState.Travelling.ToString();
+        _currentState = GameState.MainMenu.ToString();
 
         do {
             //control for drawing to screen
-            gameWindow.Clear(Color.White);           
+            gameWindow.Clear(Color.White);
             switch (_currentState) {
                 case ("MainMenu"):
-                    //Draw();
+                    _mainMenu.Draw();
                     break;
                 case ("Travelling"):
                     _ui.Draw();
@@ -78,7 +60,7 @@ public class GameController
             SplashKit.ProcessEvents();
             switch (_currentState) {
                 case ("MainMenu"):
-                    //MainMenuController.HandleInput();
+                    MainMenuController.HandleInput();
                     break;
                 case ("Travelling"):
                     TravellingController.HandleInput();
@@ -90,6 +72,6 @@ public class GameController
                     break;
             }
         }
-        while (!SplashKit.WindowCloseRequested(gameWindow));
+        while (!SplashKit.WindowCloseRequested(gameWindow) && _currentState != "Exit");
     }
 }

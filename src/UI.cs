@@ -42,10 +42,10 @@ namespace Swinburneexplorer {
 			GameController.gameWindow.DrawBitmap(GameController._player.Location.LocationImage, LOC_IMAGE_X_OFFSET / 2, LOC_IMAGE_Y_OFFSET / 2, SplashKit.OptionScaleBmp(LOC_X_SCALING, LOC_Y_SCALING));
 
 			//draws current location
-			GameController.gameWindow.DrawRectangle(Color.Black, GameController.WINDOW_WIDTH / 2 - 150, 0, 300, 50);
+			GameController.gameWindow.DrawRectangle(Color.DarkRed, GameController.WINDOW_WIDTH / 2 - 150, 0, 300, 50);
 			GameController.gameWindow.FillRectangle(Color.Black, GameController.WINDOW_WIDTH / 2 - 150, 0, 300, 50);
 			string _location = "Current Location: " + GameController._player.Location.Name;
-			GameController.gameWindow.DrawText(_location, Color.White, GameController.WINDOW_WIDTH / 2 - 120, 20);
+			GameController.gameWindow.DrawText(_location, Color.DarkRed, GameController.WINDOW_WIDTH / 2 - 120, 20);
 
 			//draw map
 			GameController.theMap.Draw();
@@ -137,6 +137,7 @@ namespace Swinburneexplorer {
 					return (ArrowDir)i;
 				}
 			}
+			return null;
 		}
 
 		public bool CheckMouseInEnterButton() {
