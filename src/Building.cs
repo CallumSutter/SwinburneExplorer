@@ -13,7 +13,7 @@ namespace Swinburneexplorer
 		private Location _parentLoc;
 
         public Building(string name) : base(name){ 
-        
+			_parentLoc = null;
         }
 
         public int FloorCount {
