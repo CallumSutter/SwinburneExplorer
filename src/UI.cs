@@ -23,14 +23,16 @@ namespace Swinburneexplorer
 		private static double ARROW_Y_OFFSET = ARROW_SIZE / 2 + 40;
 
 		private ArrowButton[] _arrows;
+		private UIButton _enterBtn;
+		private UIObject _infoBtn;
 
-		public UI()
-		{
+		public UI()	{
 			InitialiseArrows();
+			InitialiseButtons();
+			InitialiseInfoButton();
 		}
 
-		public void Draw()
-		{
+		public void Draw() {
 			//draws players location
 			GameController.gameWindow.DrawBitmap(GameController._player.Location.LocationImage, -1613, -760, SplashKit.OptionScaleBmp(0.3, 0.3));
 
@@ -47,24 +49,30 @@ namespace Swinburneexplorer
 
 			//draws arrows
 			DrawDirectionArrows();
+			DrawButtons();
+			DrawInfoButton();
 
 			//target 60 fps
 			GameController.gameWindow.Refresh(60);
 		}
 
-		private void DrawDirectionArrows()
-		{
-			for(uint i = 0; i < 4; i++)
-			{
-				if (GameController._player.Location.Paths[i] != null)
-				{
+		private void DrawDirectionArrows() {
+			for(uint i = 0; i < 4; i++)	{
+				if (GameController._player.Location.Paths[i] != null) {
 					_arrows[i].Draw();
 				}
 			}
 		}
 
-		private void InitialiseArrows()
-		{
+		private void DrawButtons() {
+			_enterBtn.Draw();
+		}
+
+		private void DrawInfoButton() {
+			_infoBtn.Draw();
+		}
+
+		private void InitialiseArrows()	{
 			_arrows = new ArrowButton[4];
 
 			Rectangle arrowMask = new Rectangle();
@@ -92,24 +100,60 @@ namespace Swinburneexplorer
 			_arrows[3] = new ArrowButton(arrowMask, 0);
 		}
 
-		public ArrowDir? CheckMouseInArrow()
-		{
-			for(uint i = 0; i < 3; i++)
-			{
-				if (_arrows[i].IsHovering(SplashKit.MousePosition()))
-				{
+		private void InitialiseButtons() {
+			Bitmap btnImg = GameResources.GetImage("btnBase");
+			Rectangle btnMask = CreateMask(ARROW_X - 8, ARROW_Y + btnImg.Height / 4, btnImg.Width, btnImg.Height);
+			//btnMask.Width = btnImg.Width;
+			//btnMask.Height = btnImg.Height;
+			//btnMask.X = ARROW_X - 8;
+			//btnMask.Y = ARROW_Y + btnImg.Height / 4;
+
+			_enterBtn = new UIButton(btnMask, "Enter");
+		}
+
+		private void InitialiseInfoButton()	{
+			_infoBtn = new UIObject(GameResources.GetImage("infoBtn"), 
+				CreateMask(2*Map.MAP_ICON_X_OFFSET + GameResources.GetImage("sMap").Width, Map.MAP_ICON_Y_OFFSET, 50, 50));
+		}
+
+		private Rectangle CreateMask(double x, double y, double width, double height) {
+			Rectangle mask = new Rectangle();
+			mask.X = x;
+			mask.Y = y;
+			mask.Width = width;
+			mask.Height = height;
+
+			return mask;
+		}
+
+		public ArrowDir? CheckMouseInArrow() {
+			for(uint i = 0; i < 4; i++)	{
+				if (_arrows[i].IsHovering(SplashKit.MousePosition())) {
 					return (ArrowDir)i;
 				}
 			}
 
+
 			return null;
 		}
 
-		public ArrowButton[] Arrows
-		{
-			get
-			{
+		public bool CheckMouseInEnterButton() {
+			return (_enterBtn.IsHovering(SplashKit.MousePosition()));
+		}
+
+		public bool CheckMouseInInfoButton() {
+			return (_infoBtn.IsHovering(SplashKit.MousePosition()));
+		}
+
+		public ArrowButton[] Arrows	{
+			get	{
 				return _arrows;
+			}
+		}
+
+		public UIButton EnterButton	{
+			get	{
+				return _enterBtn;
 			}
 		}
 	}

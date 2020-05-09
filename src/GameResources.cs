@@ -222,6 +222,8 @@ namespace Swinburneexplorer
 			//_images.Add("SwinMap", new Bitmap("SwinMap", "SwinMap.png"));
 			_images.Add("SwinMap", new Bitmap("SwinMap", "SwinMapPS.png"));
 			_images.Add("scroll", new Bitmap("scroll", "smallScroll.png"));
+			_images.Add("btnBase", new Bitmap("btnBase", "btnBase1.png"));
+			_images.Add("infoBtn", new Bitmap("infoBtn", "infoBtn.png"));
 
 			////campus images
 			//_images.Add("AD", new Bitmap("AD", "campus/AD.jpg"));

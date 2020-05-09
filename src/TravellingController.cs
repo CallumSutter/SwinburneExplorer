@@ -93,9 +93,6 @@ namespace Swinburneexplorer {
 				MovePlayer(direction);
 				PlayCorrectSound();
 			}
-			else {
-				PlayIncorrectSound();
-			}
 		} 
 
 		/// <summary>
@@ -120,6 +117,14 @@ namespace Swinburneexplorer {
 
 				if (arrowDirectionClicked != "") {
 					TryMove(arrowDirectionClicked);
+				}
+
+				if (GameController._ui.CheckMouseInEnterButton()) {
+					Console.WriteLine("Clicked Enter");
+				}
+
+				if (GameController._ui.CheckMouseInInfoButton()){
+					Console.WriteLine("Clicked Info");
 				}
 			}
 		}

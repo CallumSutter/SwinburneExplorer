@@ -60,7 +60,7 @@ namespace Swinburneexplorer {
 		/// Draw object onto screen
 		/// </summary>
 		public virtual void Draw() {
-
+			GameWindow.DrawBitmap(ObjectImage, Position.X, Position.Y);
 		}
 
 		public Bitmap ObjectImage {
@@ -84,12 +84,18 @@ namespace Swinburneexplorer {
 			}
 		}
 
-		public Point2D Position {
+		protected Point2D Position {
 			get {
 				return _position;
 			}
 			set	{
 				_position = value;
+			}
+		}
+
+		protected Rectangle ObjectMask	{
+			get	{
+				return _objectMask;
 			}
 		}
 	}
