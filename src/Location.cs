@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using SplashKitSDK;
-using Swinburneexplorer;
 
 namespace Swinburneexplorer {
 	public class Location {
 		private Bitmap _locationImage;
 		private Location[] _paths;
+		private Building _building;
 		private string _name;
 		private string _desc;
 
@@ -108,6 +108,15 @@ namespace Swinburneexplorer {
 		public string GetInfo {
 			get {
 				return _desc;
+			}
+		}
+		
+		/// <summary>
+		/// Return contained building
+		/// </summary>
+		public Building EnterBuilding {
+			get	{
+				return _building;
 			}
 		}
 

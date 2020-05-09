@@ -41,3 +41,5 @@ C:\Users\callu\OneDrive\Documents\Code\SWE20001\DHDTask\obj\Debug\netcoreapp2.0\
 >>>>>>> Callum_Branch
 C:\Users\Jayden McQueen\Documents\Swinburne Semester 1 2020\Project Development 1 - Tools and Practices\HDProject\SwinburneExplorer\bin\Debug\netcoreapp2.0\nunit.engine.dll
 C:\Users\Jayden McQueen\Documents\Swinburne Semester 1 2020\Project Development 1 - Tools and Practices\HDProject\SwinburneExplorer\bin\Debug\netcoreapp2.0\nunit.engine.api.dll
+C:\Users\aetha\Documents\SWE20001\openproject\SwinburneExplorer\bin\Debug\netcoreapp2.0\nunit.engine.dll
+C:\Users\aetha\Documents\SWE20001\openproject\SwinburneExplorer\bin\Debug\netcoreapp2.0\nunit.engine.api.dll
