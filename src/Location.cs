@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using SplashKitSDK;
+using Swinburneexplorer;
 
 namespace Swinburneexplorer {
 	public class Location {
@@ -41,6 +42,7 @@ namespace Swinburneexplorer {
 		private void InitialiseLocation() {
 			_locationImage = null;
 			_paths = new Location[4];
+			_building = null;
 
 			// initialise paths to null
 			for(int i = 0; i < 4; i++) {
@@ -80,6 +82,14 @@ namespace Swinburneexplorer {
 		}
 
 		/// <summary>
+		/// Set building property
+		/// </summary>
+		/// <param name="building"></param>
+		public void SetBuilding(Building building) {
+			_building = building;
+		}
+
+		/// <summary>
 		/// getter for location image bitmap
 		/// </summary>
 		/// <returns></returns>
@@ -110,21 +120,21 @@ namespace Swinburneexplorer {
 				return _desc;
 			}
 		}
-		
+
 		/// <summary>
 		/// Return contained building
 		/// </summary>
 		public Building EnterBuilding {
 			get	{
-				return _building;
-			}
-		}
+				// guard clause
+				if (_building == null)
+				{
+					return null;
+				}
 
-		public Location[] Paths
-		{
-			get
-			{
-				return _paths;
+				_building.ParentLoc = this;
+
+				return _building;
 			}
 		}
 	}
