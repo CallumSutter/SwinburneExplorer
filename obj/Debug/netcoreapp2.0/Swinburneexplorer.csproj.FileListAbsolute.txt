@@ -19,9 +19,23 @@ C:\Users\aetha\Documents\SWE20001\openproject\SwinburneExplorer\obj\Debug\netcor
 C:\Users\aetha\Documents\SWE20001\openproject\SwinburneExplorer\obj\Debug\netcoreapp2.0\Swinburneexplorer.AssemblyInfo.cs
 C:\Users\aetha\Documents\SWE20001\openproject\SwinburneExplorer\obj\Debug\netcoreapp2.0\Swinburneexplorer.dll
 C:\Users\aetha\Documents\SWE20001\openproject\SwinburneExplorer\obj\Debug\netcoreapp2.0\Swinburneexplorer.pdb
+<<<<<<< HEAD
 C:\Users\aetha\Documents\SWE20001\openproject\SwinburneExplorer\bin\Debug\netcoreapp2.0\NUnit3.TestAdapter.dll
 C:\Users\aetha\Documents\SWE20001\openproject\SwinburneExplorer\bin\Debug\netcoreapp2.0\NUnit3.TestAdapter.pdb
 C:\Users\aetha\Documents\SWE20001\openproject\SwinburneExplorer\bin\Debug\netcoreapp2.0\nunit.engine.netstandard.dll
 C:\Users\Jayden McQueen\Documents\Swinburne Semester 1 2020\Project Development 1 - Tools and Practices\HDProject\SwinburneExplorer\bin\Debug\netcoreapp2.0\NUnit3.TestAdapter.dll
 C:\Users\Jayden McQueen\Documents\Swinburne Semester 1 2020\Project Development 1 - Tools and Practices\HDProject\SwinburneExplorer\bin\Debug\netcoreapp2.0\NUnit3.TestAdapter.pdb
 C:\Users\Jayden McQueen\Documents\Swinburne Semester 1 2020\Project Development 1 - Tools and Practices\HDProject\SwinburneExplorer\bin\Debug\netcoreapp2.0\nunit.engine.netstandard.dll
+=======
+C:\Users\callu\OneDrive\Documents\Code\SWE20001\DHDTask\bin\Debug\netcoreapp2.0\Swinburneexplorer.deps.json
+C:\Users\callu\OneDrive\Documents\Code\SWE20001\DHDTask\bin\Debug\netcoreapp2.0\Swinburneexplorer.runtimeconfig.json
+C:\Users\callu\OneDrive\Documents\Code\SWE20001\DHDTask\bin\Debug\netcoreapp2.0\Swinburneexplorer.runtimeconfig.dev.json
+C:\Users\callu\OneDrive\Documents\Code\SWE20001\DHDTask\bin\Debug\netcoreapp2.0\Swinburneexplorer.dll
+C:\Users\callu\OneDrive\Documents\Code\SWE20001\DHDTask\bin\Debug\netcoreapp2.0\Swinburneexplorer.pdb
+C:\Users\callu\OneDrive\Documents\Code\SWE20001\DHDTask\obj\Debug\netcoreapp2.0\Swinburneexplorer.csprojAssemblyReference.cache
+C:\Users\callu\OneDrive\Documents\Code\SWE20001\DHDTask\obj\Debug\netcoreapp2.0\Swinburneexplorer.csproj.CoreCompileInputs.cache
+C:\Users\callu\OneDrive\Documents\Code\SWE20001\DHDTask\obj\Debug\netcoreapp2.0\Swinburneexplorer.AssemblyInfoInputs.cache
+C:\Users\callu\OneDrive\Documents\Code\SWE20001\DHDTask\obj\Debug\netcoreapp2.0\Swinburneexplorer.AssemblyInfo.cs
+C:\Users\callu\OneDrive\Documents\Code\SWE20001\DHDTask\obj\Debug\netcoreapp2.0\Swinburneexplorer.dll
+C:\Users\callu\OneDrive\Documents\Code\SWE20001\DHDTask\obj\Debug\netcoreapp2.0\Swinburneexplorer.pdb
+>>>>>>> Callum_Branch

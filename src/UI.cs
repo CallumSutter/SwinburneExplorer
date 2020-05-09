@@ -4,8 +4,8 @@ using System.Text;
 using System.Resources;
 using SplashKitSDK;
 
-namespace Swinburneexplorer
-{
+namespace Swinburneexplorer {
+
 	public enum ArrowDir {
 		Up,
 		Down,
@@ -13,14 +13,19 @@ namespace Swinburneexplorer
 		Right
 	}
 
-	public class UI : IDraw
-	{
+	public class UI : IDraw {
 		private static int ARROW_SIZE = 72;
 
 		private static double ARROW_Y = GameController.WINDOW_HEIGHT * (3.3 / 5.0);
 		private static double ARROW_X = GameController.WINDOW_WIDTH / 2.0 - ARROW_SIZE / 2.0;
 		private static double ARROW_X_OFFSET = 120;
 		private static double ARROW_Y_OFFSET = ARROW_SIZE / 2 + 40;
+
+		private const double LOC_X_SCALING = (double)GameController.WINDOW_WIDTH / 1300;
+		private const double LOC_Y_SCALING = (double)GameController.WINDOW_HEIGHT / 614;
+
+		private const int LOC_IMAGE_X_OFFSET = GameController.WINDOW_WIDTH - 1300;
+		private const int LOC_IMAGE_Y_OFFSET = GameController.WINDOW_HEIGHT - 614;
 
 		private ArrowButton[] _arrows;
 		private UIButton _enterBtn;
@@ -34,7 +39,7 @@ namespace Swinburneexplorer
 
 		public void Draw() {
 			//draws players location
-			GameController.gameWindow.DrawBitmap(GameController._player.Location.LocationImage, -1613, -760, SplashKit.OptionScaleBmp(0.3, 0.3));
+			GameController.gameWindow.DrawBitmap(GameController._player.Location.LocationImage, LOC_IMAGE_X_OFFSET / 2, LOC_IMAGE_Y_OFFSET / 2, SplashKit.OptionScaleBmp(LOC_X_SCALING, LOC_Y_SCALING));
 
 			//draws current location
 			GameController.gameWindow.DrawRectangle(Color.Black, GameController.WINDOW_WIDTH / 2 - 150, 0, 300, 50);
@@ -127,14 +132,11 @@ namespace Swinburneexplorer
 		}
 
 		public ArrowDir? CheckMouseInArrow() {
-			for(uint i = 0; i < 4; i++)	{
+			for (uint i = 0; i < 4; i++) {
 				if (_arrows[i].IsHovering(SplashKit.MousePosition())) {
 					return (ArrowDir)i;
 				}
 			}
-
-
-			return null;
 		}
 
 		public bool CheckMouseInEnterButton() {

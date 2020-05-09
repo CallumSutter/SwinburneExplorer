@@ -3678,25 +3678,43 @@
     ]
   },
   "packageFolders": {
+<<<<<<< HEAD
     "C:\\Users\\Jayden McQueen\\.nuget\\packages\\": {},
     "C:\\Microsoft\\Xamarin\\NuGet\\": {}
+=======
+    "C:\\Users\\callu\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+>>>>>>> Callum_Branch
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\Jayden McQueen\\Documents\\Swinburne Semester 1 2020\\Project Development 1 - Tools and Practices\\HDProject\\SwinburneExplorer\\Swinburneexplorer.csproj",
       "projectName": "Swinburneexplorer",
       "projectPath": "C:\\Users\\Jayden McQueen\\Documents\\Swinburne Semester 1 2020\\Project Development 1 - Tools and Practices\\HDProject\\SwinburneExplorer\\Swinburneexplorer.csproj",
       "packagesPath": "C:\\Users\\Jayden McQueen\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Jayden McQueen\\Documents\\Swinburne Semester 1 2020\\Project Development 1 - Tools and Practices\\HDProject\\SwinburneExplorer\\obj\\",
+=======
+      "projectUniqueName": "C:\\Users\\callu\\OneDrive\\Documents\\Code\\SWE20001\\DHDTask\\Swinburneexplorer.csproj",
+      "projectName": "Swinburneexplorer",
+      "projectPath": "C:\\Users\\callu\\OneDrive\\Documents\\Code\\SWE20001\\DHDTask\\Swinburneexplorer.csproj",
+      "packagesPath": "C:\\Users\\callu\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\callu\\OneDrive\\Documents\\Code\\SWE20001\\DHDTask\\obj\\",
+>>>>>>> Callum_Branch
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
+<<<<<<< HEAD
         "C:\\Users\\Jayden McQueen\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+=======
+        "C:\\Users\\callu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+>>>>>>> Callum_Branch
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"
@@ -3720,7 +3738,6 @@
       "netcoreapp2.0": {
         "dependencies": {
           "Microsoft.NETCore.App": {
-            "suppressParent": "All",
             "target": "Package",
             "version": "[2.0.0, )",
             "autoReferenced": true
@@ -3737,16 +3754,15 @@
           }
         },
         "imports": [
-          "net461",
-          "net462",
-          "net47",
-          "net471",
-          "net472",
-          "net48"
+          "net461"
         ],
         "assetTargetFallback": true,
+<<<<<<< HEAD
         "warn": true,
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+=======
+        "warn": true
+>>>>>>> Callum_Branch
       }
     }
   }

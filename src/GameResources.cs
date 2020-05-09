@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Diagnostics;
 using SplashKitSDK;
 
 namespace Swinburneexplorer
@@ -211,7 +212,11 @@ namespace Swinburneexplorer
 		/// </summary>
 		/// <param name="locName"></param>
 		public static void LoadLocationImage(string locName) {
+			Stopwatch sw = new Stopwatch();
+			sw.Start();
 			_images.Add(locName, new Bitmap(locName, "campus/" + locName + ".jpg"));
+			sw.Stop();
+			Console.WriteLine($"Took {sw.ElapsedMilliseconds} to load campus/{locName}.jpg");
 		}
 
 		private static void LoadImages() {
@@ -526,10 +531,12 @@ namespace Swinburneexplorer
 			//toTrain9
 			getLocation("toTrain9").AddConnectingLocation(getLocation("toTrain8"), FORWARD);
 			getLocation("toTrain9").AddConnectingLocation(getLocation("toTrain10"), BACKWARD);
+            getLocation("toTrain9").AddConnectingLocation(getLocation("toTrain10"), RIGHT);
+            getLocation("toTrain9").AddConnectingLocation(getLocation("toTrain11"), LEFT);
 
-			//toTrain10
-			getLocation("toTrain10").AddConnectingLocation(getLocation("toTrain11"), FORWARD);
-			getLocation("toTrain10").AddConnectingLocation(getLocation("toTrain9"), LEFT);
+            //toTrain10
+            getLocation("toTrain10").AddConnectingLocation(getLocation("toTrain11"), FORWARD);
+			getLocation("toTrain10").AddConnectingLocation(getLocation("toTrain9"), RIGHT);
 
 			//toTrain11
 			getLocation("toTrain11").AddConnectingLocation(getLocation("toTrain12"), FORWARD);
@@ -540,10 +547,11 @@ namespace Swinburneexplorer
 			getLocation("toTrain12").AddConnectingLocation(getLocation("toTrain11"), BACKWARD);
 
 			//Train
-			getLocation("Train").AddConnectingLocation(getLocation("toTrain8"), BACKWARD);
+			getLocation("Train").AddConnectingLocation(getLocation("toTrain8"), LEFT);
+            getLocation("Train").AddConnectingLocation(getLocation("toTrain9"), RIGHT);
 
-			//spw1
-			getLocation("spw1").AddConnectingLocation(getLocation("spw2"), BACKWARD);
+            //spw1
+            getLocation("spw1").AddConnectingLocation(getLocation("spw2"), BACKWARD);
 
 			//spw2
 			getLocation("spw2").AddConnectingLocation(getLocation("spw1"), RIGHT);
@@ -606,10 +614,12 @@ namespace Swinburneexplorer
 
 			//tunnel1
 			getLocation("tunnel1").AddConnectingLocation(getLocation("tunnel2"), FORWARD);
-			getLocation("tunnel1").AddConnectingLocation(getLocation("instreet2"), BACKWARD);
+			getLocation("tunnel1").AddConnectingLocation(getLocation("toSouthSide1"), BACKWARD);
+            getLocation("tunnel1").AddConnectingLocation(getLocation("instreet2"), RIGHT);
+            getLocation("tunnel1").AddConnectingLocation(getLocation("instreet1"), LEFT);
 
-			//tunnel2
-			getLocation("tunnel2").AddConnectingLocation(getLocation("tunnel3"), FORWARD);
+            //tunnel2
+            getLocation("tunnel2").AddConnectingLocation(getLocation("tunnel3"), FORWARD);
 			getLocation("tunnel2").AddConnectingLocation(getLocation("AGSE Building"), LEFT);
 			getLocation("tunnel2").AddConnectingLocation(getLocation("tunnel1"), BACKWARD);
 
@@ -622,7 +632,7 @@ namespace Swinburneexplorer
 			//tunnel4
 			getLocation("tunnel4").AddConnectingLocation(getLocation("toAMDC1"), FORWARD);
 			getLocation("tunnel4").AddConnectingLocation(getLocation("tunnel3"), BACKWARD);
-			getLocation("tunnel4").AddConnectingLocation(getLocation("grassPath1"), RIGHT);
+			getLocation("tunnel4").AddConnectingLocation(getLocation("grassPath6"), RIGHT);
 
 			//toAMDC1
 			getLocation("toAMDC1").AddConnectingLocation(getLocation("toAMDC2"), FORWARD);
@@ -638,8 +648,8 @@ namespace Swinburneexplorer
 			//toAMDC3
 			getLocation("toAMDC3").AddConnectingLocation(getLocation("toAMDC4"), FORWARD);
 			getLocation("toAMDC3").AddConnectingLocation(getLocation("toAMDC2"), BACKWARD);
-			getLocation("toAMDC3").AddConnectingLocation(getLocation("study"), RIGHT);
-			getLocation("toAMDC3").AddConnectingLocation(getLocation("toATC1"), LEFT);
+			getLocation("toAMDC3").AddConnectingLocation(getLocation("study"), LEFT);
+			getLocation("toAMDC3").AddConnectingLocation(getLocation("toATC1"), RIGHT);
 
 			//toAMDC4
 			getLocation("toAMDC4").AddConnectingLocation(getLocation("toAMDC5"), FORWARD);
@@ -658,9 +668,11 @@ namespace Swinburneexplorer
 
 			//study
 			getLocation("study").AddConnectingLocation(getLocation("toAMDC3"), BACKWARD);
+            getLocation("study").AddConnectingLocation(getLocation("toAMDC4"), RIGHT);
+            getLocation("study").AddConnectingLocation(getLocation("toAMDC2"), LEFT);
 
-			//toWestSide1
-			getLocation("toWestSide1").AddConnectingLocation(getLocation("FS Building"), FORWARD);
+            //toWestSide1
+            getLocation("toWestSide1").AddConnectingLocation(getLocation("FS Building"), FORWARD);
 			getLocation("toWestSide1").AddConnectingLocation(getLocation("toAMDC4"), BACKWARD);
 			getLocation("toWestSide1").AddConnectingLocation(getLocation("AMDC Building"), RIGHT);
 
@@ -797,8 +809,7 @@ namespace Swinburneexplorer
 			getLocation("toSouthSide3").AddConnectingLocation(getLocation("toSouthSide2"), BACKWARD);
 
 			//toSouthSide4
-			getLocation("toSouthSide4").AddConnectingLocation(getLocation("southSide4"), RIGHT);
-			getLocation("toSouthSide4").AddConnectingLocation(getLocation("southSide3"), LEFT);
+			getLocation("toSouthSide4").AddConnectingLocation(getLocation("southSide3"), FORWARD);
 			getLocation("toSouthSide4").AddConnectingLocation(getLocation("toSouthSide3"), BACKWARD);
 
 			//toLodges1
