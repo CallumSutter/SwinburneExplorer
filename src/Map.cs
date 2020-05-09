@@ -5,8 +5,8 @@ using SplashKitSDK;
 
 namespace Swinburneexplorer {
 	public class Map : IDraw {
-		public const int MAP_OFFSET_X = 50;
-		public const int MAP_OFFSET_Y = 5;
+		public const int MAP_OFFSET_X = GameController.WINDOW_WIDTH / 2 - 350;
+		public const int MAP_OFFSET_Y = 0;
 
 		public const int SCROLL_OFFSET = 15;
 
@@ -14,14 +14,14 @@ namespace Swinburneexplorer {
 		private Bitmap _mapImg;
 
 		private Rectangle _mapMask;
-		private bool _inMap = false;
+		private bool _fullscreen = false;
 
 		private Font _mapFont;
 		private Color _textColor = Color.Black;
 		private int _textSize = 12;
 
 		public Map() {
-			GetImages();
+			SetMapResources();
 
 			_mapMask = new Rectangle();
 			_mapMask.Height = _mapIco.Height;
@@ -31,7 +31,7 @@ namespace Swinburneexplorer {
 		}
 
 		public void Draw() {
-			if (!_inMap) {
+			if (!_fullscreen) {
 				DrawMapIcon();
 			}
 			else {
@@ -62,16 +62,19 @@ namespace Swinburneexplorer {
 		/// </summary>
 		/// <returns>whether to map should be displayed</returns>
 		public bool CheckMapClicked() {
+
+			bool _inMap = false;
+
 			//mask to check area for mouse click
 
 			//check left click
 			if (SplashKit.MouseClicked(MouseButton.LeftButton)) {
 				//check click on map
-				if (!_inMap) {
+				if (!_fullscreen) {
 					_inMap = SplashKit.PointInRectangle(SplashKit.MousePosition(), _mapMask);
 				}
 				else {
-					_inMap = false;
+					_inMap = true;
 				}
 			}
 
@@ -87,10 +90,16 @@ namespace Swinburneexplorer {
 		/// <summary>
 		/// Retrieve required resources
 		/// </summary>
-		private void GetImages() {
+		private void SetMapResources() {
 			_mapIco = GameResources.GetImage("sMap");
 			_mapImg = GameResources.GetImage("SwinMap");
 			_mapFont = GameResources.GetFont("arial");
+		}
+
+		public bool Fullscreen {
+			set {
+				_fullscreen = value;
+			}
 		}
 	}
 }

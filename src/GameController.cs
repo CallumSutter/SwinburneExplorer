@@ -1,99 +1,94 @@
 using System;
 using SplashKitSDK;
 using Swinburneexplorer;
+using System.Resources;
 
 public class GameController
 {
 	public static Window gameWindow;
-	public const int WINDOW_HEIGHT = 600;
-	public const int WINDOW_WIDTH = 800;
-
-	public static Map theMap;
+    public static Player _player;
+    public static UI _ui;
+    public static Map theMap;
+	public const int WINDOW_HEIGHT = 583;
+	public const int WINDOW_WIDTH = 1235;
+    //Constants for directions
+    public const int FORWARD = 0;
+    public const int BACKWARD = 1;
+    public const int LEFT = 2;
+    public const int RIGHT = 3;
+    public static string _currentState;
 	
     public static void Main(string[] args)
     {
-        //Constants for directions
-        const int FORWARD = 0;
-        const int BACKWARD = 1;
-        const int LEFT = 2;
-        const int RIGHT = 3;
-
         //initialise varaiables
-        Location location1 = new Location("location1.jpg", "1");
-        Location location2 = new Location("location2.jpg", "2");
-        Location location3 = new Location("placeholder.jpg", "3");
+        _ui = new UI();
 
-        location1.AddConnectingLocation(location2, FORWARD);
-        location1.AddConnectingLocation(location3, BACKWARD);
+        //Location location1 = new Location("location1.jpg", "1");
+        //Location location2 = new Location("location2.jpg", "2");
+        //Location location3 = new Location("placeholder.jpg", "3");
 
-        location2.AddConnectingLocation(location1, BACKWARD);
-        location3.AddConnectingLocation(location1, FORWARD);
+        //location1.AddConnectingLocation(location2, FORWARD);
+        //location1.AddConnectingLocation(location3, BACKWARD);
 
-        Player _player = new Player(location1);
+        //location2.AddConnectingLocation(location1, BACKWARD);
+        //location3.AddConnectingLocation(location1, FORWARD);
 
 		//new game window
 		gameWindow = new Window("SwinExplorer", WINDOW_WIDTH , WINDOW_HEIGHT);
 
+        //Displays loading screen
 		GameResources.LoadingScreen();
-		GameResources.PlayBGM();
-		theMap = new Map();
 
-		do {
-            //get user input
+        //play background music
+        GameResources.PlayBGM();
+
+        //add test location
+        //Location location1 = GameResources.getLocation("toLodges6");
+
+        //initialse player
+        _player = new Player(GameResources.getLocation("Train"));
+		TravellingController.LoadLocationImage(_player.Location);
+
+        //initialse map
+        theMap = new Map();
+
+        //starting with travelling state
+        _currentState = GameState.Travelling.ToString();
+
+        do {
+            //control for drawing to screen
+            gameWindow.Clear(Color.White);           
+            switch (_currentState) {
+                case ("MainMenu"):
+                    //Draw();
+                    break;
+                case ("Travelling"):
+                    _ui.Draw();
+                    break;
+                case ("FullscreenMap"):
+                    theMap.Draw();
+                    break;
+                default:
+                    break;
+            }
+            gameWindow.Refresh();
+
+            //get user input and process events
             SplashKit.ProcessEvents();
-
-
-            gameWindow.Clear(Color.White);
-
-            //draws players location
-            SplashKit.DrawBitmap(_player.Location.LocationImage, 0, 0);
-			//SplashKit.DrawBitmap(_player.Location.ForwardArrow, 0, 0);
-			//SplashKit.DrawBitmap(_player.Location.OtherArrow, 100, 100);
-
-			GameResources.DrawDirectionArrows();
-			theMap.Draw();
-
-			//target 60 fps
-			gameWindow.Refresh(60);
-
-			theMap.CheckMapClicked();
-
-			if (SplashKit.MouseClicked(MouseButton.LeftButton))
-			{
-				ArrowDir? ArrowInput = GameResources.MouseInArrow();
-
-				if (ArrowInput != null)
-				{
-					Console.WriteLine(ArrowInput.ToString());
-				}
-			}
-
-            //if proper key is pressed, change locations in a direction
-            if (SplashKit.KeyTyped(KeyCode.WKey)) {
-                if (_player.Location.GetLocationInDirection(FORWARD) != null) {
-                    _player.Location = _player.Location.GetLocationInDirection(FORWARD);
-                }
-            }
-
-            if (SplashKit.KeyTyped(KeyCode.SKey)) {
-                if (_player.Location.GetLocationInDirection(BACKWARD) != null) {
-                    _player.Location = _player.Location.GetLocationInDirection(BACKWARD);
-                }
-            }
-
-            if (SplashKit.KeyTyped(KeyCode.AKey)) {
-				if (_player.Location.GetLocationInDirection(LEFT) != null) {
-                    _player.Location = _player.Location.GetLocationInDirection(LEFT);
-                }
-            }
-
-            if (SplashKit.KeyTyped(KeyCode.DKey)) {
-                if (_player.Location.GetLocationInDirection(RIGHT) != null) {
-                    _player.Location = _player.Location.GetLocationInDirection(RIGHT);
-                }
+            switch (_currentState) {
+                case ("MainMenu"):
+                    //MainMenuController.HandleInput();
+                    break;
+                case ("Travelling"):
+                    TravellingController.HandleInput();
+                    break;
+                case ("FullscreenMap"):
+                    MapController.HandleInput();
+                    break;
+                default:
+                    break;
             }
         }
         while (!SplashKit.WindowCloseRequested(gameWindow));
-
     }
 }
