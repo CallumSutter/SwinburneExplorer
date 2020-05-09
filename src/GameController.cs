@@ -38,6 +38,7 @@ public class GameController {
         //starting with travelling state
         _currentState = GameState.MainMenu.ToString();
 
+
         do {
             //control for drawing to screen
             gameWindow.Clear(Color.White);
@@ -54,6 +55,7 @@ public class GameController {
                 default:
                     break;
             }
+
             gameWindow.Refresh();
 
             //get user input and process events
@@ -71,6 +73,12 @@ public class GameController {
                 default:
                     break;
             }
+
+            Point2D pos = SplashKit.MousePosition();
+            gameWindow.DrawText(pos.X.ToString(), Color.Black, 10, 10);
+            gameWindow.DrawText(pos.Y.ToString(), Color.Black, 10, 30);
+
+            gameWindow.Refresh();
         }
         while (!SplashKit.WindowCloseRequested(gameWindow) && _currentState != "Exit");
     }

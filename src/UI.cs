@@ -30,32 +30,36 @@ namespace Swinburneexplorer {
 		private ArrowButton[] _arrows;
 		private UIButton _enterBtn;
 		private UIObject _infoBtn;
+		private UIObject _scroll;
 
 		public UI()	{
 			InitialiseArrows();
 			InitialiseButtons();
 			InitialiseInfoButton();
+			InitialiseScroll();
 		}
 
 		public void Draw() {
-			//draws players location
-			GameController.gameWindow.DrawBitmap(GameController._player.Location.LocationImage, LOC_IMAGE_X_OFFSET / 2, LOC_IMAGE_Y_OFFSET / 2, SplashKit.OptionScaleBmp(LOC_X_SCALING, LOC_Y_SCALING));
+			//Draw the player location and extra information
+			DrawPlayerLocation();
 
-			//draws current location
-			GameController.gameWindow.DrawRectangle(Color.DarkRed, GameController.WINDOW_WIDTH / 2 - 150, 0, 300, 50);
-			GameController.gameWindow.FillRectangle(Color.Black, GameController.WINDOW_WIDTH / 2 - 150, 0, 300, 50);
-			string _location = "Current Location: " + GameController._player.Location.Name;
-			GameController.gameWindow.DrawText(_location, Color.DarkRed, GameController.WINDOW_WIDTH / 2 - 120, 20);
+			//Draws information about the player's location
+			DrawLocationInformation();
 
 			//draw map
-			GameController.theMap.Draw();
+			DrawMinimap();
 
 			//draw objectives
 
 			//draws arrows
 			DrawDirectionArrows();
+			
+			//draw buttons
 			DrawButtons();
 			DrawInfoButton();
+
+			//draw objectives
+			DrawObjectives();
 
 			//target 60 fps
 			GameController.gameWindow.Refresh(60);
@@ -69,12 +73,54 @@ namespace Swinburneexplorer {
 			}
 		}
 
+		private void DrawMinimap() {
+			GameController.theMap.Draw();
+		}
+
+		private void DrawPlayerLocation() {
+			//Draws Players location
+			GameController.gameWindow.DrawBitmap(GameController._player.Location.LocationImage, LOC_IMAGE_X_OFFSET / 2, LOC_IMAGE_Y_OFFSET / 2, SplashKit.OptionScaleBmp(LOC_X_SCALING, LOC_Y_SCALING));
+		}
+
+		private void DrawLocationInformation() {
+			//Draws location name
+			GameController.gameWindow.DrawRectangle(Color.DarkRed, GameController.WINDOW_WIDTH / 2 - 150, 0, 300, 50);
+			GameController.gameWindow.FillRectangle(Color.Black, GameController.WINDOW_WIDTH / 2 - 150, 0, 300, 50);
+			string _location = "Current Location: " + GameController._player.Location.Name;
+			GameController.gameWindow.DrawText(_location, Color.DarkRed, GameController.WINDOW_WIDTH / 2 - 120, 20);
+		}
+
+		public void DrawObjectiveComplete() {
+			DrawPlayerLocation();
+			GameController.gameWindow.FillRectangle(Color.Black, 310, 100, 600, 300);
+			GameController.gameWindow.DrawRectangle(Color.DarkRed, 310, 100, 600, 300);
+			GameController.gameWindow.DrawText("Objective Complete", Color.DarkRed, GameResources.GetFont("gameFont"), 40, 450, 130);
+			GameController.gameWindow.DrawText("Press the Right Mouse Button or Spacebar to continue", Color.DarkRed, 400, 300);
+			GameController.gameWindow.Refresh();
+			SplashKit.PlaySoundEffect(GameResources.GetSound("objectiveComplete"));
+			while (!SplashKit.MouseClicked(MouseButton.RightButton) && (!SplashKit.KeyTyped(KeyCode.SpaceKey))) {
+				SplashKit.ProcessEvents();
+			}
+		}
+
+		private void DrawObjectives() {
+			_scroll.Draw();
+			GameController.gameWindow.DrawText("Objective", Color.DarkRed, GameResources.GetFont("gameFont"), 40, 1010, 40);
+			GameController.gameWindow.DrawText(GameController._player.CurrentObjective.Description, Color.DarkRed, 970, 90);
+			GameController.gameWindow.DrawText(GameController._player.CurrentObjective.Description2, Color.DarkRed, 970, 100);
+		}
+
 		private void DrawButtons() {
 			_enterBtn.Draw();
 		}
 
 		private void DrawInfoButton() {
 			_infoBtn.Draw();
+		}
+
+		private void InitialiseScroll() {
+			_scroll = new UIObject(GameResources.GetImage("scroll"),
+				CreateMask(GameController.WINDOW_WIDTH - GameResources.GetImage("scroll").Width, 0, GameResources.GetImage("scroll").Width, GameResources.GetImage("scroll").Height));
 		}
 
 		private void InitialiseArrows()	{

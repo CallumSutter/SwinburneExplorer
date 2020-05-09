@@ -226,9 +226,10 @@ namespace Swinburneexplorer
 			_images.Add("sMap", new Bitmap("sMap", "sMap.png"));
 			//_images.Add("SwinMap", new Bitmap("SwinMap", "SwinMap.png"));
 			_images.Add("SwinMap", new Bitmap("SwinMap", "SwinMapPS.png"));
-			_images.Add("scroll", new Bitmap("scroll", "smallScroll.png"));
+			//_images.Add("scroll", new Bitmap("scroll", "smallScroll.png"));
 			_images.Add("btnBase", new Bitmap("btnBase", "btnBase1.png"));
 			_images.Add("infoBtn", new Bitmap("infoBtn", "infoBtn.png"));
+			_images.Add("scroll", new Bitmap("scroll", "tinyScroll.png"));
 
 			////campus images
 			//_images.Add("AD", new Bitmap("AD", "campus/AD.jpg"));
@@ -762,7 +763,6 @@ namespace Swinburneexplorer
 
 			//southSide2
 			getLocation("southSide2").AddConnectingLocation(getLocation("southSide1"), FORWARD);
-			getLocation("southSide2").AddConnectingLocation(getLocation("TC Building"), LEFT);
 			getLocation("southSide2").AddConnectingLocation(getLocation("southSide3"), BACKWARD);
 
 			//southSide3
@@ -772,7 +772,7 @@ namespace Swinburneexplorer
 
 			//southSide4
 			getLocation("southSide4").AddConnectingLocation(getLocation("southSide3"), FORWARD);
-			getLocation("southSide4").AddConnectingLocation(getLocation("toSouthSide4"), LEFT);
+			getLocation("southSide4").AddConnectingLocation(getLocation("TC Building"), LEFT);
 			getLocation("southSide4").AddConnectingLocation(getLocation("southSide5"), BACKWARD);
 
 			//southSide5
@@ -790,7 +790,7 @@ namespace Swinburneexplorer
 			getLocation("TB Building").AddConnectingLocation(getLocation("toSouthSide1"), RIGHT);
 
 			//TC
-			getLocation("TC Building").AddConnectingLocation(getLocation("southSide2"), BACKWARD);
+			getLocation("TC Building").AddConnectingLocation(getLocation("southSide4"), BACKWARD);
 
 			//TD
 			getLocation("TD Building").AddConnectingLocation(getLocation("toLodges3"), BACKWARD);
@@ -1027,6 +1027,7 @@ namespace Swinburneexplorer
 			_sounds.Add("correct", new SoundEffect("correct", "correct_direction.wav"));
 			_sounds.Add("menuSelect", new SoundEffect("menuSelect", "menu_select.wav"));
 			_sounds.Add("toggleMap", new SoundEffect("toggleMap", "openMap.wav"));
+			_sounds.Add("objectiveComplete", new SoundEffect("objectiveComplete", "objectiveComplete.wav"));
 		}
 
 		private static void LoadMusic()

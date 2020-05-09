@@ -25,6 +25,9 @@ namespace Swinburneexplorer {
 						//initialse player
 						GameController._player = new Player(GameResources.getLocation("Train"));
 						TravellingController.LoadLocationImage(GameController._player.Location);
+						SplashKit.PlaySoundEffect(GameResources.GetSound("menuSelect"));
+						Objective newObjective = new Objective(1);
+						GameController._player.AddNewObjective(newObjective);
 					}
 
 					if (GameController._mainMenu.CheckMouseInCampusButton()) {
@@ -34,9 +37,12 @@ namespace Swinburneexplorer {
 						//play background music
 						GameResources.PlayBGM();
 
-						//initialse player
+						//initialise player
 						GameController._player = new Player(GameResources.getLocation("instreet5"));
 						TravellingController.LoadLocationImage(GameController._player.Location);
+						SplashKit.PlaySoundEffect(GameResources.GetSound("menuSelect"));
+						Objective newObjective = new Objective(1);
+						GameController._player.AddNewObjective(newObjective);
 					}
 				}
 
@@ -44,11 +50,13 @@ namespace Swinburneexplorer {
 					if (GameController._mainMenu.CheckMouseInPlayButton()) {
 						Console.WriteLine("Clicked Play");
 						GameController._mainMenu.PlayPressed = true;
+						SplashKit.PlaySoundEffect(GameResources.GetSound("menuSelect"));
 					}
 
 					if (GameController._mainMenu.CheckMouseInExitButton()) {
 						Console.WriteLine("Clicked Exit");
 						GameController._currentState = GameState.Exit.ToString();
+						SplashKit.PlaySoundEffect(GameResources.GetSound("menuSelect"));
 					}
 				}				
 			}

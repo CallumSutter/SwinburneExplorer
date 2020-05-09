@@ -151,13 +151,23 @@ namespace Swinburneexplorer {
 			}
 		}
 
+		public static void CheckIfObjectiveIsComplete() {
+			if (GameController._player.CurrentObjective.CheckIfObjectiveIsComplete(GameController._player.Location.Name)) {
+				if (GameController._player.ObjectiveCount <= 6) {
+					GameController._ui.DrawObjectiveComplete();
+					GameController._player.AssignNewObjective();
+				}
+			}
+		}
+
 		/// <summary>
 		/// Handle all inputs related to travel
 		/// </summary>
-        public static void HandleInput() {
+		public static void HandleInput() {
 			HandleMapInput();
 			HandleMouseTravelInput();
 			HandleKeyboardTravelInput();
+			CheckIfObjectiveIsComplete();
         }
     }
 }
