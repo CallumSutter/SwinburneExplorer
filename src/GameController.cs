@@ -21,7 +21,6 @@ public class GameController
     public static void Main(string[] args)
     {
         //initialise varaiables
-        _ui = new UI();
 
         //Location location1 = new Location("location1.jpg", "1");
         //Location location2 = new Location("location2.jpg", "2");
@@ -39,8 +38,10 @@ public class GameController
         //Displays loading screen
 		GameResources.LoadingScreen();
 
-        //play background music
-        GameResources.PlayBGM();
+		_ui = new UI();
+
+		//play background music
+		GameResources.PlayBGM();
 
         //add test location
         //Location location1 = GameResources.getLocation("toLodges6");

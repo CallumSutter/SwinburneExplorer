@@ -19,3 +19,6 @@ C:\Users\aetha\Documents\SWE20001\openproject\SwinburneExplorer\obj\Debug\netcor
 C:\Users\aetha\Documents\SWE20001\openproject\SwinburneExplorer\obj\Debug\netcoreapp2.0\Swinburneexplorer.AssemblyInfo.cs
 C:\Users\aetha\Documents\SWE20001\openproject\SwinburneExplorer\obj\Debug\netcoreapp2.0\Swinburneexplorer.dll
 C:\Users\aetha\Documents\SWE20001\openproject\SwinburneExplorer\obj\Debug\netcoreapp2.0\Swinburneexplorer.pdb
+C:\Users\aetha\Documents\SWE20001\openproject\SwinburneExplorer\bin\Debug\netcoreapp2.0\NUnit3.TestAdapter.dll
+C:\Users\aetha\Documents\SWE20001\openproject\SwinburneExplorer\bin\Debug\netcoreapp2.0\NUnit3.TestAdapter.pdb
+C:\Users\aetha\Documents\SWE20001\openproject\SwinburneExplorer\bin\Debug\netcoreapp2.0\nunit.engine.netstandard.dll

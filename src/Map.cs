@@ -5,8 +5,11 @@ using SplashKitSDK;
 
 namespace Swinburneexplorer {
 	public class Map : IDraw {
-		public const int MAP_OFFSET_X = GameController.WINDOW_WIDTH / 2 - 350;
-		public const int MAP_OFFSET_Y = 0;
+		public const int MAP_X_OFFSET = GameController.WINDOW_WIDTH / 2 - 350;
+		public const int MAP_Y_OFFSET = 0;
+
+		public const int MAP_ICON_X_OFFSET = 10;
+		public const int MAP_ICON_Y_OFFSET = 10;
 
 		public const int SCROLL_OFFSET = 15;
 
@@ -18,7 +21,6 @@ namespace Swinburneexplorer {
 
 		private Font _mapFont;
 		private Color _textColor = Color.Black;
-		private int _textSize = 12;
 
 		public Map() {
 			SetMapResources();
@@ -45,7 +47,7 @@ namespace Swinburneexplorer {
 		private void DrawMap() {
 			GameController.gameWindow.Clear(Color.White);
 
-			GameController.gameWindow.DrawBitmap(_mapImg, MAP_OFFSET_X, MAP_OFFSET_Y);
+			GameController.gameWindow.DrawBitmap(_mapImg, MAP_X_OFFSET, MAP_Y_OFFSET);
 			GameController.gameWindow.DrawText("Click on screen to go back to game screen", _textColor, GameController.WINDOW_WIDTH / 2, GameController.WINDOW_HEIGHT - 45);
 			GameController.gameWindow.DrawText("Press M or Esc to toggle map", _textColor, GameController.WINDOW_WIDTH / 2, GameController.WINDOW_HEIGHT - 30);
 		}
