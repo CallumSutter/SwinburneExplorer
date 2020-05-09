@@ -5,11 +5,6 @@ VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Swinburneexplorer", "Swinburneexplorer.csproj", "{78329535-26D8-4111-A9F6-D0A64736E13B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NUnitTestProject", "..\NUnitTestProject\NUnitTestProject.csproj", "{0D3D3D7E-0474-4423-86EA-793B7C12CA0F}"
-	ProjectSection(ProjectDependencies) = postProject
-		{78329535-26D8-4111-A9F6-D0A64736E13B} = {78329535-26D8-4111-A9F6-D0A64736E13B}
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,10 +15,6 @@ Global
 		{78329535-26D8-4111-A9F6-D0A64736E13B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{78329535-26D8-4111-A9F6-D0A64736E13B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{78329535-26D8-4111-A9F6-D0A64736E13B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0D3D3D7E-0474-4423-86EA-793B7C12CA0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0D3D3D7E-0474-4423-86EA-793B7C12CA0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0D3D3D7E-0474-4423-86EA-793B7C12CA0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0D3D3D7E-0474-4423-86EA-793B7C12CA0F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
