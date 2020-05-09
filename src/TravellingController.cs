@@ -129,19 +129,19 @@ namespace Swinburneexplorer {
 		/// </summary>
 		public static void HandleKeyboardTravelInput() {
 			//if proper key is pressed, change locations in a direction
-			if (SplashKit.KeyTyped(KeyCode.WKey)) {
+			if (SplashKit.KeyTyped(KeyCode.WKey) || SplashKit.KeyTyped(KeyCode.UpKey)) {
 				TryMove("Up");
 			}
 
-			if (SplashKit.KeyTyped(KeyCode.SKey)) {
+			if (SplashKit.KeyTyped(KeyCode.SKey) || SplashKit.KeyTyped(KeyCode.DownKey)) {
 				TryMove("Down");
 			}
 
-			if (SplashKit.KeyTyped(KeyCode.AKey)) {
+			if (SplashKit.KeyTyped(KeyCode.DKey) || SplashKit.KeyTyped(KeyCode.RightKey)) {
 				TryMove("Right");
 			}
 
-			if (SplashKit.KeyTyped(KeyCode.DKey)) {
+			if (SplashKit.KeyTyped(KeyCode.AKey) || SplashKit.KeyTyped(KeyCode.LeftKey)) {
 				TryMove("Left");
 			}
 		}
