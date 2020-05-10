@@ -371,7 +371,7 @@ namespace Swinburneexplorer
 			_locations.Add("AR Building", new Location("AR Building"));
 			_locations.Add("AS Building", new Location("AS Building"));
 			_locations.Add("ATC Building", new Location("ATC Building"));
-			_locations.Add("ATC Building (Back)", new Location("ATC Bulding (Back)"));
+			_locations.Add("ATC Building (Back)", new Location("ATC Building (Back)"));
 			_locations.Add("backOfAD", new Location("backOfAD"));
 			_locations.Add("EN Building", new Location("EN Building"));
 			_locations.Add("FS Building", new Location("FS Building"));
