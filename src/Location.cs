@@ -121,6 +121,9 @@ namespace Swinburneexplorer {
 			}
 		}
 
+		/// <summary>
+		/// Return connected paths
+		/// </summary>
 		public Location[] Paths {
 			get {
 				return _paths;
