@@ -7,6 +7,7 @@ namespace Swinburneexplorer {
 	public class Location {
 		private Bitmap _locationImage;
 		private Location[] _paths;
+		private Building _building;
 		private string _name;
 		private string _desc;
 
@@ -41,6 +42,7 @@ namespace Swinburneexplorer {
 		private void InitialiseLocation() {
 			_locationImage = null;
 			_paths = new Location[4];
+			_building = null;
 
 			// initialise paths to null
 			for(int i = 0; i < 4; i++) {
@@ -80,6 +82,14 @@ namespace Swinburneexplorer {
 		}
 
 		/// <summary>
+		/// Set building property
+		/// </summary>
+		/// <param name="building"></param>
+		public void SetBuilding(Building building) {
+			_building = building;
+		}
+
+		/// <summary>
 		/// getter for location image bitmap
 		/// </summary>
 		/// <returns></returns>
@@ -111,11 +121,20 @@ namespace Swinburneexplorer {
 			}
 		}
 
-		public Location[] Paths
-		{
-			get
-			{
-				return _paths;
+		/// <summary>
+		/// Return contained building
+		/// </summary>
+		public Building EnterBuilding {
+			get	{
+				// guard clause
+				if (_building == null)
+				{
+					return null;
+				}
+
+				_building.ParentLoc = this;
+
+				return _building;
 			}
 		}
 	}
