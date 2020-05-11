@@ -127,7 +127,7 @@ namespace Swinburneexplorer {
 			_arrows = new ArrowButton[4];
 
 			Rectangle arrowMask = new Rectangle();
-			arrowMask.Height = GameResources.ARROW_SIZE;
+			arrowMask.Height = ARROW_SIZE;
 			arrowMask.Width = ARROW_SIZE;
 
 			//position of up arrow

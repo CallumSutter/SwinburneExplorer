@@ -23,7 +23,7 @@ namespace Swinburneexplorer {
 						GameResources.PlayBGM();
 
 						//initialse player
-						GameController._player = new Player(GameResources.getLocation("Train"));
+						GameController._player = new Player(GameResources.GetLocation("Train"));
 						TravellingController.LoadLocationImage(GameController._player.Location);
 						SplashKit.PlaySoundEffect(GameResources.GetSound("menuSelect"));
 						Objective newObjective = new Objective(1);
@@ -38,7 +38,7 @@ namespace Swinburneexplorer {
 						GameResources.PlayBGM();
 
 						//initialise player
-						GameController._player = new Player(GameResources.getLocation("instreet5"));
+						GameController._player = new Player(GameResources.GetLocation("instreet5"));
 						TravellingController.LoadLocationImage(GameController._player.Location);
 						SplashKit.PlaySoundEffect(GameResources.GetSound("menuSelect"));
 						Objective newObjective = new Objective(1);
