@@ -121,6 +121,12 @@ namespace Swinburneexplorer {
 			}
 		}
 
+		public Location[] Paths {
+			get {
+				return _paths;
+			}
+		}
+
 		/// <summary>
 		/// Return contained building
 		/// </summary>
