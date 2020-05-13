@@ -5,7 +5,7 @@ using System.Resources;
 using SplashKitSDK;
 
 namespace Swinburneexplorer {
-    public class TravellingController {
+	public class TravellingController {
 		/// <summary>
 		/// Sound played when travel valid
 		/// </summary>
@@ -61,7 +61,7 @@ namespace Swinburneexplorer {
 		public static int ParseDirection(string dirStr) {
 			int parsedDirection = default;
 
-			switch(dirStr) {
+			switch (dirStr) {
 				case "Up":
 					parsedDirection = GameController.FORWARD;
 					break;
@@ -92,8 +92,16 @@ namespace Swinburneexplorer {
 			if (CheckLocationValid(direction)) {
 				MovePlayer(direction);
 				PlayCorrectSound();
+			} else if (GameController._currentState == GameState.InBuilding.ToString()) {
+				if (direction == GameController.FORWARD) {
+					GameController._player.ReturnBuildingIfExists().UpFloor();
+					Console.WriteLine("Moved to Floor " + GameController._player.ReturnBuildingIfExists().CurrentFloor.ToString());
+				} else if (direction == GameController.BACKWARD) {
+					GameController._player.ReturnBuildingIfExists().DownFloor();
+					Console.WriteLine("Moved to Floor " + GameController._player.ReturnBuildingIfExists().CurrentFloor.ToString());
+				}
 			}
-		} 
+		}
 
 		/// <summary>
 		/// Handle inputs for map
@@ -119,11 +127,45 @@ namespace Swinburneexplorer {
 					TryMove(arrowDirectionClicked);
 				}
 
-				if (GameController._ui.CheckMouseInEnterButton()) {
-					Console.WriteLine("Clicked Enter");
+				if (GameController._ui.EnterButton.Visible) {
+					if (GameController._ui.CheckMouseInEnterButton()) {
+						if (GameController._currentState == GameState.Travelling.ToString()) {
+							Console.WriteLine("Clicked Enter");
+							GameController._player.Location = GameController._player.Location.EnterBuilding;
+							GameController._currentState = GameState.InBuilding.ToString();
+						} 
+						else if (GameController._currentState == GameState.InBuilding.ToString()) {
+							GameController._player.ReturnBuildingIfExists().EnterClassroom();
+							GameController._currentState = GameState.InClassroom.ToString();
+						}
+					}
 				}
 
-				if (GameController._ui.CheckMouseInInfoButton()){
+				if (GameController._ui.EnterButton2.Visible) {
+					if (GameController._ui.CheckMouseInEnter2Button()) {
+						GameController._player.ReturnBuildingIfExists().EnterClassroom();
+						GameController._currentState = GameState.InClassroom.ToString();
+					} 
+				}
+
+				if (GameController._ui.ExitButton.Visible) {
+					if (GameController._ui.CheckMouseInEnterButton()) {
+						if (GameController._currentState == GameState.InClassroom.ToString()) {
+							Console.WriteLine("Clicked Exit");
+							GameController._player.ReturnBuildingIfExists().ExitClassroom();
+							GameController._currentState = GameState.InBuilding.ToString();
+						}
+					}
+				}
+
+				if (GameController._ui.EnterButton2.Visible) {
+					if (GameController._ui.CheckMouseInExit2Button()) {
+						GameController._player.Location = GameController._player.ReturnBuildingIfExists().ParentLoc;
+						GameController._currentState = GameState.Travelling.ToString();
+					}
+				}
+
+				if (GameController._ui.CheckMouseInInfoButton()) {
 					Console.WriteLine("Clicked Info");
 				}
 			}
@@ -152,11 +194,22 @@ namespace Swinburneexplorer {
 		}
 
 		public static void CheckIfObjectiveIsComplete() {
-			if (GameController._player.CurrentObjective.CheckIfObjectiveIsComplete(GameController._player.Location.Name)) {
-				if (GameController._player.ObjectiveCount <= 6) {
-					GameController._ui.DrawObjectiveComplete();
-					GameController._player.AssignNewObjective();
+			if (GameController._currentState == GameState.Travelling.ToString()) {
+				if (GameController._player.CurrentObjective.CheckIfObjectiveIsComplete(GameController._player.Location.Name)) {
+					CompleteObjective();
 				}
+			}
+			else if (GameController._currentState == GameState.InClassroom.ToString()) {
+				if (GameController._player.CurrentObjective.CheckIfObjectiveIsComplete(GameController._player.ReturnBuildingIfExists().CurrentClassroom.RoomId)) {
+					CompleteObjective();
+				}
+			}
+		}
+
+		public static void CompleteObjective() {
+			if (GameController._player.ObjectiveCount <= 6) {
+				GameController._ui.DrawObjectiveComplete();
+				GameController._player.AssignNewObjective();
 			}
 		}
 

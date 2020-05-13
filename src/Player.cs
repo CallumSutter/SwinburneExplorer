@@ -7,15 +7,27 @@ namespace Swinburneexplorer {
         private Location _location;
         private string _startingLocation;
         private List<Objective> _objectives;
+        //private bool _inBuilding;
 
         public Player(Location location) {
             _location = location;
             _startingLocation = location.Name;
             _objectives = new List<Objective>();
+         //   _inBuilding = false;
         }
 
         public void AddNewObjective(Objective objective) {
             _objectives.Add(objective);
+        }
+
+        public Building ReturnBuildingIfExists() {
+            if (GameController._player.Location.GetType() != GameResources.getLocation("Train").GetType()) {
+                return (Building)GameController._player.Location;
+            }
+            
+            else {
+                return null;
+            }
         }
 
         public Objective CurrentObjective {

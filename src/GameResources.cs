@@ -27,6 +27,7 @@ namespace Swinburneexplorer
 		private static Dictionary<string, Bitmap> _images;
 		private static Dictionary<string, Music> _music;
 		private static Dictionary<string, Location> _locations;
+		private static Dictionary<string, Building> _buildings;
 
 		private static Font _loadingFont;
 
@@ -40,6 +41,7 @@ namespace Swinburneexplorer
 			_images = new Dictionary<string, Bitmap>();
 			_music = new Dictionary<string, Music>();
 			_locations = new Dictionary<string, Location>();
+			_buildings = new Dictionary<string, Building>();
 			_loadingFont = new Font("arial", "/arial.ttf"); //default font.
 			_fonts.Add("arial", _loadingFont);
 		}
@@ -230,6 +232,8 @@ namespace Swinburneexplorer
 			_images.Add("btnBase", new Bitmap("btnBase", "btnBase1.png"));
 			_images.Add("infoBtn", new Bitmap("infoBtn", "infoBtn.png"));
 			_images.Add("scroll", new Bitmap("scroll", "tinyScroll.png"));
+			_images.Add("building", new Bitmap("building", "insideBuilding.jpg"));
+			_images.Add("classroom", new Bitmap("classroom", "classroom.jpg"));
 
 			////campus images
 			//_images.Add("AD", new Bitmap("AD", "campus/AD.jpg"));
@@ -486,12 +490,29 @@ namespace Swinburneexplorer
 			_locations.Add("westSide12", new Location("westSide12"));
 			_locations.Add("westSide13", new Location("westSide13"));
 
+			//Buildings
+			_buildings.Add("AD Interior", new Building("AD Interior", "AD", 1));
+			_buildings.Add("George Interior", new Building("George Interior", "George", 2));
+			_buildings.Add("TA Interior", new Building("TA Interior", "TA", 1));
+			_buildings.Add("TB Interior", new Building("TB Interior", "TB", 1));
+			_buildings.Add("TC Interior", new Building("TC Interior", "TC", 1));
+			_buildings.Add("TD Interior", new Building("TD Interior", "TD", 1));
+			_buildings.Add("AGSE Interior", new Building("AGSE Interior", "AGSE", 2));
+			_buildings.Add("Study Interior", new Building("Study Interior", "Study", 1));
+			_buildings.Add("AR Interior", new Building("AR Interior", "AR", 1));
+			_buildings.Add("EN Interior", new Building("EN Interior", "EN", 7));
+			_buildings.Add("AS Interior", new Building("AS Interior", "AS", 3));
+			_buildings.Add("ATC Interior", new Building("ATC Interior", "ATC", 7));
+			_buildings.Add("AMDC Interior", new Building("AMDC Interior", "AMDC", 7));
+			_buildings.Add("FS Interior", new Building("FS Interior", "FS", 1));
+
 			ConfigureLocations();
 		}
 
 		private static void ConfigureLocations() {
 			//AGSE
 			getLocation("AGSE Building").AddConnectingLocation(getLocation("tunnel2"), BACKWARD);
+			getLocation("AGSE Building").SetBuilding(GetBuilding("AGSE Interior"));
 
 			//toTrain1
 			getLocation("toTrain1").AddConnectingLocation(getLocation("toTrain2"), FORWARD);
@@ -669,14 +690,16 @@ namespace Swinburneexplorer
 			getLocation("AMDC Building").AddConnectingLocation(getLocation("toWestSide1"), LEFT);
 			getLocation("AMDC Building").AddConnectingLocation(getLocation("toAMDC4"), BACKWARD);
 			getLocation("AMDC Building").AddConnectingLocation(getLocation("toAMDC5"), RIGHT);
+			getLocation("AMDC Building").SetBuilding(GetBuilding("AMDC Interior"));
 
 			//study
 			getLocation("study").AddConnectingLocation(getLocation("toAMDC3"), BACKWARD);
             getLocation("study").AddConnectingLocation(getLocation("toAMDC4"), RIGHT);
             getLocation("study").AddConnectingLocation(getLocation("toAMDC2"), LEFT);
+			getLocation("study").SetBuilding(GetBuilding("Study Interior"));
 
-            //toWestSide1
-            getLocation("toWestSide1").AddConnectingLocation(getLocation("FS Building"), FORWARD);
+			//toWestSide1
+			getLocation("toWestSide1").AddConnectingLocation(getLocation("FS Building"), FORWARD);
 			getLocation("toWestSide1").AddConnectingLocation(getLocation("toAMDC4"), BACKWARD);
 			getLocation("toWestSide1").AddConnectingLocation(getLocation("AMDC Building"), RIGHT);
 
@@ -688,6 +711,7 @@ namespace Swinburneexplorer
 			//FS
 			getLocation("FS Building").AddConnectingLocation(getLocation("toWestSide2"), FORWARD);
 			getLocation("FS Building").AddConnectingLocation(getLocation("toWestSide1"), BACKWARD);
+			getLocation("FS Building").SetBuilding(GetBuilding("FS Interior"));
 
 			//westSide1
 			getLocation("westSide1").AddConnectingLocation(getLocation("stairs"), BACKWARD);
@@ -790,16 +814,21 @@ namespace Swinburneexplorer
 			//TA
 			getLocation("TA Building").AddConnectingLocation(getLocation("toSouthSide1"), LEFT);
             getLocation("TA Building").AddConnectingLocation(getLocation("toSouthSide2"), RIGHT);
+			getLocation("TA Building").SetBuilding(GetBuilding("TA Interior"));
 
-            //TB
-            getLocation("TB Building").AddConnectingLocation(getLocation("toSouthSide1"), RIGHT);
+			//TB
+			getLocation("TB Building").AddConnectingLocation(getLocation("toSouthSide1"), RIGHT);
             getLocation("TB Building").AddConnectingLocation(getLocation("toSouthSide2"), LEFT);
+			getLocation("TB Building").SetBuilding(GetBuilding("TB Interior"));
 
-            //TC
-            getLocation("TC Building").AddConnectingLocation(getLocation("southSide4"), BACKWARD);
+			//TC
+			getLocation("TC Building").AddConnectingLocation(getLocation("southSide4"), BACKWARD);
+			getLocation("TC Building").SetBuilding(GetBuilding("TC Interior"));
+
 
 			//TD
 			getLocation("TD Building").AddConnectingLocation(getLocation("toLodges3"), BACKWARD);
+			getLocation("TD Building").SetBuilding(GetBuilding("TD Interior"));
 
 			//toSouthSide1
 			getLocation("toSouthSide1").AddConnectingLocation(getLocation("toSouthSide2"), FORWARD);
@@ -861,6 +890,7 @@ namespace Swinburneexplorer
 			//George
 			getLocation("George Building").AddConnectingLocation(getLocation("instreet3"), FORWARD);
 			getLocation("George Building").AddConnectingLocation(getLocation("instreet4"), BACKWARD);
+			getLocation("George Building").SetBuilding(GetBuilding("George Interior"));
 
 			//instreet4
 			getLocation("instreet4").AddConnectingLocation(getLocation("George Building"), FORWARD);
@@ -894,6 +924,8 @@ namespace Swinburneexplorer
 
 			//AD
 			getLocation("AD Building").AddConnectingLocation(getLocation("toAMDC2"), BACKWARD);
+			getLocation("AD Building").SetBuilding(GetBuilding("AD Interior"));
+			getLocation("AD Building").SetBuilding(GetBuilding("AD Interior"));
 
 			//backOfAD
 			getLocation("backOfAD").AddConnectingLocation(getLocation("toEN2"), BACKWARD);
@@ -922,6 +954,7 @@ namespace Swinburneexplorer
 
 			//AR
 			getLocation("AR Building").AddConnectingLocation(getLocation("toTrain5"), BACKWARD);
+			getLocation("AR Building").SetBuilding(GetBuilding("AR Interior"));
 
 			//toATC1
 			getLocation("toATC1").AddConnectingLocation(getLocation("toAMDC3"), FORWARD);
@@ -943,6 +976,7 @@ namespace Swinburneexplorer
 
 			//ATC
 			getLocation("ATC Building").AddConnectingLocation(getLocation("toATC3"), BACKWARD);
+			getLocation("ATC Building").SetBuilding(GetBuilding("ATC Interior"));
 
 			//toAS1
 			getLocation("toAS1").AddConnectingLocation(getLocation("toEN5"), FORWARD);
@@ -967,6 +1001,7 @@ namespace Swinburneexplorer
 			//AS
 			getLocation("AS Building").AddConnectingLocation(getLocation("toAS3"), LEFT);
 			getLocation("AS Building").AddConnectingLocation(getLocation("toAS4"), BACKWARD);
+			getLocation("AS Building").SetBuilding(GetBuilding("AS Interior"));
 
 			//ATCOtherSide
 			getLocation("ATC Building (Back)").AddConnectingLocation(getLocation("northSide2"), BACKWARD);
@@ -1027,6 +1062,7 @@ namespace Swinburneexplorer
 
 			//EN
 			getLocation("EN Building").AddConnectingLocation(getLocation("toEN4"), BACKWARD);
+			getLocation("EN Building").SetBuilding(GetBuilding("EN Interior"));
 		}
 
 		private static void LoadSounds()
@@ -1069,6 +1105,17 @@ namespace Swinburneexplorer
 				return _locations[locationName];
 			} catch (KeyNotFoundException e) {
 				Console.WriteLine("Cannot find font: " + locationName);
+				Console.WriteLine(e.Message);
+			}
+
+			return null;
+		}
+
+		public static Building GetBuilding(string buildingname) {
+			try {
+				return _buildings[buildingname];
+			} catch (KeyNotFoundException e) {
+				Console.WriteLine("Cannot find font: " + buildingname);
 				Console.WriteLine(e.Message);
 			}
 

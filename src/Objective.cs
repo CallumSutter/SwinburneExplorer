@@ -81,19 +81,28 @@ namespace Swinburneexplorer {
 
             switch (randomNumber) {
                 case 0:
-                    _locationName = "ATC Building";
-                    _description = "Locate and travel to the";
-                    _description2 = "ATC Building";
+                    //_locationName = "ATC Building";
+                    //_description = "Locate and travel to the";
+                    //_description2 = "ATC Building";
+                    _locationName = "ATC 201";
+                    _description = "Locate and travel to";
+                    _description2 = "ATC 201";
                     break;
                 case 1:
-                    _locationName = "AS Building";
-                    _description = "Locate and travel to the";
-                    _description2 = "AS Building";
+                    //_locationName = "AS Building";
+                    //_description = "Locate and travel to the";
+                    //_description2 = "AS Building";
+                    _locationName = "EN 401";
+                    _description = "Locate and travel to";
+                    _description2 = "EN 401";
                     break;
                 case 2:
-                    _locationName = "study";
-                    _description = "Locate and travel to the";
-                    _description2 = "Study";
+                    //_locationName = "study";
+                    //_description = "Locate and travel to the";
+                    //_description2 = "Study";
+                    _locationName = "AMDC 301";
+                    _description = "Locate and travel to";
+                    _description2 = "AMDC 301";
                     break;
             }
         }
@@ -187,6 +196,12 @@ namespace Swinburneexplorer {
                     _description = "Locate and travel to the";
                     _description2 = "FS Building";
                     break;
+            }
+        }
+
+        public string LocationName {
+            get {
+                return _locationName;
             }
         }
 

@@ -47,6 +47,8 @@ public class GameController {
                     _mainMenu.Draw();
                     break;
                 case ("Travelling"):
+                case ("InClassroom"):
+                case ("InBuilding"):
                     _ui.Draw();
                     break;
                 case ("FullscreenMap"):
@@ -65,6 +67,8 @@ public class GameController {
                     MainMenuController.HandleInput();
                     break;
                 case ("Travelling"):
+                case ("InClassroom"):
+                case ("InBuilding"):
                     TravellingController.HandleInput();
                     break;
                 case ("FullscreenMap"):

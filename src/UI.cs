@@ -29,6 +29,9 @@ namespace Swinburneexplorer {
 
 		private ArrowButton[] _arrows;
 		private UIButton _enterBtn;
+		private UIButton _exitBtn;
+		private UIButton _enterBtn2;
+		private UIButton _exitBtn2;
 		private UIObject _infoBtn;
 		private UIObject _scroll;
 
@@ -53,9 +56,10 @@ namespace Swinburneexplorer {
 
 			//draws arrows
 			DrawDirectionArrows();
-			
-			//draw buttons
-			DrawButtons();
+
+			//draw buttons		
+			DrawEnterButton();
+			DrawExitButton();
 			DrawInfoButton();
 
 			//draw objectives
@@ -66,9 +70,31 @@ namespace Swinburneexplorer {
 		}
 
 		private void DrawDirectionArrows() {
-			for(uint i = 0; i < 4; i++)	{
-				if (GameController._player.Location.Paths[i] != null) {
-					_arrows[i].Draw();
+			if (GameController._currentState == GameState.InBuilding.ToString()) {
+				if (GameController._player.ReturnBuildingIfExists().CurrentFloor == 1) {
+					if (GameController._player.ReturnBuildingIfExists().CurrentFloor != GameController._player.ReturnBuildingIfExists().FloorCount) {
+						//forward arrow
+						_arrows[0].Draw();
+					}
+				} 
+				else {
+					if (GameController._player.ReturnBuildingIfExists().CurrentFloor != GameController._player.ReturnBuildingIfExists().FloorCount) {
+						//forward arrow
+						_arrows[0].Draw();
+						//backward arrow
+						_arrows[1].Draw();
+					} 		
+					else {
+						//backward arrow
+						_arrows[1].Draw();
+					}
+				}
+			}
+			else if (GameController._currentState == GameState.Travelling.ToString()) {
+				for (uint i = 0; i < 4; i++) {
+					if (GameController._player.Location.Paths[i] != null) {
+						_arrows[i].Draw();
+					}
 				}
 			}
 		}
@@ -79,7 +105,12 @@ namespace Swinburneexplorer {
 
 		private void DrawPlayerLocation() {
 			//Draws Players location
-			GameController.gameWindow.DrawBitmap(GameController._player.Location.LocationImage, LOC_IMAGE_X_OFFSET / 2, LOC_IMAGE_Y_OFFSET / 2, SplashKit.OptionScaleBmp(LOC_X_SCALING, LOC_Y_SCALING));
+			if (GameController._currentState == GameState.Travelling.ToString() || GameController._currentState == GameState.InBuilding.ToString()) {
+				GameController.gameWindow.DrawBitmap(GameController._player.Location.LocationImage, LOC_IMAGE_X_OFFSET / 2, LOC_IMAGE_Y_OFFSET / 2, SplashKit.OptionScaleBmp(LOC_X_SCALING, LOC_Y_SCALING));
+			}
+			else {
+				GameController.gameWindow.DrawBitmap(GameResources.GetImage("classroom"), LOC_IMAGE_X_OFFSET / 2, LOC_IMAGE_Y_OFFSET / 2, SplashKit.OptionScaleBmp(LOC_X_SCALING, LOC_Y_SCALING));
+			}
 		}
 
 		private void DrawLocationInformation() {
@@ -87,6 +118,11 @@ namespace Swinburneexplorer {
 			GameController.gameWindow.DrawRectangle(Color.DarkRed, GameController.WINDOW_WIDTH / 2 - 150, 0, 300, 50);
 			GameController.gameWindow.FillRectangle(Color.Black, GameController.WINDOW_WIDTH / 2 - 150, 0, 300, 50);
 			string _location = "Current Location: " + GameController._player.Location.Name;
+
+			if (GameController._currentState == GameState.InClassroom.ToString()) {
+				_location = "Current Location: " + GameController._player.ReturnBuildingIfExists().CurrentClassroom.RoomId;			
+			}
+
 			GameController.gameWindow.DrawText(_location, Color.DarkRed, GameController.WINDOW_WIDTH / 2 - 120, 20);
 		}
 
@@ -110,8 +146,58 @@ namespace Swinburneexplorer {
 			GameController.gameWindow.DrawText(GameController._player.CurrentObjective.Description2, Color.DarkRed, 970, 100);
 		}
 
-		private void DrawButtons() {
-			_enterBtn.Draw();
+		private void DrawEnterButton() {
+			//only draw enter button if building or classroom is avaliable to enter
+			if (GameController._currentState == GameState.InBuilding.ToString()) {
+				if (GameController._player.ReturnBuildingIfExists().CurrentFloor != 1) {
+					_enterBtn.Draw();
+					_enterBtn.Visible = true;
+
+					_enterBtn2.Visible = false;
+				}
+
+				else {
+					_enterBtn.Visible = false;
+
+					_enterBtn2.Draw();
+					_enterBtn2.Visible = true;
+				}
+			}
+			else if (GameController._player.Location.EnterBuilding != null) {
+				_enterBtn.Draw();
+				_enterBtn.Visible = true;
+				_enterBtn2.Visible = false;
+			}
+			else {
+				_enterBtn.Visible = false;
+				_enterBtn2.Visible = false;
+			}
+		}
+
+		private void DrawExitButton() {
+			//only draw exit button 1 if player is not on floor 1 of building or is in a classroom
+			//only draw exit button 2 is player in on fl0or 1 of building
+			if (GameController._currentState == GameState.InBuilding.ToString()) {
+				if (GameController._player.ReturnBuildingIfExists().CurrentFloor == 1) {
+					_exitBtn.Visible = false;
+
+					_exitBtn2.Draw();
+					_exitBtn2.Visible = true;					
+				}
+				else {
+					_exitBtn.Visible = false;
+					_exitBtn2.Visible = false;
+				}
+			}
+			else if (GameController._currentState == GameState.InClassroom.ToString()) {
+				_exitBtn.Draw();
+				_exitBtn.Visible = true;
+				_exitBtn2.Visible = false;
+			}
+			else {
+				_exitBtn.Visible = false;
+				_exitBtn2.Visible = false;
+			}
 		}
 
 		private void DrawInfoButton() {
@@ -154,12 +240,19 @@ namespace Swinburneexplorer {
 		private void InitialiseButtons() {
 			Bitmap btnImg = GameResources.GetImage("btnBase");
 			Rectangle btnMask = CreateMask(ARROW_X - 8, ARROW_Y + btnImg.Height / 4, btnImg.Width, btnImg.Height);
-			//btnMask.Width = btnImg.Width;
-			//btnMask.Height = btnImg.Height;
-			//btnMask.X = ARROW_X - 8;
-			//btnMask.Y = ARROW_Y + btnImg.Height / 4;
+			Rectangle btnMask2 = CreateMask(ARROW_X - 8 - 47, ARROW_Y + btnImg.Height / 4, btnImg.Width, btnImg.Height);
+			Rectangle btnMask3 = CreateMask(ARROW_X - 8 + 47, ARROW_Y + btnImg.Height / 4, btnImg.Width, btnImg.Height);
 
 			_enterBtn = new UIButton(btnMask, "Enter");
+
+			_exitBtn = new UIButton(btnMask, "Exit");
+			_exitBtn.Visible = false;
+
+			_enterBtn2 = new UIButton(btnMask2, "Enter");
+			_enterBtn2.Visible = false;
+
+			_exitBtn2 = new UIButton(btnMask3, "Exit");
+			_exitBtn2.Visible = false;
 		}
 
 		private void InitialiseInfoButton()	{
@@ -190,6 +283,14 @@ namespace Swinburneexplorer {
 			return (_enterBtn.IsHovering(SplashKit.MousePosition()));
 		}
 
+		public bool CheckMouseInEnter2Button() {
+			return (_enterBtn2.IsHovering(SplashKit.MousePosition()));
+		}
+
+		public bool CheckMouseInExit2Button() {
+			return (_exitBtn2.IsHovering(SplashKit.MousePosition()));
+		}
+
 		public bool CheckMouseInInfoButton() {
 			return (_infoBtn.IsHovering(SplashKit.MousePosition()));
 		}
@@ -203,6 +304,24 @@ namespace Swinburneexplorer {
 		public UIButton EnterButton	{
 			get	{
 				return _enterBtn;
+			}
+		}
+
+		public UIButton ExitButton {
+			get {
+				return _exitBtn;
+			}
+		}
+
+		public UIButton EnterButton2 {
+			get {
+				return _enterBtn2;
+			}
+		}
+
+		public UIButton ExitButton2 {
+			get {
+				return _exitBtn2;
 			}
 		}
 	}

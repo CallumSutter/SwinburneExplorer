@@ -13,6 +13,12 @@ namespace Swinburneexplorer
         //Player is moving between locations/main game
         Travelling,
 
+        //player is in a building
+        InBuilding,
+
+        //player is in a classroom
+        InClassroom,
+
         //Player is looking at the map
         FullscreenMap,
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SplashKitSDK;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -8,12 +9,14 @@ namespace Swinburneexplorer
     {
         private string _roomId;
 
-        public Classroom(string roomId)
-        { }
+        public Classroom(string roomId) {
+            _roomId = roomId;          
+        }
 
-        public string RoomId
-        {
-            get { return _roomId; }
+        public string RoomId {
+            get { 
+                return _roomId; 
+            }
         }
     }
 }
