@@ -188,7 +188,10 @@ namespace Swinburneexplorer
 			_locations.Add("grassPath4", new Location("grassPath4"));
 			_locations.Add("grassPath5", new Location("grassPath5"));
 			_locations.Add("grassPath6", new Location("grassPath6"));
-			_locations.Add("instreet1", new Location("instreet1"));
+            _locations.Add("grassPath7", new Location("grassPath7"));
+            _locations.Add("grassPath8", new Location("grassPath8"));
+            _locations.Add("grassPath9", new Location("grassPath9"));
+            _locations.Add("instreet1", new Location("instreet1"));
 			_locations.Add("instreet2", new Location("instreet2"));
 			_locations.Add("instreet3", new Location("instreet3"));
 			_locations.Add("instreet4", new Location("instreet4"));
@@ -222,14 +225,26 @@ namespace Swinburneexplorer
 			_locations.Add("spw7", new Location("spw7"));
 			_locations.Add("spw8", new Location("spw8"));
 			_locations.Add("spw9", new Location("spw9"));
-			_locations.Add("stairs", new Location("stairs"));
+            _locations.Add("spw10", new Location("spw10"));
+            _locations.Add("spw11", new Location("spw11"));
+            _locations.Add("spw12", new Location("spw12"));
+            _locations.Add("stairs", new Location("stairs"));
 			_locations.Add("studentCarPark", new Location("studentCarPark"));
 			_locations.Add("study", new Location("study"));
 			_locations.Add("TA Building", new Location("TA Building"));
 			_locations.Add("TB Building", new Location("TB Building"));
 			_locations.Add("TC Building", new Location("TC Building"));
 			_locations.Add("TD Building", new Location("TD Building"));
-			_locations.Add("toAMDC1", new Location("toAMDC1"));
+            _locations.Add("toAD1", new Location("toAD1"));
+            _locations.Add("toAD2", new Location("toAD2"));
+            _locations.Add("toAD3", new Location("toAD3"));
+            _locations.Add("toAD4", new Location("toAD4"));
+            _locations.Add("toAD5", new Location("toAD5"));
+            _locations.Add("toTATB1", new Location("toTATB1"));
+            _locations.Add("toTATB2", new Location("toTATB2"));
+            _locations.Add("toTATB3", new Location("toTATB3"));
+            _locations.Add("toTATB4", new Location("toTATB4"));
+            _locations.Add("toAMDC1", new Location("toAMDC1"));
 			_locations.Add("toAMDC2", new Location("toAMDC2"));
 			_locations.Add("toAMDC3", new Location("toAMDC3"));
 			_locations.Add("toAMDC4", new Location("toAMDC4"));
@@ -243,7 +258,15 @@ namespace Swinburneexplorer
 			_locations.Add("toATC2", new Location("toATC2"));
 			_locations.Add("toATC3", new Location("toATC3"));
 			_locations.Add("toATC4", new Location("toATC4"));
-			_locations.Add("toEN1", new Location("toEN1"));
+            _locations.Add("toCampus1", new Location("toCampus1"));
+            _locations.Add("toCampus2", new Location("toCampus2"));
+            _locations.Add("toCampus3", new Location("toCampus3"));
+            _locations.Add("toCampus4", new Location("toCampus4"));
+            _locations.Add("toCampus5", new Location("toCampus5"));
+            _locations.Add("toCampus6", new Location("toCampus6"));
+            _locations.Add("toCampus7", new Location("toCampus7"));
+            _locations.Add("toCampus8", new Location("toCampus8"));
+            _locations.Add("toEN1", new Location("toEN1"));
 			_locations.Add("toEN2", new Location("toEN2"));
 			_locations.Add("toEN3", new Location("toEN3"));
 			_locations.Add("toEN4", new Location("toEN4"));
@@ -270,7 +293,10 @@ namespace Swinburneexplorer
 			_locations.Add("toTrain10", new Location("toTrain10"));
 			_locations.Add("toTrain11", new Location("toTrain11"));
 			_locations.Add("toTrain12", new Location("toTrain12"));
-			_locations.Add("toWestSide1", new Location("toWestSide1"));
+            _locations.Add("toTrain13", new Location("toTrain13"));
+            _locations.Add("toTrain14", new Location("toTrain14"));
+            _locations.Add("toTrain15", new Location("toTrain15"));
+            _locations.Add("toWestSide1", new Location("toWestSide1"));
 			_locations.Add("toWestSide2", new Location("toWestSide2"));
 			_locations.Add("Train", new Location("Train"));
 			_locations.Add("trainPark1", new Location("trainPark1"));
@@ -283,7 +309,11 @@ namespace Swinburneexplorer
 			_locations.Add("tunnel2", new Location("tunnel2"));
 			_locations.Add("tunnel3", new Location("tunnel3"));
 			_locations.Add("tunnel4", new Location("tunnel4"));
-			_locations.Add("westSide1", new Location("westSide1"));
+            _locations.Add("tunnel5", new Location("tunnel5"));
+            _locations.Add("tunnel6", new Location("tunnel6"));
+            _locations.Add("tunnel7", new Location("tunnel7"));
+            _locations.Add("tunnel8", new Location("tunnel8"));
+            _locations.Add("westSide1", new Location("westSide1"));
 			_locations.Add("westSide2", new Location("westSide2"));
 			_locations.Add("westSide3", new Location("westSide3"));
 			_locations.Add("westSide4", new Location("westSide4"));
@@ -324,42 +354,43 @@ namespace Swinburneexplorer
 			//toTrain1
 			GetLocation("toTrain1").AddConnectingLocation(GetLocation("toTrain2"), FORWARD);
 			GetLocation("toTrain1").AddConnectingLocation(GetLocation("toAMDC1"), LEFT);
-            GetLocation("toTrain1").AddConnectingLocation(GetLocation("sneak1"), BACKWARD);
+			GetLocation("toTrain1").AddConnectingLocation(GetLocation("tunnel8"), RIGHT);
+			GetLocation("toTrain1").AddConnectingLocation(GetLocation("sneak1"), BACKWARD);
 
-            //toTrain2
-            GetLocation("toTrain2").AddConnectingLocation(GetLocation("toTrain3"), FORWARD);
-			GetLocation("toTrain2").AddConnectingLocation(GetLocation("toTrain1"), BACKWARD);
+			//toTrain2
+			GetLocation("toTrain2").AddConnectingLocation(GetLocation("toTrain3"), FORWARD);
+			GetLocation("toTrain2").AddConnectingLocation(GetLocation("toCampus8"), BACKWARD);
 
 			//toTrain3
 			GetLocation("toTrain3").AddConnectingLocation(GetLocation("toTrain4"), FORWARD);
-			GetLocation("toTrain3").AddConnectingLocation(GetLocation("toTrain2"), BACKWARD);
+			GetLocation("toTrain3").AddConnectingLocation(GetLocation("toCampus7"), BACKWARD);
 			GetLocation("toTrain3").AddConnectingLocation(GetLocation("toEN1"), LEFT);
 
 			//toTrain4
 			GetLocation("toTrain4").AddConnectingLocation(GetLocation("toTrain5"), FORWARD);
-			GetLocation("toTrain4").AddConnectingLocation(GetLocation("toTrain3"), BACKWARD);
+			GetLocation("toTrain4").AddConnectingLocation(GetLocation("toCampus6"), BACKWARD);
 
 			//toTrain5
 			GetLocation("toTrain5").AddConnectingLocation(GetLocation("toTrain6"), FORWARD);
-			GetLocation("toTrain5").AddConnectingLocation(GetLocation("toTrain4"), BACKWARD);
+			GetLocation("toTrain5").AddConnectingLocation(GetLocation("toCampus5"), BACKWARD);
 			GetLocation("toTrain5").AddConnectingLocation(GetLocation("AR Building"), LEFT);
 
 			//toTrain6
 			GetLocation("toTrain6").AddConnectingLocation(GetLocation("toTrain7"), FORWARD);
-			GetLocation("toTrain6").AddConnectingLocation(GetLocation("toTrain5"), BACKWARD);
+			GetLocation("toTrain6").AddConnectingLocation(GetLocation("toCampus4"), BACKWARD);
 			GetLocation("toTrain6").AddConnectingLocation(GetLocation("trainPark6"), LEFT);
 
 			//toTrain7
-			GetLocation("toTrain7").AddConnectingLocation(GetLocation("toTrain8"), RIGHT);
-			GetLocation("toTrain7").AddConnectingLocation(GetLocation("toTrain6"), BACKWARD);
+			GetLocation("toTrain7").AddConnectingLocation(GetLocation("toCampus3"), BACKWARD);
+            GetLocation("toTrain7").AddConnectingLocation(GetLocation("toTrain13"), FORWARD);
 
-			//toTrain8
-			GetLocation("toTrain8").AddConnectingLocation(GetLocation("toTrain7"), LEFT);
+            //toTrain8
 			GetLocation("toTrain8").AddConnectingLocation(GetLocation("Train"), RIGHT);
 			GetLocation("toTrain8").AddConnectingLocation(GetLocation("toTrain9"), BACKWARD);
+            GetLocation("toTrain8").AddConnectingLocation(GetLocation("toCampus1"), FORWARD);
 
-			//toTrain9
-			GetLocation("toTrain9").AddConnectingLocation(GetLocation("toTrain8"), FORWARD);
+            //toTrain9
+            GetLocation("toTrain9").AddConnectingLocation(GetLocation("toTrain8"), FORWARD);
 			GetLocation("toTrain9").AddConnectingLocation(GetLocation("toTrain10"), BACKWARD);
             GetLocation("toTrain9").AddConnectingLocation(GetLocation("toTrain10"), RIGHT);
             GetLocation("toTrain9").AddConnectingLocation(GetLocation("toTrain11"), LEFT);
@@ -370,14 +401,27 @@ namespace Swinburneexplorer
 
 			//toTrain11
 			GetLocation("toTrain11").AddConnectingLocation(GetLocation("toTrain12"), FORWARD);
-			GetLocation("toTrain11").AddConnectingLocation(GetLocation("toTrain10"), BACKWARD);
+			GetLocation("toTrain11").AddConnectingLocation(GetLocation("toTrain15"), BACKWARD);
 
 			//toTrain12
 			GetLocation("toTrain12").AddConnectingLocation(GetLocation("spw4"), FORWARD);
-			GetLocation("toTrain12").AddConnectingLocation(GetLocation("toTrain11"), BACKWARD);
+			GetLocation("toTrain12").AddConnectingLocation(GetLocation("toTrain14"), BACKWARD);
 
-			//Train
-			GetLocation("Train").AddConnectingLocation(GetLocation("toTrain8"), LEFT);
+            //toTrain13
+            GetLocation("toTrain13").AddConnectingLocation(GetLocation("toCampus1"), RIGHT);
+            GetLocation("toTrain13").AddConnectingLocation(GetLocation("toTrain8"), FORWARD);
+
+            //toTrain14
+            GetLocation("toTrain14").AddConnectingLocation(GetLocation("toTrain15"), FORWARD);
+            GetLocation("toTrain14").AddConnectingLocation(GetLocation("toTrain12"), BACKWARD);
+
+            //toTrain15
+            GetLocation("toTrain15").AddConnectingLocation(GetLocation("toTrain10"), FORWARD);
+            GetLocation("toTrain15").AddConnectingLocation(GetLocation("toTrain11"), BACKWARD);
+            GetLocation("toTrain15").AddConnectingLocation(GetLocation("toTrain9"), LEFT);
+
+            //Train
+            GetLocation("Train").AddConnectingLocation(GetLocation("toTrain8"), LEFT);
             GetLocation("Train").AddConnectingLocation(GetLocation("toTrain9"), RIGHT);
 
             //spw1
@@ -395,11 +439,11 @@ namespace Swinburneexplorer
 			//spw4
 			GetLocation("spw4").AddConnectingLocation(GetLocation("spw3"), LEFT);
 			GetLocation("spw4").AddConnectingLocation(GetLocation("spw5"), FORWARD);
-			GetLocation("spw4").AddConnectingLocation(GetLocation("toTrain12"), BACKWARD);
+			GetLocation("spw4").AddConnectingLocation(GetLocation("spw12"), BACKWARD);
 
 			//spw5
 			GetLocation("spw5").AddConnectingLocation(GetLocation("spw6"), FORWARD);
-			GetLocation("spw5").AddConnectingLocation(GetLocation("spw4"), BACKWARD);
+			GetLocation("spw5").AddConnectingLocation(GetLocation("spw11"), BACKWARD);
 
 			//spw6
 			GetLocation("spw6").AddConnectingLocation(GetLocation("spw7"), FORWARD);
@@ -408,7 +452,7 @@ namespace Swinburneexplorer
 			//spw7
 			GetLocation("spw7").AddConnectingLocation(GetLocation("grassPath1"), FORWARD);
 			GetLocation("spw7").AddConnectingLocation(GetLocation("spw8"), LEFT);
-			GetLocation("spw7").AddConnectingLocation(GetLocation("spw6"), BACKWARD);
+			GetLocation("spw7").AddConnectingLocation(GetLocation("spw10"), BACKWARD);
 
 			//spw8
 			GetLocation("spw8").AddConnectingLocation(GetLocation("spw7"), FORWARD);
@@ -418,8 +462,20 @@ namespace Swinburneexplorer
 			GetLocation("spw9").AddConnectingLocation(GetLocation("spw8"), FORWARD);
 			GetLocation("spw9").AddConnectingLocation(GetLocation("instreet8"), BACKWARD);
 
-			//grassPath1
-			GetLocation("grassPath1").AddConnectingLocation(GetLocation("grassPath2"), FORWARD);
+            //spw10
+            GetLocation("spw10").AddConnectingLocation(GetLocation("spw11"), FORWARD);
+            GetLocation("spw10").AddConnectingLocation(GetLocation("spw7"), BACKWARD);
+
+            //spw11
+            GetLocation("spw11").AddConnectingLocation(GetLocation("spw12"), FORWARD);
+            GetLocation("spw11").AddConnectingLocation(GetLocation("spw5"), BACKWARD);
+
+            //spw12
+            GetLocation("spw12").AddConnectingLocation(GetLocation("toTrain14"), FORWARD);
+            GetLocation("spw12").AddConnectingLocation(GetLocation("spw4"), BACKWARD);
+
+            //grassPath1
+            GetLocation("grassPath1").AddConnectingLocation(GetLocation("grassPath2"), FORWARD);
 			GetLocation("grassPath1").AddConnectingLocation(GetLocation("spw7"), BACKWARD);
 
 			//grassPath2
@@ -432,17 +488,29 @@ namespace Swinburneexplorer
 
 			//grassPath4
 			GetLocation("grassPath4").AddConnectingLocation(GetLocation("grassPath5"), FORWARD);
-			GetLocation("grassPath4").AddConnectingLocation(GetLocation("grassPath3"), BACKWARD);
+			GetLocation("grassPath4").AddConnectingLocation(GetLocation("grassPath9"), BACKWARD);
 
 			//grassPath5
 			GetLocation("grassPath5").AddConnectingLocation(GetLocation("grassPath6"), FORWARD);
-			GetLocation("grassPath5").AddConnectingLocation(GetLocation("grassPath4"), BACKWARD);
+			GetLocation("grassPath5").AddConnectingLocation(GetLocation("grassPath8"), BACKWARD);
 
 			//grassPath6
-			GetLocation("grassPath6").AddConnectingLocation(GetLocation("tunnel3"), LEFT);
+			GetLocation("grassPath6").AddConnectingLocation(GetLocation("tunnel7"), LEFT);
 			GetLocation("grassPath6").AddConnectingLocation(GetLocation("tunnel4"), RIGHT);
-			GetLocation("grassPath6").AddConnectingLocation(GetLocation("grassPath5"), BACKWARD);
+			GetLocation("grassPath6").AddConnectingLocation(GetLocation("grassPath7"), BACKWARD);
             GetLocation("grassPath6").AddConnectingLocation(GetLocation("side1"), FORWARD);
+
+            //grassPath7
+            GetLocation("grassPath7").AddConnectingLocation(GetLocation("grassPath8"), FORWARD);
+            GetLocation("grassPath7").AddConnectingLocation(GetLocation("grassPath6"), BACKWARD);
+
+            //grassPath8
+            GetLocation("grassPath8").AddConnectingLocation(GetLocation("grassPath9"), FORWARD);
+            GetLocation("grassPath8").AddConnectingLocation(GetLocation("grassPath5"), BACKWARD);
+
+            //grassPath9
+            GetLocation("grassPath9").AddConnectingLocation(GetLocation("spw10"), FORWARD);
+            GetLocation("grassPath9").AddConnectingLocation(GetLocation("grassPath4"), BACKWARD);
 
             //tunnel1
             GetLocation("tunnel1").AddConnectingLocation(GetLocation("tunnel2"), FORWARD);
@@ -453,44 +521,64 @@ namespace Swinburneexplorer
             //tunnel2
             GetLocation("tunnel2").AddConnectingLocation(GetLocation("tunnel3"), FORWARD);
 			GetLocation("tunnel2").AddConnectingLocation(GetLocation("AGSE Building"), LEFT);
-			GetLocation("tunnel2").AddConnectingLocation(GetLocation("tunnel1"), BACKWARD);
+			GetLocation("tunnel2").AddConnectingLocation(GetLocation("tunnel5"), BACKWARD);
 
 			//tunnel3
 			GetLocation("tunnel3").AddConnectingLocation(GetLocation("tunnel4"), FORWARD);
-			GetLocation("tunnel3").AddConnectingLocation(GetLocation("tunnel2"), BACKWARD);
-			GetLocation("tunnel3").AddConnectingLocation(GetLocation("grassPath6"), RIGHT);
+			GetLocation("tunnel3").AddConnectingLocation(GetLocation("tunnel6"), BACKWARD);
+			GetLocation("tunnel3").AddConnectingLocation(GetLocation("grassPath7"), RIGHT);
 			GetLocation("tunnel3").AddConnectingLocation(GetLocation("side1"), LEFT);
 
 			//tunnel4
 			GetLocation("tunnel4").AddConnectingLocation(GetLocation("toAMDC1"), FORWARD);
-			GetLocation("tunnel4").AddConnectingLocation(GetLocation("tunnel3"), BACKWARD);
-			GetLocation("tunnel4").AddConnectingLocation(GetLocation("grassPath6"), RIGHT);
+			GetLocation("tunnel4").AddConnectingLocation(GetLocation("tunnel7"), BACKWARD);
+			GetLocation("tunnel4").AddConnectingLocation(GetLocation("grassPath7"), RIGHT);
 
-			//toAMDC1
-			GetLocation("toAMDC1").AddConnectingLocation(GetLocation("toAMDC2"), FORWARD);
-			GetLocation("toAMDC1").AddConnectingLocation(GetLocation("tunnel4"), BACKWARD);
+            //tunnel5
+            GetLocation("tunnel5").AddConnectingLocation(GetLocation("toSouthSide1"), FORWARD);
+            GetLocation("tunnel5").AddConnectingLocation(GetLocation("tunnel2"), BACKWARD);
+
+            //tunnel6
+            GetLocation("tunnel6").AddConnectingLocation(GetLocation("tunnel5"), FORWARD);
+            GetLocation("tunnel6").AddConnectingLocation(GetLocation("tunnel3"), BACKWARD);
+
+            //tunnel7
+            GetLocation("tunnel7").AddConnectingLocation(GetLocation("tunnel6"), FORWARD);
+            GetLocation("tunnel7").AddConnectingLocation(GetLocation("tunnel4"), BACKWARD);
+            GetLocation("tunnel7").AddConnectingLocation(GetLocation("grassPath7"), LEFT);
+            GetLocation("tunnel7").AddConnectingLocation(GetLocation("side1"), RIGHT);
+
+            //tunnel8
+            GetLocation("tunnel8").AddConnectingLocation(GetLocation("tunnel7"), FORWARD);
+            GetLocation("tunnel8").AddConnectingLocation(GetLocation("toAMDC1"), BACKWARD);
+            GetLocation("tunnel8").AddConnectingLocation(GetLocation("sneak1"), RIGHT);
+            GetLocation("tunnel8").AddConnectingLocation(GetLocation("toTrain1"), LEFT);
+
+            //toAMDC1
+            GetLocation("toAMDC1").AddConnectingLocation(GetLocation("toAMDC2"), FORWARD);
+			GetLocation("toAMDC1").AddConnectingLocation(GetLocation("tunnel8"), BACKWARD);
 			GetLocation("toAMDC1").AddConnectingLocation(GetLocation("toTrain1"), RIGHT);
 			GetLocation("toAMDC1").AddConnectingLocation(GetLocation("sneak1"), LEFT);
 
 			//toAMDC2
 			GetLocation("toAMDC2").AddConnectingLocation(GetLocation("toAMDC3"), FORWARD);
-			GetLocation("toAMDC2").AddConnectingLocation(GetLocation("toAMDC1"), BACKWARD);
+			GetLocation("toAMDC2").AddConnectingLocation(GetLocation("toAD4"), BACKWARD);
 			GetLocation("toAMDC2").AddConnectingLocation(GetLocation("AD Building"), RIGHT);
 
 			//toAMDC3
 			GetLocation("toAMDC3").AddConnectingLocation(GetLocation("toAMDC4"), FORWARD);
-			GetLocation("toAMDC3").AddConnectingLocation(GetLocation("toAMDC2"), BACKWARD);
+			GetLocation("toAMDC3").AddConnectingLocation(GetLocation("toAD4"), BACKWARD);
 			GetLocation("toAMDC3").AddConnectingLocation(GetLocation("study"), LEFT);
 			GetLocation("toAMDC3").AddConnectingLocation(GetLocation("toATC1"), RIGHT);
 
 			//toAMDC4
 			GetLocation("toAMDC4").AddConnectingLocation(GetLocation("toAMDC5"), FORWARD);
-			GetLocation("toAMDC4").AddConnectingLocation(GetLocation("toAMDC3"), BACKWARD);
+			GetLocation("toAMDC4").AddConnectingLocation(GetLocation("toAD3"), BACKWARD);
 			GetLocation("toAMDC4").AddConnectingLocation(GetLocation("toWestSide1"), LEFT);
 
 			//toAMDC5
 			GetLocation("toAMDC5").AddConnectingLocation(GetLocation("northSide3"), FORWARD);
-			GetLocation("toAMDC5").AddConnectingLocation(GetLocation("toAMDC4"), BACKWARD);
+			GetLocation("toAMDC5").AddConnectingLocation(GetLocation("toAD2"), BACKWARD);
 			GetLocation("toAMDC5").AddConnectingLocation(GetLocation("AMDC Building"), LEFT);
 
 			//AMDC
@@ -500,10 +588,9 @@ namespace Swinburneexplorer
 			GetLocation("AMDC Building").SetBuilding(GetBuilding("AMDC Interior"));
 
 			//study
-			GetLocation("study").AddConnectingLocation(GetLocation("toAMDC3"), BACKWARD);
-            GetLocation("study").AddConnectingLocation(GetLocation("toAMDC4"), RIGHT);
-            GetLocation("study").AddConnectingLocation(GetLocation("toAMDC2"), LEFT);
-			GetLocation("study").SetBuilding(GetBuilding("Study Interior"));
+			GetLocation("study").AddConnectingLocation(GetLocation("AD Building"), BACKWARD);
+            GetLocation("study").AddConnectingLocation(GetLocation("toAMDC3"), RIGHT);
+            GetLocation("study").AddConnectingLocation(GetLocation("toAD5"), LEFT);
 
             //toWestSide1
             GetLocation("toWestSide1").AddConnectingLocation(GetLocation("FS Building"), FORWARD);
@@ -580,8 +667,9 @@ namespace Swinburneexplorer
 			GetLocation("westSide13").AddConnectingLocation(GetLocation("westSide12"), BACKWARD);
 
 			//sneak1
-			GetLocation("sneak1").AddConnectingLocation(GetLocation("toAMDC1"), RIGHT);
-			GetLocation("sneak1").AddConnectingLocation(GetLocation("sneak2"), BACKWARD);
+			GetLocation("sneak1").AddConnectingLocation(GetLocation("toAMDC1"), LEFT);
+            GetLocation("sneak1").AddConnectingLocation(GetLocation("tunnel8"), RIGHT);
+            GetLocation("sneak1").AddConnectingLocation(GetLocation("sneak2"), BACKWARD);
             GetLocation("sneak1").AddConnectingLocation(GetLocation("toTrain1"), FORWARD);
 
             //sneak2
@@ -602,7 +690,7 @@ namespace Swinburneexplorer
 
 			//southSide3
 			GetLocation("southSide3").AddConnectingLocation(GetLocation("southSide2"), FORWARD);
-			GetLocation("southSide3").AddConnectingLocation(GetLocation("toSouthSide4"), LEFT);
+			GetLocation("southSide3").AddConnectingLocation(GetLocation("toTATB1"), LEFT);
 			GetLocation("southSide3").AddConnectingLocation(GetLocation("southSide4"), BACKWARD);
 
 			//southSide4
@@ -619,14 +707,12 @@ namespace Swinburneexplorer
 			GetLocation("southSide6").AddConnectingLocation(GetLocation("westSide13"), BACKWARD);
 
 			//TA
-			GetLocation("TA Building").AddConnectingLocation(GetLocation("toSouthSide1"), LEFT);
+			GetLocation("TA Building").AddConnectingLocation(GetLocation("toTATB3"), LEFT);
             GetLocation("TA Building").AddConnectingLocation(GetLocation("toSouthSide2"), RIGHT);
-			GetLocation("TA Building").SetBuilding(GetBuilding("TA Interior"));
 
             //TB
-            GetLocation("TB Building").AddConnectingLocation(GetLocation("toSouthSide1"), RIGHT);
+            GetLocation("TB Building").AddConnectingLocation(GetLocation("toTATB3"), RIGHT);
             GetLocation("TB Building").AddConnectingLocation(GetLocation("toSouthSide2"), LEFT);
-			GetLocation("TB Building").SetBuilding(GetBuilding("TB Interior"));
 
             //TC
             GetLocation("TC Building").AddConnectingLocation(GetLocation("southSide4"), BACKWARD);
@@ -644,15 +730,15 @@ namespace Swinburneexplorer
 
 			//toSouthSide2
 			GetLocation("toSouthSide2").AddConnectingLocation(GetLocation("toSouthSide3"), FORWARD);
-			GetLocation("toSouthSide2").AddConnectingLocation(GetLocation("toSouthSide1"), BACKWARD);
+			GetLocation("toSouthSide2").AddConnectingLocation(GetLocation("toTATB3"), BACKWARD);
 
 			//toSouthSide3
 			GetLocation("toSouthSide3").AddConnectingLocation(GetLocation("toSouthSide4"), FORWARD);
-			GetLocation("toSouthSide3").AddConnectingLocation(GetLocation("toSouthSide2"), BACKWARD);
+			GetLocation("toSouthSide3").AddConnectingLocation(GetLocation("toTATB2"), BACKWARD);
 
 			//toSouthSide4
 			GetLocation("toSouthSide4").AddConnectingLocation(GetLocation("southSide3"), FORWARD);
-			GetLocation("toSouthSide4").AddConnectingLocation(GetLocation("toSouthSide3"), BACKWARD);
+			GetLocation("toSouthSide4").AddConnectingLocation(GetLocation("toTATB1"), BACKWARD);
 
 			//toLodges1
 			GetLocation("toLodges1").AddConnectingLocation(GetLocation("toLodges2"), FORWARD);
@@ -729,11 +815,12 @@ namespace Swinburneexplorer
 			GetLocation("studentCarPark").AddConnectingLocation(GetLocation("instreet9"), BACKWARD);
 
 			//AD
-			GetLocation("AD Building").AddConnectingLocation(GetLocation("toAMDC2"), BACKWARD);
-			GetLocation("AD Building").SetBuilding(GetBuilding("AD Interior"));
+			GetLocation("AD Building").AddConnectingLocation(GetLocation("toAMDC3"), LEFT);
+            GetLocation("AD Building").AddConnectingLocation(GetLocation("toAD5"), RIGHT);
+            GetLocation("AD Building").AddConnectingLocation(GetLocation("study"), BACKWARD);
 
-			//backOfAD
-			GetLocation("backOfAD").AddConnectingLocation(GetLocation("toEN2"), BACKWARD);
+            //backOfAD
+            GetLocation("backOfAD").AddConnectingLocation(GetLocation("toEN2"), BACKWARD);
 
 			//toEN1
 			GetLocation("toEN1").AddConnectingLocation(GetLocation("toTrain3"), BACKWARD);
@@ -758,11 +845,11 @@ namespace Swinburneexplorer
 			GetLocation("toEN5").AddConnectingLocation(GetLocation("toAS1"), LEFT);
 
 			//AR
-			GetLocation("AR Building").AddConnectingLocation(GetLocation("toTrain5"), BACKWARD);
-			GetLocation("AR Building").SetBuilding(GetBuilding("AR Interior"));
+			GetLocation("AR Building").AddConnectingLocation(GetLocation("toTrain5"), RIGHT);
+            GetLocation("AR Building").AddConnectingLocation(GetLocation("toCampus6"), LEFT);
 
-			//toATC1
-			GetLocation("toATC1").AddConnectingLocation(GetLocation("toAMDC3"), FORWARD);
+            //toATC1
+            GetLocation("toATC1").AddConnectingLocation(GetLocation("toAMDC3"), FORWARD);
 			GetLocation("toATC1").AddConnectingLocation(GetLocation("toATC2"), BACKWARD);
 
 			//toATC2
@@ -822,7 +909,7 @@ namespace Swinburneexplorer
 
 			//northSide3
 			GetLocation("northSide3").AddConnectingLocation(GetLocation("northSide4"), FORWARD);
-			GetLocation("northSide3").AddConnectingLocation(GetLocation("toAMDC5"), LEFT);
+			GetLocation("northSide3").AddConnectingLocation(GetLocation("toAD1"), LEFT);
 			GetLocation("northSide3").AddConnectingLocation(GetLocation("northSide2"), BACKWARD);
 
 			//northSide4
@@ -855,10 +942,12 @@ namespace Swinburneexplorer
 
 			//side1
 			GetLocation("side1").AddConnectingLocation(GetLocation("side2"), FORWARD);
-			GetLocation("side1").AddConnectingLocation(GetLocation("tunnel3"), BACKWARD);
+			GetLocation("side1").AddConnectingLocation(GetLocation("grassPath6"), BACKWARD);
+            GetLocation("side1").AddConnectingLocation(GetLocation("tunnel7"), LEFT);
+            GetLocation("side1").AddConnectingLocation(GetLocation("tunnel4"), RIGHT);
 
-			//side2
-			GetLocation("side2").AddConnectingLocation(GetLocation("side3"), FORWARD);
+            //side2
+            GetLocation("side2").AddConnectingLocation(GetLocation("side3"), FORWARD);
 			GetLocation("side2").AddConnectingLocation(GetLocation("side1"), BACKWARD);
 
 			//side3
@@ -867,8 +956,78 @@ namespace Swinburneexplorer
 
 			//EN
 			GetLocation("EN Building").AddConnectingLocation(GetLocation("toEN4"), BACKWARD);
-			GetLocation("EN Building").SetBuilding(GetBuilding("EN Interior"));
-		}
+
+            //toCampus1
+            GetLocation("toCampus1").AddConnectingLocation(GetLocation("toTrain13"), LEFT);
+            GetLocation("toCampus1").AddConnectingLocation(GetLocation("toCampus2"), FORWARD);
+
+            //toCampus2
+            GetLocation("toCampus2").AddConnectingLocation(GetLocation("toCampus3"), FORWARD);
+
+            //toCampus3
+            GetLocation("toCampus3").AddConnectingLocation(GetLocation("toTrain7"), BACKWARD);
+            GetLocation("toCampus3").AddConnectingLocation(GetLocation("toCampus4"), FORWARD);
+
+            //toCampus4
+            GetLocation("toCampus4").AddConnectingLocation(GetLocation("toTrain6"), BACKWARD);
+            GetLocation("toCampus4").AddConnectingLocation(GetLocation("toCampus5"), FORWARD);
+
+            //toCampus5
+            GetLocation("toCampus5").AddConnectingLocation(GetLocation("toTrain5"), BACKWARD);
+            GetLocation("toCampus5").AddConnectingLocation(GetLocation("toCampus6"), FORWARD);
+
+            //toCampus6
+            GetLocation("toCampus6").AddConnectingLocation(GetLocation("toTrain4"), BACKWARD);
+            GetLocation("toCampus6").AddConnectingLocation(GetLocation("toCampus7"), FORWARD);
+            GetLocation("toCampus6").AddConnectingLocation(GetLocation("AR Building"), RIGHT);
+
+            //toCampus7
+            GetLocation("toCampus7").AddConnectingLocation(GetLocation("toTrain3"), BACKWARD);
+            GetLocation("toCampus7").AddConnectingLocation(GetLocation("toCampus8"), FORWARD);
+
+            //toCampus8
+            GetLocation("toCampus8").AddConnectingLocation(GetLocation("toTrain2"), BACKWARD);
+            GetLocation("toCampus8").AddConnectingLocation(GetLocation("toAMDC1"), RIGHT);
+
+            //toAD1
+            GetLocation("toAD1").AddConnectingLocation(GetLocation("toAD2"), FORWARD);
+            GetLocation("toAD1").AddConnectingLocation(GetLocation("northSide3"), RIGHT);
+
+            //toAD2
+            GetLocation("toAD2").AddConnectingLocation(GetLocation("toAD3"), FORWARD);
+            GetLocation("toAD2").AddConnectingLocation(GetLocation("toAMDC5"), BACKWARD);
+            GetLocation("toAD2").AddConnectingLocation(GetLocation("AMDC Building"), RIGHT);
+
+            //toAD3
+            GetLocation("toAD3").AddConnectingLocation(GetLocation("toAD4"), FORWARD);
+            GetLocation("toAD3").AddConnectingLocation(GetLocation("toAMDC4"), BACKWARD);
+            GetLocation("toAD3").AddConnectingLocation(GetLocation("toWestSide1"), RIGHT);
+
+            //toAD4
+            GetLocation("toAD4").AddConnectingLocation(GetLocation("toAD5"), FORWARD);
+            GetLocation("toAD4").AddConnectingLocation(GetLocation("toAMDC3"), BACKWARD);
+            GetLocation("toAD4").AddConnectingLocation(GetLocation("toATC1"), LEFT);
+
+            //toAD5
+            GetLocation("toAD5").AddConnectingLocation(GetLocation("tunnel8"), FORWARD);
+            GetLocation("toAD5").AddConnectingLocation(GetLocation("toAMDC2"), BACKWARD);
+            GetLocation("toAD5").AddConnectingLocation(GetLocation("study"), RIGHT);
+            GetLocation("toAD5").AddConnectingLocation(GetLocation("AD Building"), LEFT);
+
+            //toTATB1
+            GetLocation("toTATB1").AddConnectingLocation(GetLocation("toTATB2"), FORWARD);
+            GetLocation("toTATB1").AddConnectingLocation(GetLocation("toSouthSide4"), BACKWARD);
+
+            //toTATB2
+            GetLocation("toTATB2").AddConnectingLocation(GetLocation("toTATB3"), FORWARD);
+            GetLocation("toTATB2").AddConnectingLocation(GetLocation("toSouthSide3"), BACKWARD);
+
+            //toTATB3
+            GetLocation("toTATB3").AddConnectingLocation(GetLocation("tunnel1"), FORWARD);
+            GetLocation("toTATB3").AddConnectingLocation(GetLocation("toSouthSide4"), BACKWARD);
+            GetLocation("toTATB3").AddConnectingLocation(GetLocation("TA Building"), RIGHT);
+            GetLocation("toTATB3").AddConnectingLocation(GetLocation("TB Building"), LEFT);
+        }
 
 		private static void LoadSounds()
 		{
