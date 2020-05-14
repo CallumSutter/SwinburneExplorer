@@ -1,46 +1,16 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.0",
-    "signature": "7474755fa66dc0c83835f4430af5d6ce498b86c0"
+    "signature": ""
   },
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v2.0": {
       "Swinburneexplorer/1.0.0": {
-        "dependencies": {
-          "NUnit": "3.12.0",
-          "NUnit.Console": "3.11.1",
-          "NUnit3TestAdapter": "3.16.1"
-        },
         "runtime": {
           "Swinburneexplorer.dll": {}
         }
-      },
-      "NUnit/3.12.0": {
-        "runtime": {
-          "lib/netstandard2.0/nunit.framework.dll": {
-            "assemblyVersion": "3.12.0.0",
-            "fileVersion": "3.12.0.0"
-          }
-        }
-      },
-      "NUnit.Console/3.11.1": {
-        "dependencies": {
-          "NUnit.ConsoleRunner": "3.11.1",
-          "NUnit.Extension.NUnitProjectLoader": "3.6.0",
-          "NUnit.Extension.NUnitV2Driver": "3.8.0",
-          "NUnit.Extension.NUnitV2ResultWriter": "3.6.0",
-          "NUnit.Extension.TeamCityEventListener": "1.0.7",
-          "NUnit.Extension.VSProjectLoader": "3.8.0"
-        }
-      },
-      "NUnit.ConsoleRunner/3.11.1": {},
-      "NUnit.Extension.NUnitProjectLoader/3.6.0": {},
-      "NUnit.Extension.NUnitV2Driver/3.8.0": {},
-      "NUnit.Extension.NUnitV2ResultWriter/3.6.0": {},
-      "NUnit.Extension.TeamCityEventListener/1.0.7": {},
-      "NUnit.Extension.VSProjectLoader/3.8.0": {},
-      "NUnit3TestAdapter/3.16.1": {}
+      }
     }
   },
   "libraries": {
@@ -48,69 +18,6 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
-    },
-    "NUnit/3.12.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-3oJTrcUcT9wmweBUwgUf0f1XIYy6RZq2ziV+RM95HMKAJGsHPN2i3MKK1dAPvDPMRLz799Llj4eyu/STB9Q7OA==",
-      "path": "nunit/3.12.0",
-      "hashPath": "nunit.3.12.0.nupkg.sha512"
-    },
-    "NUnit.Console/3.11.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-NYDlfcJXH/izT4zC1JYNN9E/36N4lDF3bcmQusXgMJIo0kNNNoIxi/7r6AwGEtTcdqSDSRK/KpR+V7laOLu1fA==",
-      "path": "nunit.console/3.11.1",
-      "hashPath": "nunit.console.3.11.1.nupkg.sha512"
-    },
-    "NUnit.ConsoleRunner/3.11.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-JONNeR6DlUMup+s9qTFxzdncsDlAtLbq45Cj6NiJJ8r3PzxOf93AviJ7jc0kFNQK9m7oSV5C/uR29KnePhm0BQ==",
-      "path": "nunit.consolerunner/3.11.1",
-      "hashPath": "nunit.consolerunner.3.11.1.nupkg.sha512"
-    },
-    "NUnit.Extension.NUnitProjectLoader/3.6.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-ev2+dCJShMNIATkYNm/vHEuieBfbismr9DcUfBvafJZf5vNyugXPuMXO/MaOFcJaoW9j6/zjMmXKG7R5umWzXA==",
-      "path": "nunit.extension.nunitprojectloader/3.6.0",
-      "hashPath": "nunit.extension.nunitprojectloader.3.6.0.nupkg.sha512"
-    },
-    "NUnit.Extension.NUnitV2Driver/3.8.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-l6MgFJPTnrlDaMXWfbUZ82h1uvtj0C1ExPpqm6HrYOBa5Z4MBwmFLqj85rnv9JMhu/Ju7jQB/FIaMbfoXInI2A==",
-      "path": "nunit.extension.nunitv2driver/3.8.0",
-      "hashPath": "nunit.extension.nunitv2driver.3.8.0.nupkg.sha512"
-    },
-    "NUnit.Extension.NUnitV2ResultWriter/3.6.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-P/Nc+wgFRe3dT59/VjhiIT0SWfLMbb/Vc9AtBU3L71VOCs8zQnuNjCOEFLQL/Mq6XSaZeB2Sug9tUgTfCnQk9w==",
-      "path": "nunit.extension.nunitv2resultwriter/3.6.0",
-      "hashPath": "nunit.extension.nunitv2resultwriter.3.6.0.nupkg.sha512"
-    },
-    "NUnit.Extension.TeamCityEventListener/1.0.7": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-bw+ZwHsUmxqb9leo91qLEF7ggtdpawY2V6wNqHI6+ATa2SHxHxoxiV5UV07ZWDRpf/qlQJELNlZu7wIB3+w2qQ==",
-      "path": "nunit.extension.teamcityeventlistener/1.0.7",
-      "hashPath": "nunit.extension.teamcityeventlistener.1.0.7.nupkg.sha512"
-    },
-    "NUnit.Extension.VSProjectLoader/3.8.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-CIScV9a7+wUu6Ylb+WO0q/WGWQVoB05TUj3XZHa1CO+2BInDdfIVkqtlrSguhy6D/AGIMaLVrCZpQkQ2m0bbzQ==",
-      "path": "nunit.extension.vsprojectloader/3.8.0",
-      "hashPath": "nunit.extension.vsprojectloader.3.8.0.nupkg.sha512"
-    },
-    "NUnit3TestAdapter/3.16.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-wKuxi7G9Gs2I9gnckwtMVzbPIy7vkNj+FafrmQPaYCUguT+se5kmzI3XwsVCXEalWk9pSYZW7roBkNu4ogn3DA==",
-      "path": "nunit3testadapter/3.16.1",
-      "hashPath": "nunit3testadapter.3.16.1.nupkg.sha512"
     }
   }
 }

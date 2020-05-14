@@ -1,24 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\callu\\OneDrive\\Documents\\Code\\SWE20001\\DHDTask\\Swinburneexplorer.csproj": {}
+    "C:\\Users\\Jayden McQueen\\Documents\\Swinburne Semester 1 2020\\Project Development 1 - Tools and Practices\\HDProject\\SwinburneExplorer\\Swinburneexplorer.csproj": {}
   },
   "projects": {
-    "C:\\Users\\callu\\OneDrive\\Documents\\Code\\SWE20001\\DHDTask\\Swinburneexplorer.csproj": {
+    "C:\\Users\\Jayden McQueen\\Documents\\Swinburne Semester 1 2020\\Project Development 1 - Tools and Practices\\HDProject\\SwinburneExplorer\\Swinburneexplorer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\callu\\OneDrive\\Documents\\Code\\SWE20001\\DHDTask\\Swinburneexplorer.csproj",
+        "projectUniqueName": "C:\\Users\\Jayden McQueen\\Documents\\Swinburne Semester 1 2020\\Project Development 1 - Tools and Practices\\HDProject\\SwinburneExplorer\\Swinburneexplorer.csproj",
         "projectName": "Swinburneexplorer",
-        "projectPath": "C:\\Users\\callu\\OneDrive\\Documents\\Code\\SWE20001\\DHDTask\\Swinburneexplorer.csproj",
-        "packagesPath": "C:\\Users\\callu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\callu\\OneDrive\\Documents\\Code\\SWE20001\\DHDTask\\obj\\",
+        "projectPath": "C:\\Users\\Jayden McQueen\\Documents\\Swinburne Semester 1 2020\\Project Development 1 - Tools and Practices\\HDProject\\SwinburneExplorer\\Swinburneexplorer.csproj",
+        "packagesPath": "C:\\Users\\Jayden McQueen\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Jayden McQueen\\Documents\\Swinburne Semester 1 2020\\Project Development 1 - Tools and Practices\\HDProject\\SwinburneExplorer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\callu\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Jayden McQueen\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp2.0"
@@ -42,30 +43,23 @@
         "netcoreapp2.0": {
           "dependencies": {
             "Microsoft.NETCore.App": {
+              "suppressParent": "All",
               "target": "Package",
               "version": "[2.0.0, )",
               "autoReferenced": true
-            },
-            "NUnit": {
-              "target": "Package",
-              "version": "[3.12.0, )"
-            },
-            "NUnit.Console": {
-              "target": "Package",
-              "version": "[3.11.1, )"
-            },
-            "NUnit3TestAdapter": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[3.16.1, )"
             }
           },
           "imports": [
-            "net461"
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
           ],
           "assetTargetFallback": true,
-          "warn": true
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
         }
       }
     }
