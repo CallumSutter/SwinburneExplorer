@@ -81,28 +81,19 @@ namespace Swinburneexplorer {
 
             switch (randomNumber) {
                 case 0:
-                    //_locationName = "ATC Building";
-                    //_description = "Locate and travel to the";
-                    //_description2 = "ATC Building";
-                    _locationName = "ATC 201";
+                    _locationName = "ATC 501";
                     _description = "Locate and travel to";
-                    _description2 = "ATC 201";
+                    _description2 = "ATC 501";
                     break;
                 case 1:
-                    //_locationName = "AS Building";
-                    //_description = "Locate and travel to the";
-                    //_description2 = "AS Building";
-                    _locationName = "EN 401";
+                    _locationName = "AS 301";
                     _description = "Locate and travel to";
-                    _description2 = "EN 401";
+                    _description2 = "AS 301";
                     break;
                 case 2:
-                    //_locationName = "study";
-                    //_description = "Locate and travel to the";
-                    //_description2 = "Study";
-                    _locationName = "AMDC 301";
+                    _locationName = "study 101";
                     _description = "Locate and travel to";
-                    _description2 = "AMDC 301";
+                    _description2 = "Study 101";
                     break;
             }
         }
@@ -113,19 +104,19 @@ namespace Swinburneexplorer {
 
             switch (randomNumber) {
                 case 0:
-                    _locationName = "TA Building";
-                    _description = "Locate and travel to the";
-                    _description2 = "TA Building";
+                    _locationName = "TA 101";
+                    _description = "Locate and travel to";
+                    _description2 = "TA 101";
                     break;
                 case 1:
-                    _locationName = "TB Building";
-                    _description = "Locate and travel to the";
-                    _description2 = "TB Building";
+                    _locationName = "TB 101";
+                    _description = "Locate and travel to";
+                    _description2 = "TB 101";
                     break;
                 case 2:
-                    _locationName = "TD Building";
-                    _description = "Locate and travel to the";
-                    _description2 = "TD Building";
+                    _locationName = "TD 101";
+                    _description = "Locate and travel to";
+                    _description2 = "TD 101";
                     break;
             }
         }
@@ -136,19 +127,19 @@ namespace Swinburneexplorer {
 
             switch (randomNumber) {
                 case 0:
-                    _locationName = "EN Building";
-                    _description = "Locate and travel to the";
-                    _description2 = "EN Building";
+                    _locationName = "EN 701";
+                    _description = "Locate and travel to";
+                    _description2 = "EN 701";
                     break;
                 case 1:
-                    _locationName = "AMDC Building";
-                    _description = "Locate and travel to the";
-                    _description2 = "AMDC Building";
+                    _locationName = "AMDC 301";
+                    _description = "Locate and travel to";
+                    _description2 = "AMDC 301";
                     break;
                 case 2:
-                    _locationName = "TC Building";
-                    _description = "Locate and travel to the";
-                    _description2 = "TC Building";
+                    _locationName = "TC 101";
+                    _description = "Locate and travel to";
+                    _description2 = "TC 101";
                     break;
             }
         }
@@ -164,14 +155,14 @@ namespace Swinburneexplorer {
                     _description2 = "Student Car Park";
                     break;
                 case 1:
-                    _locationName = "AR Building";
-                    _description = "Locate and travel to the";
-                    _description2 = "AR Building.";
+                    _locationName = "AR 101";
+                    _description = "Locate and travel to";
+                    _description2 = "AR 101.";
                     break;
                 case 2:
-                    _locationName = "AGSE Building";
-                    _description = "Locate and travel to the";
-                    _description2 = "AGSE Building";
+                    _locationName = "AGSE 201";
+                    _description = "Locate and travel to";
+                    _description2 = "AGSE 201";
                     break;
             }
         }
@@ -182,19 +173,19 @@ namespace Swinburneexplorer {
 
             switch (randomNumber) {
                 case 0:
-                    _locationName = "AD Building";
-                    _description = "Locate and travel to the";
-                    _description2 = "AD Building";
+                    _locationName = "AD 101";
+                    _description = "Locate and travel to";
+                    _description2 = "AD 101";
                     break;
                 case 1:
-                    _locationName = "George Building";
-                    _description = "Locate and travel to the";
-                    _description2 = "George Building";
+                    _locationName = "George 201";
+                    _description = "Locate and travel to";
+                    _description2 = "George 201";
                     break;
                 case 2:
-                    _locationName = "FS Building";
-                    _description = "Locate and travel to the";
-                    _description2 = "FS Building";
+                    _locationName = "FS 101";
+                    _description = "Locate and travel to";
+                    _description2 = "FS 101";
                     break;
             }
         }

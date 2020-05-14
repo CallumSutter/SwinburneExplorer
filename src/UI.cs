@@ -117,10 +117,16 @@ namespace Swinburneexplorer {
 			//Draws location name
 			GameController.gameWindow.DrawRectangle(Color.DarkRed, GameController.WINDOW_WIDTH / 2 - 150, 0, 300, 50);
 			GameController.gameWindow.FillRectangle(Color.Black, GameController.WINDOW_WIDTH / 2 - 150, 0, 300, 50);
-			string _location = "Current Location: " + GameController._player.Location.Name;
+			string _location = "";
 
-			if (GameController._currentState == GameState.InClassroom.ToString()) {
+			if (GameController._currentState == GameState.InBuilding.ToString()) {
+				_location = "Current Location: " + GameController._player.Location.Name + " F" + GameController._player.ReturnBuildingIfExists().CurrentFloor;
+			}
+			else if (GameController._currentState == GameState.InClassroom.ToString()) {
 				_location = "Current Location: " + GameController._player.ReturnBuildingIfExists().CurrentClassroom.RoomId;			
+			}
+			else {
+				_location = "Current Location: " + GameController._player.Location.Name;
 			}
 
 			GameController.gameWindow.DrawText(_location, Color.DarkRed, GameController.WINDOW_WIDTH / 2 - 120, 20);

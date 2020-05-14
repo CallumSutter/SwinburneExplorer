@@ -12,4 +12,3 @@ C:\Users\Jayden McQueen\Documents\Swinburne Semester 1 2020\Project Development 
 C:\Users\Jayden McQueen\Documents\Swinburne Semester 1 2020\Project Development 1 - Tools and Practices\HDProject\SwinburneExplorer\obj\Debug\netcoreapp2.0\Swinburneexplorer.dll
 C:\Users\Jayden McQueen\Documents\Swinburne Semester 1 2020\Project Development 1 - Tools and Practices\HDProject\SwinburneExplorer\obj\Debug\netcoreapp2.0\Swinburneexplorer.pdb
 C:\Users\Jayden McQueen\Documents\Swinburne Semester 1 2020\Project Development 1 - Tools and Practices\HDProject\SwinburneExplorer\obj\Debug\netcoreapp2.0\Swinburneexplorer.genruntimeconfig.cache
-C:\Users\Jayden McQueen\Documents\Swinburne Semester 1 2020\Project Development 1 - Tools and Practices\HDProject\SwinburneExplorer\obj\Debug\netcoreapp2.0\Swinburneexplorer.csprojAssemblyReference.cache
