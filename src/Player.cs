@@ -21,7 +21,7 @@ namespace Swinburneexplorer {
         }
 
         public Building ReturnBuildingIfExists() {
-            if (GameController._player.Location.GetType() != GameResources.getLocation("Train").GetType()) {
+            if (GameController._player.Location.GetType() != GameResources.GetLocation("Train").GetType()) {
                 return (Building)GameController._player.Location;
             }
             
