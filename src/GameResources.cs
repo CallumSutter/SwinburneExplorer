@@ -210,7 +210,18 @@ namespace Swinburneexplorer
 			_locations.Add("instreet7", new Location("instreet7"));
 			_locations.Add("instreet8", new Location("instreet8"));
 			_locations.Add("instreet9", new Location("instreet9"));
-			_locations.Add("northSide1", new Location("northSide1"));
+            _locations.Add("instreet10", new Location("instreet10"));
+            _locations.Add("instreet11", new Location("instreet11"));
+            _locations.Add("instreet12", new Location("instreet12"));
+            _locations.Add("instreet13", new Location("instreet13"));
+            _locations.Add("instreet14", new Location("instreet14"));
+            _locations.Add("instreet15", new Location("instreet15"));
+            _locations.Add("instreet16", new Location("instreet16"));
+            _locations.Add("instreet17", new Location("instreet17"));
+            _locations.Add("instreet18", new Location("instreet18"));
+            _locations.Add("instreet19", new Location("instreet19"));
+            _locations.Add("instreet20", new Location("instreet20"));
+            _locations.Add("northSide1", new Location("northSide1"));
 			_locations.Add("northSide2", new Location("northSide2"));
 			_locations.Add("northSide3", new Location("northSide3"));
 			_locations.Add("northSide4", new Location("northSide4"));
@@ -364,6 +375,7 @@ namespace Swinburneexplorer
 			//toTrain1
 			GetLocation("toTrain1").AddConnectingLocation(GetLocation("toTrain2"), FORWARD);
 			GetLocation("toTrain1").AddConnectingLocation(GetLocation("toAMDC1"), LEFT);
+
 			GetLocation("toTrain1").AddConnectingLocation(GetLocation("tunnel8"), RIGHT);
 			GetLocation("toTrain1").AddConnectingLocation(GetLocation("sneak1"), BACKWARD);
 
@@ -435,10 +447,11 @@ namespace Swinburneexplorer
             GetLocation("Train").AddConnectingLocation(GetLocation("toTrain9"), RIGHT);
 
             //spw1
-            GetLocation("spw1").AddConnectingLocation(GetLocation("spw2"), BACKWARD);
+            GetLocation("spw1").AddConnectingLocation(GetLocation("spw2"), LEFT);
+            GetLocation("spw1").AddConnectingLocation(GetLocation("instreet9"), BACKWARD);
 
-			//spw2
-			GetLocation("spw2").AddConnectingLocation(GetLocation("spw1"), RIGHT);
+            //spw2
+            GetLocation("spw2").AddConnectingLocation(GetLocation("spw1"), RIGHT);
 			GetLocation("spw2").AddConnectingLocation(GetLocation("spw3"), FORWARD);
 			GetLocation("spw2").AddConnectingLocation(GetLocation("instreet9"), LEFT);
 
@@ -470,7 +483,9 @@ namespace Swinburneexplorer
 
 			//spw9
 			GetLocation("spw9").AddConnectingLocation(GetLocation("spw8"), FORWARD);
-			GetLocation("spw9").AddConnectingLocation(GetLocation("instreet8"), BACKWARD);
+            GetLocation("spw9").AddConnectingLocation(GetLocation("studentCarPark"), BACKWARD);
+            GetLocation("spw9").AddConnectingLocation(GetLocation("instreet8"), LEFT);
+            GetLocation("spw9").AddConnectingLocation(GetLocation("instreet19"), RIGHT);
 
             //spw10
             GetLocation("spw10").AddConnectingLocation(GetLocation("spw11"), FORWARD);
@@ -525,7 +540,7 @@ namespace Swinburneexplorer
             //tunnel1
             GetLocation("tunnel1").AddConnectingLocation(GetLocation("tunnel2"), FORWARD);
 			GetLocation("tunnel1").AddConnectingLocation(GetLocation("toSouthSide1"), BACKWARD);
-            GetLocation("tunnel1").AddConnectingLocation(GetLocation("instreet2"), RIGHT);
+            GetLocation("tunnel1").AddConnectingLocation(GetLocation("instreet13"), RIGHT);
             GetLocation("tunnel1").AddConnectingLocation(GetLocation("instreet1"), LEFT);
 
             //tunnel2
@@ -547,6 +562,8 @@ namespace Swinburneexplorer
             //tunnel5
             GetLocation("tunnel5").AddConnectingLocation(GetLocation("toSouthSide1"), FORWARD);
             GetLocation("tunnel5").AddConnectingLocation(GetLocation("tunnel2"), BACKWARD);
+            GetLocation("tunnel5").AddConnectingLocation(GetLocation("instreet1"), RIGHT);
+            GetLocation("tunnel5").AddConnectingLocation(GetLocation("instreet13"), LEFT);
 
             //tunnel6
             GetLocation("tunnel6").AddConnectingLocation(GetLocation("tunnel5"), FORWARD);
@@ -653,13 +670,13 @@ namespace Swinburneexplorer
 			GetLocation("westSide7").AddConnectingLocation(GetLocation("westSide8"), BACKWARD);
 
 			//westSide8
-			GetLocation("westSide8").AddConnectingLocation(GetLocation("westSide9"), RIGHT);
+			GetLocation("westSide8").AddConnectingLocation(GetLocation("instreet11"), RIGHT);
 			GetLocation("westSide8").AddConnectingLocation(GetLocation("westSide7"), FORWARD);
 
 			//westSide9
 			GetLocation("westSide9").AddConnectingLocation(GetLocation("westSide8"), RIGHT);
 			GetLocation("westSide9").AddConnectingLocation(GetLocation("westSide11"), LEFT);
-			GetLocation("westSide9").AddConnectingLocation(GetLocation("westSide10"), BACKWARD);
+			GetLocation("westSide9").AddConnectingLocation(GetLocation("instreet10"), BACKWARD);
 
 			//westSide10
 			GetLocation("westSide10").AddConnectingLocation(GetLocation("westSide9"), FORWARD);
@@ -667,7 +684,7 @@ namespace Swinburneexplorer
 
 			//westSide11
 			GetLocation("westSide11").AddConnectingLocation(GetLocation("westSide12"), FORWARD);
-			GetLocation("westSide11").AddConnectingLocation(GetLocation("westSide9"), BACKWARD);
+			GetLocation("westSide11").AddConnectingLocation(GetLocation("westSide8"), BACKWARD);
 
 			//westSide12
 			GetLocation("westSide12").AddConnectingLocation(GetLocation("westSide13"), FORWARD);
@@ -775,18 +792,19 @@ namespace Swinburneexplorer
 			GetLocation("toLodges5").AddConnectingLocation(GetLocation("toLodges4"), BACKWARD);
 
 			//toLodges6
-			GetLocation("toLodges6").AddConnectingLocation(GetLocation("instreet7"), FORWARD);
-			GetLocation("toLodges6").AddConnectingLocation(GetLocation("toLodges5"), BACKWARD);
+			GetLocation("toLodges6").AddConnectingLocation(GetLocation("instreet7"), LEFT);
+            GetLocation("toLodges6").AddConnectingLocation(GetLocation("instreet17"), RIGHT);
+            GetLocation("toLodges6").AddConnectingLocation(GetLocation("toLodges5"), BACKWARD);
 
 			//instreet1
 			GetLocation("instreet1").AddConnectingLocation(GetLocation("westSide10"), FORWARD);
-			GetLocation("instreet1").AddConnectingLocation(GetLocation("instreet2"), BACKWARD);
+			GetLocation("instreet1").AddConnectingLocation(GetLocation("instreet12"), BACKWARD);
 
 			//instreet2
 			GetLocation("instreet2").AddConnectingLocation(GetLocation("instreet1"), FORWARD);
 			GetLocation("instreet2").AddConnectingLocation(GetLocation("toSouthSide1"), LEFT);
 			GetLocation("instreet2").AddConnectingLocation(GetLocation("tunnel1"), RIGHT);
-			GetLocation("instreet2").AddConnectingLocation(GetLocation("instreet3"), BACKWARD);
+			GetLocation("instreet2").AddConnectingLocation(GetLocation("instreet13"), BACKWARD);
 
 			//instreet3
 			GetLocation("instreet3").AddConnectingLocation(GetLocation("instreet2"), FORWARD);
@@ -812,29 +830,78 @@ namespace Swinburneexplorer
 			//instreet7
 			GetLocation("instreet7").AddConnectingLocation(GetLocation("instreet6"), FORWARD);
 			GetLocation("instreet7").AddConnectingLocation(GetLocation("toLodges6"), LEFT);
-			GetLocation("instreet7").AddConnectingLocation(GetLocation("instreet8"), BACKWARD);
+			GetLocation("instreet7").AddConnectingLocation(GetLocation("instreet17"), BACKWARD);
 
 			//instreet8
 			GetLocation("instreet8").AddConnectingLocation(GetLocation("instreet7"), FORWARD);
 			GetLocation("instreet8").AddConnectingLocation(GetLocation("spw9"), RIGHT);
-			GetLocation("instreet8").AddConnectingLocation(GetLocation("instreet9"), BACKWARD);
+			GetLocation("instreet8").AddConnectingLocation(GetLocation("instreet18"), BACKWARD);
 
 			//instreet9
 			GetLocation("instreet9").AddConnectingLocation(GetLocation("instreet8"), FORWARD);
-			GetLocation("instreet9").AddConnectingLocation(GetLocation("spw2"), BACKWARD);
+			GetLocation("instreet9").AddConnectingLocation(GetLocation("spw1"), BACKWARD);
 			GetLocation("instreet9").AddConnectingLocation(GetLocation("studentCarPark"), LEFT);
+            GetLocation("instreet9").AddConnectingLocation(GetLocation("spw2"), RIGHT);
 
-			//studentCarPark
-			GetLocation("studentCarPark").AddConnectingLocation(GetLocation("instreet9"), BACKWARD);
+            //instreet10
+            GetLocation("instreet10").AddConnectingLocation(GetLocation("instreet11"), FORWARD);
+            GetLocation("instreet10").AddConnectingLocation(GetLocation("westSide11"), RIGHT);
+            GetLocation("instreet10").AddConnectingLocation(GetLocation("westSide7"), LEFT);
 
-			//AD
-			GetLocation("AD Building").AddConnectingLocation(GetLocation("toAMDC3"), LEFT);
+            //instreet11
+            GetLocation("instreet11").AddConnectingLocation(GetLocation("instreet12"), FORWARD);
+            GetLocation("instreet11").AddConnectingLocation(GetLocation("westSide11"), RIGHT);
+            GetLocation("instreet11").AddConnectingLocation(GetLocation("westSide7"), LEFT);
+
+            //instreet12
+            GetLocation("instreet12").AddConnectingLocation(GetLocation("instreet13"), FORWARD);
+            GetLocation("instreet12").AddConnectingLocation(GetLocation("instreet1"), BACKWARD);
+            GetLocation("instreet12").AddConnectingLocation(GetLocation("toSouthSide1"), RIGHT);
+            GetLocation("instreet12").AddConnectingLocation(GetLocation("tunnel1"), LEFT);
+
+            //instreet13
+            GetLocation("instreet13").AddConnectingLocation(GetLocation("instreet14"), FORWARD);
+            GetLocation("instreet13").AddConnectingLocation(GetLocation("instreet2"), BACKWARD);
+
+            //instreet14
+            GetLocation("instreet14").AddConnectingLocation(GetLocation("instreet15"), FORWARD);
+            GetLocation("instreet14").AddConnectingLocation(GetLocation("instreet4"), BACKWARD);
+
+            //instreet15
+            GetLocation("instreet15").AddConnectingLocation(GetLocation("instreet16"), FORWARD);
+            GetLocation("instreet15").AddConnectingLocation(GetLocation("instreet5"), BACKWARD);
+
+            //instreet16
+            GetLocation("instreet16").AddConnectingLocation(GetLocation("instreet17"), FORWARD);
+            GetLocation("instreet16").AddConnectingLocation(GetLocation("instreet6"), BACKWARD);
+            GetLocation("instreet16").AddConnectingLocation(GetLocation("toLodges6"), RIGHT);
+
+            //instreet17
+            GetLocation("instreet17").AddConnectingLocation(GetLocation("instreet18"), FORWARD);
+            GetLocation("instreet17").AddConnectingLocation(GetLocation("instreet7"), BACKWARD);
+
+            //instreet18
+            GetLocation("instreet18").AddConnectingLocation(GetLocation("instreet19"), FORWARD);
+            GetLocation("instreet18").AddConnectingLocation(GetLocation("instreet8"), BACKWARD);
+            GetLocation("instreet18").AddConnectingLocation(GetLocation("spw9"), LEFT);
+            GetLocation("instreet18").AddConnectingLocation(GetLocation("studentCarPark"), RIGHT);
+
+            //instreet19
+            GetLocation("instreet19").AddConnectingLocation(GetLocation("instreet9"), BACKWARD);
+            GetLocation("instreet19").AddConnectingLocation(GetLocation("spw2"), LEFT);
+
+            //studentCarPark
+            GetLocation("studentCarPark").AddConnectingLocation(GetLocation("instreet18"), LEFT);
+            GetLocation("studentCarPark").AddConnectingLocation(GetLocation("instreet8"), RIGHT);
+
+            //AD
+            GetLocation("AD Building").AddConnectingLocation(GetLocation("toAMDC3"), LEFT);
             GetLocation("AD Building").AddConnectingLocation(GetLocation("toAD5"), RIGHT);
             GetLocation("AD Building").AddConnectingLocation(GetLocation("study"), BACKWARD);
 			GetLocation("AD Building").SetBuilding(GetBuilding("AD Interior"));
 
-			//backOfAD
-			GetLocation("backOfAD").AddConnectingLocation(GetLocation("toEN2"), BACKWARD);
+            //backOfAD
+            GetLocation("backOfAD").AddConnectingLocation(GetLocation("toEN2"), BACKWARD);
 
 			//toEN1
 			GetLocation("toEN1").AddConnectingLocation(GetLocation("toTrain3"), BACKWARD);
@@ -952,8 +1019,9 @@ namespace Swinburneexplorer
 			GetLocation("trainPark5").AddConnectingLocation(GetLocation("trainPark4"), BACKWARD);
 
 			//trainPark6
-			GetLocation("trainPark6").AddConnectingLocation(GetLocation("toTrain6"), FORWARD);
-			GetLocation("trainPark6").AddConnectingLocation(GetLocation("trainPark5"), BACKWARD);
+			GetLocation("trainPark6").AddConnectingLocation(GetLocation("toTrain7"), LEFT);
+            GetLocation("trainPark6").AddConnectingLocation(GetLocation("toCampus4"), RIGHT);
+            GetLocation("trainPark6").AddConnectingLocation(GetLocation("trainPark5"), BACKWARD);
 
 			//side1
 			GetLocation("side1").AddConnectingLocation(GetLocation("side2"), FORWARD);
@@ -983,6 +1051,7 @@ namespace Swinburneexplorer
             //toCampus3
             GetLocation("toCampus3").AddConnectingLocation(GetLocation("toTrain7"), BACKWARD);
             GetLocation("toCampus3").AddConnectingLocation(GetLocation("toCampus4"), FORWARD);
+            GetLocation("toCampus3").AddConnectingLocation(GetLocation("trainPark6"), RIGHT);
 
             //toCampus4
             GetLocation("toCampus4").AddConnectingLocation(GetLocation("toTrain6"), BACKWARD);
@@ -1004,6 +1073,7 @@ namespace Swinburneexplorer
             //toCampus8
             GetLocation("toCampus8").AddConnectingLocation(GetLocation("toTrain2"), BACKWARD);
             GetLocation("toCampus8").AddConnectingLocation(GetLocation("toAMDC1"), RIGHT);
+            GetLocation("toCampus8").AddConnectingLocation(GetLocation("tunnel8"), LEFT);
 
             //toAD1
             GetLocation("toAD1").AddConnectingLocation(GetLocation("toAD2"), FORWARD);
