@@ -168,6 +168,7 @@ namespace Swinburneexplorer
 			_images.Add("scroll", new Bitmap("scroll", "tinyScroll.png"));
 			_images.Add("building", new Bitmap("building", "insideBuilding.jpg"));
 			_images.Add("classroom", new Bitmap("classroom", "classroom.jpg"));
+			_images.Add("background", new Bitmap("background", "swinburne.jpg"));
 		}
 
 		private static void LoadLocations() {

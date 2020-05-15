@@ -6,6 +6,9 @@ namespace Swinburneexplorer
 {
     interface IDraw
     {
+		/// <summary>
+		/// Interface for objects that can draw themselves
+		/// </summary>
         void Draw();
     }
 }

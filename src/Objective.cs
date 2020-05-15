@@ -10,23 +10,37 @@ namespace Swinburneexplorer {
         private static string _description2;
         private static string _locationName;
 
+		/// <summary>
+		/// Constructor for Objectives
+		/// </summary>
+		/// <param name="objectiveNumber">n-th objective</param>
         public Objective(int objectiveNumber) {
             _isComplete = false;
             AssignLocation(objectiveNumber);
         }
 
+		/// <summary>
+		/// Get first line of objective
+		/// </summary>
         public string Description {
             get {
                 return _description;
             }
         }
 
+		/// <summary>
+		/// Get second line of objective
+		/// </summary>
         public string Description2 {
             get {
                 return _description2;
             }
         }
 
+		/// <summary>
+		/// Assign the nth objective 
+		/// </summary>
+		/// <param name="objectiveNumber">objective number</param>
         public static void AssignLocation(int objectiveNumber) {
             switch (objectiveNumber) {
                 case 1:
@@ -68,6 +82,11 @@ namespace Swinburneexplorer {
             }
         }
 
+		/// <summary>
+		/// Check if a certain objective is complete
+		/// </summary>
+		/// <param name="locationName"></param>
+		/// <returns></returns>
         public bool CheckIfObjectiveIsComplete(string locationName) {
             if (_locationName == locationName) {
                 _isComplete = true;
@@ -75,6 +94,9 @@ namespace Swinburneexplorer {
             return _isComplete;
         }
 
+		/// <summary>
+		/// Randomiser for first objective
+		/// </summary>
         public static void RandomiseFirstObjective() {
             Random rand = new Random();
             int randomNumber = rand.Next(0, 3);
@@ -98,6 +120,9 @@ namespace Swinburneexplorer {
             }
         }
 
+		/// <summary>
+		/// Randomiser for secodn objective
+		/// </summary>
         public static void RandomiseSecondObjective() {
             Random rand = new Random();
             int randomNumber = rand.Next(0, 3);
@@ -121,6 +146,9 @@ namespace Swinburneexplorer {
             }
         }
 
+		/// <summary>
+		/// Randomiser for third objective
+		/// </summary>
         public static void RandomiseThirdObjective() {
             Random rand = new Random();
             int randomNumber = rand.Next(0, 3);
@@ -144,6 +172,9 @@ namespace Swinburneexplorer {
             }
         }
 
+		/// <summary>
+		/// randomiser for fourth objective
+		/// </summary>
         public static void RandomiseFourthObjective() {
             Random rand = new Random();
             int randomNumber = rand.Next(0, 3);
@@ -167,6 +198,9 @@ namespace Swinburneexplorer {
             }
         }
 
+		/// <summary>
+		/// randomiser for fifth objective
+		/// </summary>
         public static void RandomiseFifthObjective() {
             Random rand = new Random();
             int randomNumber = rand.Next(0, 3);
@@ -190,6 +224,9 @@ namespace Swinburneexplorer {
             }
         }
 
+		/// <summary>
+		/// Return name of objective
+		/// </summary>
         public string LocationName {
             get {
                 return _locationName;

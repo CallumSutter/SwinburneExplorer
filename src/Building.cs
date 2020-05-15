@@ -14,6 +14,12 @@ namespace Swinburneexplorer
 		// parent location
 		private Location _parentLoc;
 
+		/// <summary>
+		/// Building constructor
+		/// </summary>
+		/// <param name="name">name of building</param>
+		/// <param name="shortName">shorted name</param>
+		/// <param name="floorCount">number of floors in building</param>
         public Building(string name, string shortName, int floorCount) : base(name){ 
 			_parentLoc = null;
 			base.LocationImage = GameResources.GetImage("building");
@@ -21,41 +27,63 @@ namespace Swinburneexplorer
 			_currentFloor = 1;
 			_inClassroom = false;
 
-			AssignClassrooms(shortName);
+			InitialiseClassrooms(shortName);
         }
 
-		private void AssignClassrooms(string shortName) {
+		/// <summary>
+		/// Generates classrooms depending on number of floors
+		/// </summary>
+		/// <param name="shortName">name of building</param>
+		private void InitialiseClassrooms(string shortName) {
 			for (int i = 1; i <= _floorCount; i++) {
 				_classrooms.Add(new Classroom(shortName + " " + i.ToString() + "01"));
 			}
 		}
 
+		/// <summary>
+		/// Enter classroom
+		/// </summary>
 		public void EnterClassroom() {
 			_inClassroom = true;
 		}
 
+		/// <summary>
+		/// Exit classroom
+		/// </summary>
 		public void ExitClassroom() {
 			_inClassroom = false;
 		}
 
+		/// <summary>
+		/// Go to next floor
+		/// </summary>
 		public void UpFloor() {
 			if (_currentFloor != _floorCount) {
 				_currentFloor++;
 			}
 		}
 
+		/// <summary>
+		/// Go to previous floor
+		/// </summary>
 		public void DownFloor() {
 			if (_currentFloor > 1) {
 				_currentFloor--;
 			}
 		}
 
+		/// <summary>
+		/// Get current classroom
+		/// </summary>
 		public Classroom CurrentClassroom {
 			get {
 				return _classrooms[CurrentFloor - 1];
 			}
 		}
 
+		/// <summary>
+		/// Get number of floors in building
+		/// </summary>
 		public int FloorCount {
             get { 
                 return _floorCount; 
@@ -65,6 +93,9 @@ namespace Swinburneexplorer
             }
         }
 
+		/// <summary>
+		/// Get current floor player is at
+		/// </summary>
 		public int CurrentFloor {
 			get {
 				return _currentFloor;
@@ -97,6 +128,9 @@ namespace Swinburneexplorer
 			}
 		}
 
+		/// <summary>
+		/// Getter for inClassroom
+		/// </summary>
 		public bool InClassroom {
 			get {
 				return _inClassroom;
