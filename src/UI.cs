@@ -32,6 +32,7 @@ namespace Swinburneexplorer {
 		private UIButton _exitBtn;
 		private UIButton _enterBtn2;
 		private UIButton _exitBtn2;
+		private UIButton _quitBtn;
 		private UIObject _infoBtn;
 		private UIObject _scroll;
 
@@ -60,6 +61,7 @@ namespace Swinburneexplorer {
 			//draw buttons		
 			DrawEnterButton();
 			DrawExitButton();
+			DrawQuitButton();
 			DrawInfoButton();
 
 			//draw objectives
@@ -206,6 +208,10 @@ namespace Swinburneexplorer {
 			}
 		}
 
+		private void DrawQuitButton() {
+			_quitBtn.Draw();
+		}
+
 		private void DrawInfoButton() {
 			_infoBtn.Draw();
 		}
@@ -248,17 +254,20 @@ namespace Swinburneexplorer {
 			Rectangle btnMask = CreateMask(ARROW_X - 8, ARROW_Y + btnImg.Height / 4, btnImg.Width, btnImg.Height);
 			Rectangle btnMask2 = CreateMask(ARROW_X - 8 - 47, ARROW_Y + btnImg.Height / 4, btnImg.Width, btnImg.Height);
 			Rectangle btnMask3 = CreateMask(ARROW_X - 8 + 47, ARROW_Y + btnImg.Height / 4, btnImg.Width, btnImg.Height);
+			Rectangle btnQuit = CreateMask(5, GameController.WINDOW_HEIGHT - 50, btnImg.Width, btnImg.Height);
 
-			_enterBtn = new UIButton(btnMask, "Enter");
+			_enterBtn = new UIButton(btnMask, "Enter", 20, 10);
 
-			_exitBtn = new UIButton(btnMask, "Exit");
+			_exitBtn = new UIButton(btnMask, "Exit", 27, 10);
 			_exitBtn.Visible = false;
 
-			_enterBtn2 = new UIButton(btnMask2, "Enter");
+			_enterBtn2 = new UIButton(btnMask2, "Enter", 20, 10);
 			_enterBtn2.Visible = false;
 
-			_exitBtn2 = new UIButton(btnMask3, "Exit");
+			_exitBtn2 = new UIButton(btnMask3, "Exit", 27, 10);
 			_exitBtn2.Visible = false;
+
+			_quitBtn = new UIButton(btnQuit, "Quit", 27, 10);
 		}
 
 		private void InitialiseInfoButton()	{
@@ -299,6 +308,10 @@ namespace Swinburneexplorer {
 
 		public bool CheckMouseInInfoButton() {
 			return (_infoBtn.IsHovering(SplashKit.MousePosition()));
+		}
+
+		public bool CheckMouseInQuitButton() {
+			return (_quitBtn.IsHovering(SplashKit.MousePosition()));
 		}
 
 		public ArrowButton[] Arrows	{

@@ -45,6 +45,7 @@ namespace Swinburneexplorer
 			if(SplashKit.MusicPlaying())
 			{
 				SplashKit.StopMusic();
+				return;
 			}
 
 			SplashKit.PlayMusic(GetMusic("USSR"),10,(float)0.5);

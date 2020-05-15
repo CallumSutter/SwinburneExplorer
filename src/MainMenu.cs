@@ -9,6 +9,7 @@ namespace Swinburneexplorer {
         private static UIButton _playButton;
         private static UIButton _exitButton;
         private static UIButton _campusButton;
+        private static UIButton _carParkButton;
         private static UIButton _trainButton;
         private static Font _mainFont;
         private static bool _playPressed;
@@ -17,6 +18,8 @@ namespace Swinburneexplorer {
         private const int Y_LOC_PLAY_BUTTON = 400;
         private const int X_LOC_EXIT_BUTTON = 900;
         private const int Y_LOC_EXIT_BUTTON = 400;
+        private const int X_LOC_CARPARK_BUTTON = 750;
+        private const int Y_LOC_CARPARK_BUTTON = 400;
         private const int X_LOC_TEXT = 500;
         private const int Y_LOC_TEXT = 70;
 
@@ -46,12 +49,16 @@ namespace Swinburneexplorer {
         }
 
         public void InitialiseButtons() {
-            Rectangle playMask = CreateMask(X_LOC_PLAY_BUTTON, Y_LOC_PLAY_BUTTON, GameResources.GetImage("btnBase").Width, GameResources.GetImage("btnBase").Height);
-            _playButton = new UIButton(playMask, "Play");
+            Rectangle playMask = CreateMask(X_LOC_PLAY_BUTTON, Y_LOC_PLAY_BUTTON, GameResources.GetImage("btnBase").Width, GameResources.GetImage("btnBase").Height);        
             Rectangle exitMask = CreateMask(X_LOC_EXIT_BUTTON, Y_LOC_EXIT_BUTTON, GameResources.GetImage("btnBase").Width, GameResources.GetImage("btnBase").Height);
-            _exitButton = new UIButton(exitMask, "Exit");
-            _trainButton = new UIButton(playMask, "Train");
-            _campusButton = new UIButton(exitMask, "Campus");
+            Rectangle trainMask = CreateMask(X_LOC_PLAY_BUTTON, Y_LOC_PLAY_BUTTON, GameResources.GetImage("btnBase").Width, GameResources.GetImage("btnBase").Height);
+            Rectangle campusMask = CreateMask(X_LOC_EXIT_BUTTON, Y_LOC_EXIT_BUTTON, GameResources.GetImage("btnBase").Width, GameResources.GetImage("btnBase").Height);
+            Rectangle carParkMask = CreateMask(X_LOC_CARPARK_BUTTON, Y_LOC_CARPARK_BUTTON, GameResources.GetImage("btnBase").Width, GameResources.GetImage("btnBase").Height);
+            _playButton = new UIButton(playMask, "Play", 23, 10);
+            _exitButton = new UIButton(exitMask, "Exit", 27, 10);
+            _trainButton = new UIButton(trainMask, "Train", 20, 10);
+            _campusButton = new UIButton(campusMask, "Campus", 10, 10);
+            _carParkButton = new UIButton(carParkMask, "Car Park", 5, 10);
         }
 
         private Rectangle CreateMask(double x, double y, double width, double height) {
@@ -73,11 +80,15 @@ namespace Swinburneexplorer {
         }
 
         public bool CheckMouseInPlayButton() {
-            return _trainButton.IsHovering(SplashKit.MousePosition());
+            return _playButton.IsHovering(SplashKit.MousePosition());
         }
 
         public bool CheckMouseInExitButton() {
             return _exitButton.IsHovering(SplashKit.MousePosition());
+        }
+
+        public bool CheckMouseInCarParkButton() {
+            return _carParkButton.IsHovering(SplashKit.MousePosition());
         }
 
         public void Draw() {
@@ -87,6 +98,7 @@ namespace Swinburneexplorer {
                 GameController.gameWindow.DrawText("Starting Location:", Color.DarkRed, _mainFont, 32, X_LOC_TEXT + 170, Y_LOC_TEXT + 280);
                 _trainButton.Draw();
                 _campusButton.Draw();
+                _carParkButton.Draw();
             }
             else {
                 _playButton.Draw();

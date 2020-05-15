@@ -54,10 +54,16 @@ namespace Swinburneexplorer {
                         _locationName = "Train";
                         _description = "Finally, locate and travel";
                         _description2 = "to the train station";
-                    } else {
+                    } 
+                    else if (GameController._player.StartingLocation == "instreet5") {
                         _locationName = "instreet5";
                         _description = "Finally, locate and travel";
                         _description2 = "to the SPS Building";
+                    } 
+                    else {
+                        _locationName = "studentCarPark";
+                        _description = "Finally, locate and travel";
+                        _description2 = "to the Student Car Park";
                     }
                     break;
                 default:

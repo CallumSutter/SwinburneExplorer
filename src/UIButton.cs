@@ -7,13 +7,15 @@ namespace Swinburneexplorer
 {
 	public class UIButton : UIObject
 	{
-		private const int BTN_TEXT_X_OFFSET = 20;
-		private const int BTN_TEXT_Y_OFFSET = 10;
+		private int BTN_TEXT_X_OFFSET;
+		private int BTN_TEXT_Y_OFFSET;
 		private string _label;
 
-		public UIButton(Rectangle objectMask, string label) : base(objectMask) {
+		public UIButton(Rectangle objectMask, string label, int offsetX, int offsetY) : base(objectMask) {
 			_label = label;
 			ObjectImage = GameResources.GetImage("btnBase");
+			BTN_TEXT_X_OFFSET = offsetX;
+			BTN_TEXT_Y_OFFSET = offsetY;
 		}
 
 		public override void Draw() {

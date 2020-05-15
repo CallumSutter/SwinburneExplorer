@@ -168,6 +168,13 @@ namespace Swinburneexplorer {
 				if (GameController._ui.CheckMouseInInfoButton()) {
 					Console.WriteLine("Clicked Info");
 				}
+
+				if (GameController._ui.CheckMouseInQuitButton()) {
+					Console.WriteLine("Clicked Quit");
+					GameController._player.ResetPlayer();
+					GameController._currentState = GameState.MainMenu.ToString();
+					GameResources.PlayBGM();
+				}
 			}
 		}
 

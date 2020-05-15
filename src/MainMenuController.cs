@@ -44,6 +44,21 @@ namespace Swinburneexplorer {
 						Objective newObjective = new Objective(1);
 						GameController._player.AddNewObjective(newObjective);
 					}
+
+					if (GameController._mainMenu.CheckMouseInCarParkButton()) {
+						Console.WriteLine("Clicked Car Park");
+						GameController._currentState = GameState.Travelling.ToString();
+
+						//play background music
+						GameResources.PlayBGM();
+
+						//initialise player
+						GameController._player = new Player(GameResources.GetLocation("studentCarPark"));
+						TravellingController.LoadLocationImage(GameController._player.Location);
+						SplashKit.PlaySoundEffect(GameResources.GetSound("menuSelect"));
+						Objective newObjective = new Objective(1);
+						GameController._player.AddNewObjective(newObjective);
+					}
 				}
 
 				else {

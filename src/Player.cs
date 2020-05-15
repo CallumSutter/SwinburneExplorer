@@ -20,6 +20,12 @@ namespace Swinburneexplorer {
             _objectives.Add(objective);
         }
 
+        public void ResetPlayer() {
+            _location = null;
+            _startingLocation = null;
+            _objectives = null;
+        }
+
         public Building ReturnBuildingIfExists() {
             if (GameController._player.Location.GetType() != GameResources.GetLocation("Train").GetType()) {
                 return (Building)GameController._player.Location;
