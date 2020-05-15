@@ -176,6 +176,7 @@ namespace Swinburneexplorer
 			_images.Add("building", new Bitmap("building", "insideBuilding.jpg"));
 			_images.Add("classroom", new Bitmap("classroom", "classroom.jpg"));
 			_images.Add("background", new Bitmap("background", "swinburne.jpg"));
+			_images.Add("infoBox", new Bitmap("infoBox", "infoBox.png"));
 		}
 
 		private static void LoadLocations() {
@@ -1061,8 +1062,14 @@ namespace Swinburneexplorer
 		private static void LoadFonts()
 		{
 			_fonts.Add("gameFont", new Font("gameFont", "gameFont.ttf"));
+			_fonts.Add("infoFont", new Font("infoFont", "pointfree.ttf"));
 		}
 
+		/// <summary>
+		/// Get a font
+		/// </summary>
+		/// <param name="fontName">name of font</param>
+		/// <returns>font</returns>
 		public static Font GetFont(string fontName)
 		{
 			try
@@ -1078,6 +1085,11 @@ namespace Swinburneexplorer
 			return null;
 		}
 
+		/// <summary>
+		/// Get a location from list
+		/// </summary>
+		/// <param name="locationName"></param>
+		/// <returns></returns>
 		public static Location GetLocation(string locationName) {
 			try {
 				return _locations[locationName];

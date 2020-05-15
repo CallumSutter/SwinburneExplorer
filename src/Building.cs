@@ -105,7 +105,7 @@ namespace Swinburneexplorer
 		/// <summary>
 		/// Return info of parent locaton
 		/// </summary>
-		public new string GetInfo {
+		public override string GetInfo {
 			get	{
 				if (_parentLoc != null)	{
 					return _parentLoc.GetInfo;
