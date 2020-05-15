@@ -73,8 +73,6 @@ namespace Swinburneexplorer {
             _trainButton = new UIButton(playMask, "Train", 20, 10);
             _campusButton = new UIButton(exitMask, "Campus", 10, 10);
             _carParkButton = new UIButton(carParkMask, "Car Park", 5, 10);
-
-			Bitmap btnBase = GameResources.GetImage("btnBase");
         }
 
 		/// <summary>
