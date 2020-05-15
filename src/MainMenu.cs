@@ -127,10 +127,15 @@ namespace Swinburneexplorer {
 		/// </summary>
         public void Draw() {
             GameController.gameWindow.DrawBitmap(_background, 0, 0);
-            GameController.gameWindow.DrawText("Swinburne Explorer", Color.DarkRed, _mainFont, 70, X_LOC_TEXT, Y_LOC_TEXT);
+			GameController.gameWindow.DrawText("Swinburne Explorer", Color.White, _mainFont, 70, X_LOC_TEXT-3, Y_LOC_TEXT-3);
+			GameController.gameWindow.DrawText("Swinburne Explorer", Color.DarkRed, _mainFont, 70, X_LOC_TEXT, Y_LOC_TEXT);
             
 			if (_playPressed) {
-                GameController.gameWindow.DrawText("Starting Location:", Color.DarkRed, _mainFont, 32, X_LOC_TEXT + 170, Y_LOC_TEXT + 280);
+				GameController.gameWindow.DrawText("Starting Location:", Color.White, _mainFont, 32, X_LOC_TEXT + 167, Y_LOC_TEXT + 277);
+				GameController.gameWindow.DrawText("Starting Location:", Color.White, _mainFont, 32, X_LOC_TEXT + 173, Y_LOC_TEXT + 283);
+				GameController.gameWindow.DrawText("Starting Location:", Color.White, _mainFont, 32, X_LOC_TEXT + 173, Y_LOC_TEXT + 277);
+				GameController.gameWindow.DrawText("Starting Location:", Color.White, _mainFont, 32, X_LOC_TEXT + 167, Y_LOC_TEXT + 283);
+				GameController.gameWindow.DrawText("Starting Location:", Color.DarkRed, _mainFont, 32, X_LOC_TEXT + 170, Y_LOC_TEXT + 280);
                 _trainButton.Draw();
                 _campusButton.Draw();
             }
