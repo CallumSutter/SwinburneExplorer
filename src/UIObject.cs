@@ -63,6 +63,9 @@ namespace Swinburneexplorer {
 			GameWindow.DrawBitmap(ObjectImage, Position.X, Position.Y);
 		}
 
+		/// <summary>
+		/// Return image of object
+		/// </summary>
 		public Bitmap ObjectImage {
 			get	{
 				return _objectImage;
@@ -83,7 +86,10 @@ namespace Swinburneexplorer {
 				_visible = value;
 			}
 		}
-
+		
+		/// <summary>
+		/// Return top-left corner of object
+		/// </summary>
 		protected Point2D Position {
 			get {
 				return _position;
@@ -93,6 +99,9 @@ namespace Swinburneexplorer {
 			}
 		}
 
+		/// <summary>
+		/// Rectangle used as mask for UI clicks
+		/// </summary>
 		protected Rectangle ObjectMask	{
 			get	{
 				return _objectMask;

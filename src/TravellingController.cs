@@ -33,7 +33,7 @@ namespace Swinburneexplorer {
 		/// <param name="direction"></param>
 		/// <returns>if location exists in given direction</returns>
 		public static bool CheckLocationValid(int direction) {
-			return (GameController._player.Location.GetLocationInDirection(direction) != null);
+			return (GameController.Player.Location.GetLocationInDirection(direction) != null);
 		}
 
 		/// <summary>
@@ -41,9 +41,9 @@ namespace Swinburneexplorer {
 		/// </summary>
 		/// <param name="direction"></param>
 		public static void MovePlayer(int direction) {
-			GameController._player.Location = GameController._player.Location.GetLocationInDirection(direction);
+			GameController.Player.Location = GameController.Player.Location.GetLocationInDirection(direction);
 
-			LoadLocationImage(GameController._player.Location);
+			LoadLocationImage(GameController.Player.Location);
 		}
 
 		public static void LoadLocationImage(Location aLoc) {
@@ -85,7 +85,7 @@ namespace Swinburneexplorer {
 		/// Try moving in a direction
 		/// Play corresponding sounds if failed
 		/// </summary>
-		/// <param name="dirStr"></param>
+		/// <param name="dirStr">direction as string</param>
 		public static void TryMove(string dirStr) {
 			int direction = ParseDirection(dirStr);
 
@@ -94,11 +94,11 @@ namespace Swinburneexplorer {
 				PlayCorrectSound();
 			} else if (GameController._currentState == GameState.InBuilding.ToString()) {
 				if (direction == GameController.FORWARD) {
-					GameController._player.ReturnBuildingIfExists().UpFloor();
-					Console.WriteLine("Moved to Floor " + GameController._player.ReturnBuildingIfExists().CurrentFloor.ToString());
+					GameController.Player.ReturnBuildingIfExists().UpFloor();
+					Console.WriteLine("Moved to Floor " + GameController.Player.ReturnBuildingIfExists().CurrentFloor.ToString());
 				} else if (direction == GameController.BACKWARD) {
-					GameController._player.ReturnBuildingIfExists().DownFloor();
-					Console.WriteLine("Moved to Floor " + GameController._player.ReturnBuildingIfExists().CurrentFloor.ToString());
+					GameController.Player.ReturnBuildingIfExists().DownFloor();
+					Console.WriteLine("Moved to Floor " + GameController.Player.ReturnBuildingIfExists().CurrentFloor.ToString());
 				}
 			}
 		}
@@ -121,52 +121,52 @@ namespace Swinburneexplorer {
 		public static void HandleMouseTravelInput() {
 			//if mouse click on arrow, move to linked location (if there is one)
 			if (SplashKit.MouseClicked(MouseButton.LeftButton)) {
-				string arrowDirectionClicked = GameController._ui.CheckMouseInArrow().ToString();
+				string arrowDirectionClicked = GameController.UI.CheckMouseInArrow().ToString();
 
 				if (arrowDirectionClicked != "") {
 					TryMove(arrowDirectionClicked);
 				}
 
-				if (GameController._ui.EnterButton.Visible) {
-					if (GameController._ui.CheckMouseInEnterButton()) {
+				if (GameController.UI.EnterButton.Visible) {
+					if (GameController.UI.CheckMouseInEnterButton()) {
 						if (GameController._currentState == GameState.Travelling.ToString()) {
 							Console.WriteLine("Clicked Enter");
-							GameController._player.Location = GameController._player.Location.EnterBuilding;
+							GameController.Player.Location = GameController.Player.Location.EnterBuilding;
 							GameController._currentState = GameState.InBuilding.ToString();
 						} 
 						else if (GameController._currentState == GameState.InBuilding.ToString()) {
-							GameController._player.ReturnBuildingIfExists().EnterClassroom();
+							GameController.Player.ReturnBuildingIfExists().EnterClassroom();
 							GameController._currentState = GameState.InClassroom.ToString();
 						}
 					}
 				}
 
-				if (GameController._ui.EnterButton2.Visible) {
-					if (GameController._ui.CheckMouseInEnter2Button()) {
-						GameController._player.ReturnBuildingIfExists().EnterClassroom();
+				if (GameController.UI.EnterButton2.Visible) {
+					if (GameController.UI.CheckMouseInEnter2Button()) {
+						GameController.Player.ReturnBuildingIfExists().EnterClassroom();
 						GameController._currentState = GameState.InClassroom.ToString();
 					} 
 				}
 
-				if (GameController._ui.ExitButton.Visible) {
-					if (GameController._ui.CheckMouseInEnterButton()) {
+				if (GameController.UI.ExitButton.Visible) {
+					if (GameController.UI.CheckMouseInEnterButton()) {
 						if (GameController._currentState == GameState.InClassroom.ToString()) {
 							Console.WriteLine("Clicked Exit");
-							GameController._player.ReturnBuildingIfExists().ExitClassroom();
+							GameController.Player.ReturnBuildingIfExists().ExitClassroom();
 							GameController._currentState = GameState.InBuilding.ToString();
 						}
 					}
 				}
 
-				if (GameController._ui.EnterButton2.Visible) {
-					if (GameController._ui.CheckMouseInExit2Button()) {
-						GameController._player.Location = GameController._player.ReturnBuildingIfExists().ParentLoc;
+				if (GameController.UI.EnterButton2.Visible) {
+					if (GameController.UI.CheckMouseInExit2Button()) {
+						GameController.Player.Location = GameController.Player.ReturnBuildingIfExists().ParentLoc;
 						GameController._currentState = GameState.Travelling.ToString();
 					}
 				}
 
-				if (GameController._ui.CheckMouseInInfoButton()) {
-					Console.WriteLine("Clicked Info");
+				if (GameController.UI.CheckMouseInInfoButton()) {
+					GameController.UI.DrawBuildingInfo();
 				}
 
 				if (GameController._ui.CheckMouseInQuitButton()) {
@@ -198,25 +198,29 @@ namespace Swinburneexplorer {
 			if (SplashKit.KeyTyped(KeyCode.AKey) || SplashKit.KeyTyped(KeyCode.LeftKey)) {
 				TryMove("Left");
 			}
+
+			if (SplashKit.KeyTyped(KeyCode.IKey)) {
+			GameController.UI.DrawBuildingInfo();
+			}
 		}
 
 		public static void CheckIfObjectiveIsComplete() {
 			if (GameController._currentState == GameState.Travelling.ToString()) {
-				if (GameController._player.CurrentObjective.CheckIfObjectiveIsComplete(GameController._player.Location.Name)) {
+				if (GameController.Player.CurrentObjective.CheckIfObjectiveIsComplete(GameController.Player.Location.Name)) {
 					CompleteObjective();
 				}
 			}
 			else if (GameController._currentState == GameState.InClassroom.ToString()) {
-				if (GameController._player.CurrentObjective.CheckIfObjectiveIsComplete(GameController._player.ReturnBuildingIfExists().CurrentClassroom.RoomId)) {
+				if (GameController.Player.CurrentObjective.CheckIfObjectiveIsComplete(GameController.Player.ReturnBuildingIfExists().CurrentClassroom.RoomId)) {
 					CompleteObjective();
 				}
 			}
 		}
 
 		public static void CompleteObjective() {
-			if (GameController._player.ObjectiveCount <= 6) {
-				GameController._ui.DrawObjectiveComplete();
-				GameController._player.AssignNewObjective();
+			if (GameController.Player.ObjectiveCount <= 6) {
+				GameController.UI.DrawObjectiveComplete();
+				GameController.Player.AssignNewObjective();
 			}
 		}
 

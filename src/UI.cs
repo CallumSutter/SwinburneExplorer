@@ -14,16 +14,22 @@ namespace Swinburneexplorer {
 	}
 
 	public class UI : IDraw {
+		private const double HALF_WIN_WIDTH = GameController.WINDOW_WIDTH / 2.0;
+		private const double HALF_WIN_HEIGHT = GameController.WINDOW_HEIGHT / 2.0;
+
+		// Arrow constants
 		private static int ARROW_SIZE = 72;
 
 		private static double ARROW_Y = GameController.WINDOW_HEIGHT * (3.3 / 5.0);
-		private static double ARROW_X = GameController.WINDOW_WIDTH / 2.0 - ARROW_SIZE / 2.0;
+		private static double ARROW_X = HALF_WIN_WIDTH - ARROW_SIZE / 2.0;
 		private static double ARROW_X_OFFSET = 120;
 		private static double ARROW_Y_OFFSET = ARROW_SIZE / 2 + 40;
 
+		// location image scaling
 		private const double LOC_X_SCALING = (double)GameController.WINDOW_WIDTH / 1300;
 		private const double LOC_Y_SCALING = (double)GameController.WINDOW_HEIGHT / 614;
 
+		// location image offset
 		private const int LOC_IMAGE_X_OFFSET = GameController.WINDOW_WIDTH - 1300;
 		private const int LOC_IMAGE_Y_OFFSET = GameController.WINDOW_HEIGHT - 614;
 
@@ -36,13 +42,23 @@ namespace Swinburneexplorer {
 		private UIObject _infoBtn;
 		private UIObject _scroll;
 
+		// info UI
+		private Font _infoFont;
+
+		/// <summary>
+		/// Constructor for UI class object
+		/// Initialises properties
+		/// </summary>
 		public UI()	{
 			InitialiseArrows();
 			InitialiseButtons();
-			InitialiseInfoButton();
+			InitialiseInfoResources();
 			InitialiseScroll();
 		}
 
+		/// <summary>
+		/// Draw UI onto window
+		/// </summary>
 		public void Draw() {
 			//Draw the player location and extra information
 			DrawPlayerLocation();
@@ -71,6 +87,9 @@ namespace Swinburneexplorer {
 			GameController.gameWindow.Refresh(60);
 		}
 
+		/// <summary>
+		/// Draw directional arrows onto window
+		/// </summary>
 		private void DrawDirectionArrows() {
 			if (GameController._currentState == GameState.InBuilding.ToString()) {
 				if (GameController._player.ReturnBuildingIfExists().CurrentFloor == 1) {
@@ -117,8 +136,8 @@ namespace Swinburneexplorer {
 
 		private void DrawLocationInformation() {
 			//Draws location name
-			GameController.gameWindow.DrawRectangle(Color.DarkRed, GameController.WINDOW_WIDTH / 2 - 150, 0, 300, 50);
-			GameController.gameWindow.FillRectangle(Color.Black, GameController.WINDOW_WIDTH / 2 - 150, 0, 300, 50);
+			GameController.gameWindow.DrawRectangle(Color.DarkRed, HALF_WIN_WIDTH - 150, 0, 300, 50);
+			GameController.gameWindow.FillRectangle(Color.Black, HALF_WIN_WIDTH - 150, 0, 300, 50);
 			string _location = "";
 
 			if (GameController._currentState == GameState.InBuilding.ToString()) {
@@ -131,7 +150,7 @@ namespace Swinburneexplorer {
 				_location = "Current Location: " + GameController._player.Location.Name;
 			}
 
-			GameController.gameWindow.DrawText(_location, Color.DarkRed, GameController.WINDOW_WIDTH / 2 - 120, 20);
+			GameController.gameWindow.DrawText(_location, Color.DarkRed, HALF_WIN_WIDTH - 120, 20);
 		}
 
 		public void DrawObjectiveComplete() {
@@ -208,12 +227,74 @@ namespace Swinburneexplorer {
 			}
 		}
 
+		/// <summary>
+		/// Draw quit button onto UI
+		/// </summary>
 		private void DrawQuitButton() {
 			_quitBtn.Draw();
 		}
 
+		/// <summary>
+		/// Draw information button onto UI
+		/// </summary>
 		private void DrawInfoButton() {
-			_infoBtn.Draw();
+			if (GameController.Player.Location.Building != null |
+				GameController.Player.Location is Building)
+			{
+				_infoBtn.Draw();
+			}
+		}
+
+		public void DrawBuildingInfo()
+		{
+			Bitmap infoBox = GameResources.GetImage("infoBox");
+			GameController.gameWindow.DrawBitmap(infoBox, 
+				HALF_WIN_WIDTH - infoBox.Width / 2, HALF_WIN_HEIGHT - infoBox.Height / 2);
+
+			Location loc = new Location("test","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed orci leo, tempus vitae ullamcorper quis, dictum vel ligula. Vivamus nulla est, tincidunt ut arcu sed, cursus ornare ante. Pellentesque aliquam efficitur purus. Duis sit amet dignissim risus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Duis consectetur erat non lorem mollis, pellentesque facilisis nunc suscipit. Fusce vel commodo enim, et cursus lectus. Phasellus in rhoncus odio, sed varius justo. Sed ut lobortis velit. Aenean luctus molestie magna, et faucibus velit cursus sit amet. Donec vel mattis nunc.");
+
+			DrawInfoText(GameController.Player.Location.Name + " Info", 20, HALF_WIN_WIDTH - infoBox.Width / 2 + 25, 
+				HALF_WIN_HEIGHT - infoBox.Height / 2 + 20);
+			
+			// 41 characters p/l with current settings.
+			string text = loc.GetInfo;
+			string[] textSplit = text.Split(' ');
+			string toDraw = "";
+			int lines = 0;
+
+			for(int i = 0; i < textSplit.Length; i++)
+			{
+				if ((toDraw + " " + textSplit[i]).Length <= 41) {
+					toDraw += " " + textSplit[i];
+				}
+				else {
+					DrawInfoText(toDraw, 15, HALF_WIN_WIDTH - infoBox.Width / 2 + 25, 
+						HALF_WIN_HEIGHT - infoBox.Height / 2 + 43 + lines++ * 15);
+
+					toDraw = "";
+				}
+			}
+
+			// draw if not already drawn
+			if (toDraw != "") {
+				DrawInfoText(toDraw, 15, HALF_WIN_WIDTH - infoBox.Width / 2 + 25,
+					HALF_WIN_HEIGHT - infoBox.Height / 2 + 43 + lines++ * 15);
+			}
+
+			DrawInfoText("Right click or press space to exit", 10, HALF_WIN_WIDTH - infoBox.Width / 2 + 25,
+				GameController.WINDOW_HEIGHT - 100);
+
+			SplashKit.RefreshScreen();
+
+			// wait for exit
+			while (!SplashKit.MouseClicked(MouseButton.RightButton) && (!SplashKit.KeyTyped(KeyCode.SpaceKey))) {
+				SplashKit.ProcessEvents();
+			}
+		}
+
+		private void DrawInfoText(string text, int size, double x, double y)
+		{
+			GameController.gameWindow.DrawText(text, Color.Black, _infoFont, size, x, y);
 		}
 
 		private void InitialiseScroll() {
@@ -270,11 +351,27 @@ namespace Swinburneexplorer {
 			_quitBtn = new UIButton(btnQuit, "Quit", 27, 10);
 		}
 
-		private void InitialiseInfoButton()	{
-			_infoBtn = new UIObject(GameResources.GetImage("infoBtn"), 
+		/// <summary>
+		/// Initialise building information resources
+		/// - button
+		/// - font
+		/// </summary>
+		private void InitialiseInfoResources()	{
+			_infoFont = GameResources.GetFont("infoFont");
+
+			Bitmap infoBtn = GameResources.GetImage("infoBtn");
+			_infoBtn = new UIObject(infoBtn, 
 				CreateMask(2*Map.MAP_ICON_X_OFFSET + GameResources.GetImage("sMap").Width, Map.MAP_ICON_Y_OFFSET, 50, 50));
 		}
 
+		/// <summary>
+		/// Generate an object mask
+		/// </summary>
+		/// <param name="x">x coord</param>
+		/// <param name="y">y coord</param>
+		/// <param name="width">width of mask</param>
+		/// <param name="height">height of mask</param>
+		/// <returns>object mask</returns>
 		private Rectangle CreateMask(double x, double y, double width, double height) {
 			Rectangle mask = new Rectangle();
 			mask.X = x;

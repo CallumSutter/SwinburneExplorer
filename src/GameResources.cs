@@ -35,6 +35,7 @@ namespace Swinburneexplorer
 			_buildings = new Dictionary<string, Building>();
 			_loadingFont = new Font("arial", "/arial.ttf"); //default font.
 			_fonts.Add("arial", _loadingFont);
+			_images.Add("SwinLogo", new Bitmap("SwinLogo", "SwinLogo.png"));
 		}
 
 		/// <summary>
@@ -67,6 +68,7 @@ namespace Swinburneexplorer
 			int barNum = 1;
 
 			SplashKit.Delay(loadBarDelay);
+			DrawSwinLogo();
 			DrawLoadingBar(barNum++, loadbar);
 			DrawLoadingText("Loading Fonts");
 			GameController.gameWindow.Refresh();
@@ -75,6 +77,7 @@ namespace Swinburneexplorer
 			GameController.gameWindow.Clear(Color.White);
 
 			SplashKit.Delay(loadBarDelay);
+			DrawSwinLogo();
 			DrawLoadingBar(barNum++, loadbar);
 			DrawLoadingText("Loading Images");
 			GameController.gameWindow.Refresh();
@@ -84,6 +87,7 @@ namespace Swinburneexplorer
 			GameController.gameWindow.Clear(Color.White);
 
 			SplashKit.Delay(loadBarDelay);
+			DrawSwinLogo();
 			DrawLoadingBar(barNum++, loadbar);
 			DrawLoadingText("Loading Music");
 			GameController.gameWindow.Refresh();
@@ -92,17 +96,11 @@ namespace Swinburneexplorer
 			GameController.gameWindow.Clear(Color.White);
 
 			SplashKit.Delay(loadBarDelay);
+			DrawSwinLogo();
 			DrawLoadingBar(barNum++, loadbar);
 			DrawLoadingText("Loading Sounds");
 			GameController.gameWindow.Refresh();
 			LoadSounds();
-
-			SplashKit.Delay(loadBarDelay);
-
-			GameController.gameWindow.Clear(Color.White);
-			GameController.gameWindow.DrawBitmap(GetImage("SwinLogo"), GameController.WINDOW_WIDTH / 2 - GetImage("SwinLogo").Width / 2, GameController.WINDOW_HEIGHT / 2 - GetImage("SwinLogo").Height / 2 - 50);
-			Sprite s = new Sprite(GetImage("SwinLogo"));
-			GameController.gameWindow.Refresh();
 
 			SplashKit.Delay(loadBarDelay);
 
@@ -134,6 +132,16 @@ namespace Swinburneexplorer
 		}
 
 		/// <summary>
+		/// Draws Swinurbe Logo onto screen
+		/// </summary>
+		private static void DrawSwinLogo()
+		{
+			GameController.gameWindow.DrawBitmap(GetImage("SwinLogo"),
+				GameController.WINDOW_WIDTH / 2 - GetImage("SwinLogo").Width / 2,
+				GameController.WINDOW_HEIGHT / 2 - GetImage("SwinLogo").Height / 2 - 50);
+		}
+
+		/// <summary>
 		/// Release resources from system
 		/// </summary>
 		private static void FreeResources() {
@@ -157,7 +165,6 @@ namespace Swinburneexplorer
 		}
 
 		private static void LoadImages() {
-			_images.Add("SwinLogo", new Bitmap("SwinLogo", "SwinLogo.png"));
 			_images.Add("Arrow", new Bitmap("Arrow", "Arrow.png"));
 			_images.Add("sArrow", new Bitmap("sArrow", "sArrow.png"));
 			_images.Add("sMap", new Bitmap("sMap", "sMap.png"));
@@ -169,6 +176,8 @@ namespace Swinburneexplorer
 			_images.Add("scroll", new Bitmap("scroll", "tinyScroll.png"));
 			_images.Add("building", new Bitmap("building", "insideBuilding.jpg"));
 			_images.Add("classroom", new Bitmap("classroom", "classroom.jpg"));
+			_images.Add("background", new Bitmap("background", "swinburne.jpg"));
+			_images.Add("infoBox", new Bitmap("infoBox", "infoBox.png"));
 		}
 
 		private static void LoadLocations() {
@@ -1054,8 +1063,14 @@ namespace Swinburneexplorer
 		private static void LoadFonts()
 		{
 			_fonts.Add("gameFont", new Font("gameFont", "gameFont.ttf"));
+			_fonts.Add("infoFont", new Font("infoFont", "pointfree.ttf"));
 		}
 
+		/// <summary>
+		/// Get a font
+		/// </summary>
+		/// <param name="fontName">name of font</param>
+		/// <returns>font</returns>
 		public static Font GetFont(string fontName)
 		{
 			try
@@ -1071,6 +1086,11 @@ namespace Swinburneexplorer
 			return null;
 		}
 
+		/// <summary>
+		/// Get a location from list
+		/// </summary>
+		/// <param name="locationName"></param>
+		/// <returns></returns>
 		public static Location GetLocation(string locationName) {
 			try {
 				return _locations[locationName];

@@ -115,7 +115,7 @@ namespace Swinburneexplorer {
 		/// <summary>
 		/// Getter for location information
 		/// </summary>
-		public string GetInfo {
+		public virtual string GetInfo {
 			get {
 				return _desc;
 			}
@@ -127,6 +127,17 @@ namespace Swinburneexplorer {
 		public Location[] Paths {
 			get {
 				return _paths;
+			}
+		}
+
+		/// <summary>
+		/// Public getter for building
+		/// </summary>
+		public Building Building
+		{
+			get
+			{
+				return _building;
 			}
 		}
 

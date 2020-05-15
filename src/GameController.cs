@@ -11,7 +11,7 @@ public class GameController {
     public static Map theMap;
     public const int WINDOW_HEIGHT = 583;
     public const int WINDOW_WIDTH = 1235;
-    //Constants for directions
+    //Constants for directions	
     public const int FORWARD = 0;
     public const int BACKWARD = 1;
     public const int LEFT = 2;
@@ -58,7 +58,10 @@ public class GameController {
                     break;
             }
 
-            gameWindow.Refresh();
+			Point2D pos = SplashKit.MousePosition();
+			gameWindow.DrawText(pos.X.ToString(), Color.Black, 10, 10);
+			gameWindow.DrawText(pos.Y.ToString(), Color.Black, 10, 30);
+			gameWindow.Refresh();
 
             //get user input and process events
             SplashKit.ProcessEvents();
@@ -77,13 +80,25 @@ public class GameController {
                 default:
                     break;
             }
-
-            Point2D pos = SplashKit.MousePosition();
-            gameWindow.DrawText(pos.X.ToString(), Color.Black, 10, 10);
-            gameWindow.DrawText(pos.Y.ToString(), Color.Black, 10, 30);
-
-            gameWindow.Refresh();
         }
         while (!SplashKit.WindowCloseRequested(gameWindow) && _currentState != "Exit");
     }
+
+	/// <summary>
+	/// Getter for player
+	/// </summary>
+	public static Player Player {
+		get {
+			return _player;
+		}
+	}
+
+	/// <summary>
+	/// Getter for ui
+	/// </summary>
+	public static UI UI {
+		get {
+			return _ui;
+		}
+	}
 }
