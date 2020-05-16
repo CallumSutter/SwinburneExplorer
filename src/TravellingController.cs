@@ -5,6 +5,10 @@ using System.Resources;
 using SplashKitSDK;
 
 namespace Swinburneexplorer {
+	/// <summary>
+	/// This class controls the user input when in 
+	/// the travelling section of the game
+	/// </summary>
 	public class TravellingController {
 		/// <summary>
 		/// Sound played when travel valid
@@ -46,6 +50,11 @@ namespace Swinburneexplorer {
 			LoadLocationImage(GameController.Player.Location);
 		}
 
+		/// <summary>
+		/// Load location image to GameResources
+		/// and add location image to current location
+		/// </summary>
+		/// <param name="aLoc"></param>
 		public static void LoadLocationImage(Location aLoc) {
 			if (aLoc.LocationImage == null) {
 				GameResources.LoadLocationImage(aLoc.Name);
@@ -204,6 +213,9 @@ namespace Swinburneexplorer {
 			}
 		}
 
+		/// <summary>
+		/// Check if objective is complete
+		/// </summary>
 		public static void CheckIfObjectiveIsComplete() {
 			if (GameController._currentState == GameState.Travelling.ToString()) {
 				if (GameController.Player.CurrentObjective.CheckIfObjectiveIsComplete(GameController.Player.Location.Name)) {
@@ -217,6 +229,10 @@ namespace Swinburneexplorer {
 			}
 		}
 
+		/// <summary>
+		/// Add new objective if all objectives have
+		/// not been completed
+		/// </summary>
 		public static void CompleteObjective() {
 			if (GameController.Player.ObjectiveCount <= 6) {
 				GameController.UI.DrawObjectiveComplete();

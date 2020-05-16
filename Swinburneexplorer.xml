@@ -1,0 +1,1160 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Swinburneexplorer</name>
+    </assembly>
+    <members>
+        <member name="T:SplashKitSDK.PointerWrapper">
+            <summary>
+            Wraps a pointer to a SplashKit resource
+            </summary>
+        </member>
+        <member name="F:SplashKitSDK.PointerWrapper._ptrRegister">
+            <summary>
+            The ptrRegistry is responsible for maintaining copies of all wrapped SplashKit pointers.
+            </summary>
+        </member>
+        <member name="T:SplashKitSDK.PointerWrapper.ReleaserClass">
+            <summary>
+            "Super Dodgy" (but correct) work around for the fact that C# has no unload methods for classes.
+            </summary>
+        </member>
+        <member name="M:SplashKitSDK.PointerWrapper.Dispose">
+            <summary>
+            Clean up the native resources used by this resource.
+            </summary>
+        </member>
+        <member name="M:SplashKitSDK.PointerWrapper.ToString">
+            <summary>
+            Returns a string representation of the resource. This is in the format
+            "Type @address".
+            </summary>
+        </member>
+        <member name="M:SplashKitSDK.PointerWrapper.Equals(System.Object)">
+            <summary>
+            Determines if the PointerWrappers is equal to the passed in object.
+            </summary>
+        </member>
+        <member name="M:SplashKitSDK.PointerWrapper.GetHashCode">
+            <summary>
+            Returns the hash code of the PointerWrapper based on what it points to.
+            </summary>
+        </member>
+        <member name="M:SplashKitSDK.PointerWrapper.op_Equality(SplashKitSDK.PointerWrapper,SplashKitSDK.PointerWrapper)">
+            <summary>
+            Determines if two PointerWrappers are equal.
+            </summary>
+        </member>
+        <member name="M:SplashKitSDK.PointerWrapper.op_Inequality(SplashKitSDK.PointerWrapper,SplashKitSDK.PointerWrapper)">
+            <summary>
+            Determines if two PointerWrappers are not equal.
+            </summary>
+        </member>
+        <member name="T:Swinburneexplorer.ArrowButton">
+            <summary>
+            Specialised UIObject for arrows
+            </summary>
+        </member>
+        <member name="M:Swinburneexplorer.ArrowButton.#ctor(SplashKitSDK.Rectangle,System.Double)">
+            <summary>
+            Constructor for Arrow button UI object
+            </summary>
+            <param name="objectMask">mask for button</param>
+            <param name="rotation">image rotation</param>
+        </member>
+        <member name="M:Swinburneexplorer.ArrowButton.Draw">
+            <summary>
+            Draw button onto window
+            </summary>
+        </member>
+        <member name="T:Swinburneexplorer.Building">
+            <summary>
+            Building class is used as a extension of the location class
+            can go up and down floors, and can enter a classroom
+            </summary>
+        </member>
+        <member name="M:Swinburneexplorer.Building.#ctor(System.String,System.String,System.Int32)">
+            <summary>
+            Building constructor
+            </summary>
+            <param name="name">name of building</param>
+            <param name="shortName">shorted name</param>
+            <param name="floorCount">number of floors in building</param>
+        </member>
+        <member name="M:Swinburneexplorer.Building.InitialiseClassrooms(System.String)">
+            <summary>
+            Generates classrooms depending on number of floors
+            </summary>
+            <param name="shortName">name of building</param>
+        </member>
+        <member name="M:Swinburneexplorer.Building.EnterClassroom">
+            <summary>
+            Enter classroom
+            </summary>
+        </member>
+        <member name="M:Swinburneexplorer.Building.ExitClassroom">
+            <summary>
+            Exit classroom
+            </summary>
+        </member>
+        <member name="M:Swinburneexplorer.Building.UpFloor">
+            <summary>
+            Go to next floor
+            </summary>
+        </member>
+        <member name="M:Swinburneexplorer.Building.DownFloor">
+            <summary>
+            Go to previous floor
+            </summary>
+        </member>
+        <member name="P:Swinburneexplorer.Building.CurrentClassroom">
+            <summary>
+            Get current classroom
+            </summary>
+        </member>
+        <member name="P:Swinburneexplorer.Building.FloorCount">
+            <summary>
+            Get number of floors in building
+            </summary>
+        </member>
+        <member name="P:Swinburneexplorer.Building.CurrentFloor">
+            <summary>
+            Get current floor player is at
+            </summary>
+        </member>
+        <member name="P:Swinburneexplorer.Building.GetInfo">
+            <summary>
+            Return info of parent locaton
+            </summary>
+        </member>
+        <member name="P:Swinburneexplorer.Building.ParentLoc">
+            <summary>
+            Return parent location
+            </summary>
+        </member>
+        <member name="P:Swinburneexplorer.Building.InClassroom">
+            <summary>
+            Getter for inClassroom
+            </summary>
+        </member>
+        <member name="T:Swinburneexplorer.Classroom">
+            <summary>
+            used to hold the room ID of the classroom - used by building class
+            </summary>
+        </member>
+        <member name="M:Swinburneexplorer.Classroom.#ctor(System.String)">
+            <summary>
+            initialiser for the Classroom class
+            </summary>
+            <param name="roomId"></param>
+        </member>
+        <member name="P:Swinburneexplorer.Classroom.RoomId">
+            <summary>
+            returns room ID of Classroom
+            </summary>
+        </member>
+        <member name="T:Swinburneexplorer.GameResources">
+            <summary>
+            This class holds the game resources for the game
+            </summary>
+        </member>
+        <member name="F:Swinburneexplorer.GameResources.FORWARD">
+            <summary>
+            const for forward direction
+            </summary>
+        </member>
+        <member name="F:Swinburneexplorer.GameResources.BACKWARD">
+            <summary>
+            const for backward direction
+            </summary>
+        </member>
+        <member name="F:Swinburneexplorer.GameResources.LEFT">
+            <summary>
+            const for left direction
+            </summary>
+        </member>
+        <member name="F:Swinburneexplorer.GameResources.RIGHT">
+            <summary>
+            const for right direction
+            </summary>
+        </member>
+        <member name="M:Swinburneexplorer.GameResources.#cctor">
+            <summary>
+            Initialise resource collections
+            </summary>
+        </member>
+        <member name="M:Swinburneexplorer.GameResources.PlayBGM">
+            <summary>
+            Play BGM
+            </summary>
+        </member>
+        <member name="M:Swinburneexplorer.GameResources.LoadingScreen">
+            <summary>
+            Display loading screen
+            </summary>
+        </member>
+        <member name="M:Swinburneexplorer.GameResources.DrawLoadingText(System.String)">
+            <summary>
+            Text for loading screen
+            </summary>
+            <param name="loadText"></param>
+        </member>
+        <member name="M:Swinburneexplorer.GameResources.DrawLoadingBar(System.Int32,SplashKitSDK.Rectangle)">
+            <summary>
+            Draw in loading bar
+            </summary>
+            <param name="count"></param>
+            <param name="loadBar"></param>
+        </member>
+        <member name="M:Swinburneexplorer.GameResources.DrawSwinLogo">
+            <summary>
+            Draws Swinurbe Logo onto screen
+            </summary>
+        </member>
+        <member name="M:Swinburneexplorer.GameResources.FreeResources">
+            <summary>
+            Release resources from system
+            </summary>
+        </member>
+        <member name="M:Swinburneexplorer.GameResources.LoadLocationImage(System.String)">
+            <summary>
+            Load image and add to image dictionary
+            </summary>
+            <param name="locName"></param>
+        </member>
+        <member name="M:Swinburneexplorer.GameResources.LoadImages">
+            <summary>
+            Load images and add them to image dictionary
+            </summary>
+        </member>
+        <member name="M:Swinburneexplorer.GameResources.LoadLocations">
+            <summary>
+            Load locations and add them to locations dictionary
+            </summary>
+        </member>
+        <member name="M:Swinburneexplorer.GameResources.ConfigureLocations">
+            <summary>
+            configures all locations and adds buildings to locations
+            </summary>
+        </member>
+        <member name="M:Swinburneexplorer.GameResources.LoadSounds">
+            <summary>
+            Loads all sounds
+            </summary>
+        </member>
+        <member name="M:Swinburneexplorer.GameResources.LoadMusic">
+            <summary>
+            Load all music
+            </summary>
+        </member>
+        <member name="M:Swinburneexplorer.GameResources.LoadFonts">
+            <summary>
+            Load all fonts
+            </summary>
+        </member>
+        <member name="M:Swinburneexplorer.GameResources.GetFont(System.String)">
+            <summary>
+            Get a font
+            </summary>
+            <param name="fontName">name of font</param>
+            <returns>font</returns>
+        </member>
+        <member name="M:Swinburneexplorer.GameResources.GetLocation(System.String)">
+            <summary>
+            Get a location from list
+            </summary>
+            <param name="locationName"></param>
+            <returns>Location</returns>
+        </member>
+        <member name="M:Swinburneexplorer.GameResources.GetBuilding(System.String)">
+            <summary>
+            Get a Building from list
+            </summary>
+            <param name="buildingname"></param>
+            <returns>Building</returns>
+        </member>
+        <member name="M:Swinburneexplorer.GameResources.GetSound(System.String)">
+            <summary>
+            Get a sound from list
+            </summary>
+            <param name="soundName"></param>
+            <returns>Sound</returns>
+        </member>
+        <member name="M:Swinburneexplorer.GameResources.GetMusic(System.String)">
+            <summary>
+            Get Music from list
+            </summary>
+            <param name="musicName"></param>
+            <returns>Music</returns>
+        </member>
+        <member name="M:Swinburneexplorer.GameResources.GetImage(System.String)">
+            <summary>
+            Get Image from list
+            </summary>
+            <param name="imgName"></param>
+            <returns>image</returns>
+        </member>
+        <member name="T:Swinburneexplorer.GameState">
+            <summary>
+            Enum that holds a game states
+            </summary>
+        </member>
+        <member name="F:Swinburneexplorer.GameState.MainMenu">
+            <summary>
+            Player is at main menu
+            </summary>
+        </member>
+        <member name="F:Swinburneexplorer.GameState.Travelling">
+            <summary>
+            Player is moving between locations/main game
+            </summary>
+        </member>
+        <member name="F:Swinburneexplorer.GameState.InBuilding">
+            <summary>
+            player is in a building
+            </summary>
+        </member>
+        <member name="F:Swinburneexplorer.GameState.InClassroom">
+            <summary>
+            player is in a classroom
+            </summary>
+        </member>
+        <member name="F:Swinburneexplorer.GameState.FullscreenMap">
+            <summary>
+            Player is looking at the map
+            </summary>
+        </member>
+        <member name="F:Swinburneexplorer.GameState.Exit">
+            <summary>
+            Exiting game
+            </summary>
+        </member>
+        <member name="M:Swinburneexplorer.IDraw.Draw">
+            <summary>
+            Interface for objects that can draw themselves
+            </summary>
+        </member>
+        <member name="T:Swinburneexplorer.Location">
+            <summary>
+            Location class - used to travel between locations, and display locations
+            </summary>
+        </member>
+        <member name="M:Swinburneexplorer.Location.#ctor(System.String)">
+            <summary>
+            Initialiser for Location class
+            </summary>
+            <param name="locationImage">path of the image file, defaults to image folder in bin folder</param>
+            <param name="name">name of the location</param>
+            <returns></returns>
+        </member>
+        <member name="M:Swinburneexplorer.Location.#ctor(System.String,System.String)">
+            <summary>
+            Constructor overload for description
+            </summary>
+            <param name="name"></param>
+            <param name="desc"></param>
+        </member>
+        <member name="M:Swinburneexplorer.Location.InitialiseLocation">
+            <summary>
+            Initialise members not passed in through arguments
+            </summary>
+        </member>
+        <member name="M:Swinburneexplorer.Location.AddConnectingLocation(Swinburneexplorer.Location,System.Int32)">
+            <summary>
+            add a connection location to the current location (one location for each direction)
+            also sets a bool value to true for that direction
+            </summary>
+            <param name="location">Location to be added</param>
+            <param name="direction">Direction of the new location from current location</param>
+            <returns></returns>
+        </member>
+        <member name="M:Swinburneexplorer.Location.GetLocationInDirection(System.Int32)">
+            <summary>
+            add a connection location to the current location (one location for each direction)
+            </summary>
+            <param name="direction">
+            direction to get location from (0 for forward, 1 for backward
+            2 for left, 3 for right)
+            </param>
+            <returns>location in a specified direction, or null</returns>
+        </member>
+        <member name="M:Swinburneexplorer.Location.SetBuilding(Swinburneexplorer.Building)">
+            <summary>
+            Set building property
+            </summary>
+            <param name="building"></param>
+        </member>
+        <member name="P:Swinburneexplorer.Location.LocationImage">
+            <summary>
+            getter for location image bitmap
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Swinburneexplorer.Location.Name">
+            <summary>
+            getter for location name
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Swinburneexplorer.Location.GetInfo">
+            <summary>
+            Getter for location information
+            </summary>
+        </member>
+        <member name="P:Swinburneexplorer.Location.Paths">
+            <summary>
+            Return connected paths
+            </summary>
+        </member>
+        <member name="P:Swinburneexplorer.Location.Building">
+            <summary>
+            Public getter for building
+            </summary>
+        </member>
+        <member name="P:Swinburneexplorer.Location.EnterBuilding">
+            <summary>
+            Return contained building
+            </summary>
+        </member>
+        <member name="T:Swinburneexplorer.MainMenu">
+            <summary>
+            Main Menu class is responsible for drawing to the window when on the main menu
+            </summary>
+        </member>
+        <member name="M:Swinburneexplorer.MainMenu.#ctor">
+            <summary>
+            Constructor for main menu
+            </summary>
+        </member>
+        <member name="P:Swinburneexplorer.MainMenu.PlayPressed">
+            <summary>
+            Get/Set for if play button was pressed
+            </summary>
+        </member>
+        <member name="M:Swinburneexplorer.MainMenu.InitialiseFont">
+            <summary>
+            Initialise font for main menu
+            </summary>
+        </member>
+        <member name="M:Swinburneexplorer.MainMenu.InitialiseBackground">
+            <summary>
+            Initialise background image
+            </summary>
+        </member>
+        <member name="M:Swinburneexplorer.MainMenu.InitialiseButtons">
+            <summary>
+            Initialise masks for buttons and initialise button
+            </summary>
+        </member>
+        <member name="M:Swinburneexplorer.MainMenu.CreateMask(System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Create mask given parameters
+            </summary>
+            <param name="x">x coordinate</param>
+            <param name="y">y coordinate</param>
+            <param name="width">width of mask</param>
+            <param name="height">height of mask</param>
+            <returns>rectangle mask</returns>
+        </member>
+        <member name="M:Swinburneexplorer.MainMenu.CheckMouseInTrainButton">
+            <summary>
+            Check if mouse is in 'Train' button
+            </summary>
+            <returns>if mouse is in button</returns>
+        </member>
+        <member name="M:Swinburneexplorer.MainMenu.CheckMouseInCampusButton">
+            <summary>
+            Check if mouse is in 'Campus' button
+            </summary>
+            <returns>if mouse is in button</returns>
+        </member>
+        <member name="M:Swinburneexplorer.MainMenu.CheckMouseInPlayButton">
+            <summary>
+            Check if mouse is in 'Play' button
+            </summary>
+            <returns>if mouse is in button</returns>
+        </member>
+        <member name="M:Swinburneexplorer.MainMenu.CheckMouseInExitButton">
+            <summary>
+            Check if mouse is in 'Exit' button
+            </summary>
+            <returns>if mouse is in button</returns>
+        </member>
+        <member name="M:Swinburneexplorer.MainMenu.CheckMouseInCarParkButton">
+            <summary>
+            Check if mouse is in 'Car Park' button
+            </summary>
+            <returns>if mouse is in button</returns>
+        </member>
+        <member name="M:Swinburneexplorer.MainMenu.Draw">
+            <summary>
+            Draw main menu onto window
+            </summary>
+        </member>
+        <member name="T:Swinburneexplorer.MainMenuController">
+            <summary>
+            Controls input when in the main menu
+            </summary>
+        </member>
+        <member name="M:Swinburneexplorer.MainMenuController.HandleMouseInput">
+            <summary>
+            Process mouse inputs in MainMenu
+            </summary>
+        </member>
+        <member name="M:Swinburneexplorer.MainMenuController.HandleInput">
+            <summary>
+            Handles all user inputs in MainMenu
+            </summary>
+        </member>
+        <member name="M:Swinburneexplorer.MainMenuController.SetupStartGame">
+            <summary>
+            Perform necessary actions to start game
+            </summary>
+        </member>
+        <member name="M:Swinburneexplorer.MainMenuController.PlayMenuSelectSound">
+            <summary>
+            Play sound indicating menu button pressed
+            </summary>
+        </member>
+        <member name="T:Swinburneexplorer.Map">
+            <summary>
+            Map class used for drawing the map to the screen
+            and handling input when map has been clicked
+            </summary>
+        </member>
+        <member name="F:Swinburneexplorer.Map.MAP_X_OFFSET">
+            <summary>
+            offset x for large map
+            </summary>
+        </member>
+        <member name="F:Swinburneexplorer.Map.MAP_Y_OFFSET">
+            <summary>
+            offset y for large map 
+            </summary>
+        </member>
+        <member name="F:Swinburneexplorer.Map.MAP_ICON_X_OFFSET">
+            <summary>
+            offset x for map icon
+            </summary>
+        </member>
+        <member name="F:Swinburneexplorer.Map.MAP_ICON_Y_OFFSET">
+            <summary>
+            offet y for map icon
+            </summary>
+        </member>
+        <member name="F:Swinburneexplorer.Map.SCROLL_OFFSET">
+            <summary>
+            Offset for scroll image
+            </summary>
+        </member>
+        <member name="M:Swinburneexplorer.Map.#ctor">
+            <summary>
+            Initialiser for Map class
+            </summary>
+        </member>
+        <member name="M:Swinburneexplorer.Map.Draw">
+            <summary>
+            Draws map to screen
+            </summary>
+        </member>
+        <member name="M:Swinburneexplorer.Map.DrawMap">
+            <summary>
+            Draw map
+            </summary>
+        </member>
+        <member name="M:Swinburneexplorer.Map.DrawMapIcon">
+            <summary>
+            Draw map icon
+            </summary>
+        </member>
+        <member name="M:Swinburneexplorer.Map.CheckMapClicked">
+            <summary>
+            Check for map toggle
+            </summary>
+            <returns>whether to map should be displayed</returns>
+        </member>
+        <member name="M:Swinburneexplorer.Map.SetMapResources">
+            <summary>
+            Retrieve required resources
+            </summary>
+        </member>
+        <member name="P:Swinburneexplorer.Map.Fullscreen">
+            <summary>
+            public setter for _fullscreen vlaue
+            </summary>
+        </member>
+        <member name="T:Swinburneexplorer.MapController">
+            <summary>
+            Handles input when map is drawn to fullscreen
+            </summary>
+        </member>
+        <member name="T:Swinburneexplorer.Objective">
+            <summary>
+            Objective class is used to keep track of player objectives
+            </summary>
+        </member>
+        <member name="M:Swinburneexplorer.Objective.#ctor(System.Int32)">
+            <summary>
+            Constructor for Objectives
+            </summary>
+            <param name="objectiveNumber">n-th objective</param>
+        </member>
+        <member name="P:Swinburneexplorer.Objective.Description">
+            <summary>
+            Get first line of objective
+            </summary>
+        </member>
+        <member name="P:Swinburneexplorer.Objective.Description2">
+            <summary>
+            Get second line of objective
+            </summary>
+        </member>
+        <member name="M:Swinburneexplorer.Objective.AssignLocation(System.Int32)">
+            <summary>
+            Assign the nth objective 
+            </summary>
+            <param name="objectiveNumber">objective number</param>
+        </member>
+        <member name="M:Swinburneexplorer.Objective.CheckIfObjectiveIsComplete(System.String)">
+            <summary>
+            Check if a certain objective is complete
+            </summary>
+            <param name="locationName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Swinburneexplorer.Objective.RandomiseFirstObjective">
+            <summary>
+            Randomiser for first objective
+            </summary>
+        </member>
+        <member name="M:Swinburneexplorer.Objective.RandomiseSecondObjective">
+            <summary>
+            Randomiser for secodn objective
+            </summary>
+        </member>
+        <member name="M:Swinburneexplorer.Objective.RandomiseThirdObjective">
+            <summary>
+            Randomiser for third objective
+            </summary>
+        </member>
+        <member name="M:Swinburneexplorer.Objective.RandomiseFourthObjective">
+            <summary>
+            randomiser for fourth objective
+            </summary>
+        </member>
+        <member name="M:Swinburneexplorer.Objective.RandomiseFifthObjective">
+            <summary>
+            randomiser for fifth objective
+            </summary>
+        </member>
+        <member name="P:Swinburneexplorer.Objective.LocationName">
+            <summary>
+            Return name of objective
+            </summary>
+        </member>
+        <member name="M:Swinburneexplorer.Objective.Draw">
+            <summary>
+            used to draw objective to screen - currently unused
+            </summary>
+        </member>
+        <member name="T:Swinburneexplorer.Player">
+            <summary>
+            Player class used to move between locations
+            holds the curernt location and all objectives
+            </summary>
+        </member>
+        <member name="M:Swinburneexplorer.Player.#ctor(Swinburneexplorer.Location)">
+            <summary>
+            Constructor for Player
+            </summary>
+            <param name="location">initial location</param>
+        </member>
+        <member name="M:Swinburneexplorer.Player.AddNewObjective(Swinburneexplorer.Objective)">
+            <summary>
+            Add a new objective
+            </summary>
+            <param name="objective"></param>
+        </member>
+        <member name="M:Swinburneexplorer.Player.ResetPlayer">
+            <summary>
+            Reset the players variables
+            </summary>
+        </member>
+        <member name="M:Swinburneexplorer.Player.ReturnBuildingIfExists">
+            <summary>
+            Check if a building exists within a location
+            </summary>
+            <returns>building in location</returns>
+        </member>
+        <member name="P:Swinburneexplorer.Player.CurrentObjective">
+            <summary>
+            Return objective currently being done
+            </summary>
+        </member>
+        <member name="P:Swinburneexplorer.Player.ObjectiveCount">
+            <summary>
+            Return number of objectives
+            </summary>
+        </member>
+        <member name="P:Swinburneexplorer.Player.Location">
+            <summary>
+            Get/Set current location of player
+            </summary>
+        </member>
+        <member name="P:Swinburneexplorer.Player.StartingLocation">
+            <summary>
+            Get/Set starting location of player
+            </summary>
+        </member>
+        <member name="M:Swinburneexplorer.Player.AssignNewObjective">
+            <summary>
+            Assign new objective to player
+            </summary>
+        </member>
+        <member name="T:Swinburneexplorer.TravellingController">
+            <summary>
+            This class controls the user input when in 
+            the travelling section of the game
+            </summary>
+        </member>
+        <member name="M:Swinburneexplorer.TravellingController.PlayCorrectSound">
+            <summary>
+            Sound played when travel valid
+            </summary>
+        </member>
+        <member name="M:Swinburneexplorer.TravellingController.PlayIncorrectSound">
+            <summary>
+            Sound played when travel invalid
+            </summary>
+        </member>
+        <member name="M:Swinburneexplorer.TravellingController.PlayMapToggleSound">
+            <summary>
+            Map toggle sound
+            </summary>
+        </member>
+        <member name="M:Swinburneexplorer.TravellingController.CheckLocationValid(System.Int32)">
+            <summary>
+            Check that a travel in a given direction is valid
+            </summary>
+            <param name="direction"></param>
+            <returns>if location exists in given direction</returns>
+        </member>
+        <member name="M:Swinburneexplorer.TravellingController.MovePlayer(System.Int32)">
+            <summary>
+            Moves player in a given direction
+            </summary>
+            <param name="direction"></param>
+        </member>
+        <member name="M:Swinburneexplorer.TravellingController.LoadLocationImage(Swinburneexplorer.Location)">
+            <summary>
+            Load location image to GameResources
+            and add location image to current location
+            </summary>
+            <param name="aLoc"></param>
+        </member>
+        <member name="M:Swinburneexplorer.TravellingController.ParseDirection(System.String)">
+            <summary>
+            Parse direction from string to int
+            </summary>
+            <param name="dirStr"></param>
+            <returns>parsed direction</returns>
+        </member>
+        <member name="M:Swinburneexplorer.TravellingController.TryMove(System.String)">
+            <summary>
+            Try moving in a direction
+            Play corresponding sounds if failed
+            </summary>
+            <param name="dirStr">direction as string</param>
+        </member>
+        <member name="M:Swinburneexplorer.TravellingController.HandleMapInput">
+            <summary>
+            Handle inputs for map
+            </summary>
+        </member>
+        <member name="M:Swinburneexplorer.TravellingController.HandleMouseTravelInput">
+            <summary>
+            Handle inputs for travelling with mouse click
+            </summary>
+        </member>
+        <member name="M:Swinburneexplorer.TravellingController.HandleKeyboardTravelInput">
+            <summary>
+            Handle inputs for travelling with keyboard inputs
+            </summary>
+        </member>
+        <member name="M:Swinburneexplorer.TravellingController.CheckIfObjectiveIsComplete">
+            <summary>
+            Check if objective is complete
+            </summary>
+        </member>
+        <member name="M:Swinburneexplorer.TravellingController.CompleteObjective">
+            <summary>
+            Add new objective if all objectives have
+            not been completed
+            </summary>
+        </member>
+        <member name="M:Swinburneexplorer.TravellingController.HandleInput">
+            <summary>
+            Handle all inputs related to travel
+            </summary>
+        </member>
+        <member name="T:Swinburneexplorer.ArrowDir">
+            <summary>
+            enum for arrow directions
+            </summary>
+        </member>
+        <member name="F:Swinburneexplorer.ArrowDir.Up">
+            <summary>
+            up direction
+            </summary>
+        </member>
+        <member name="F:Swinburneexplorer.ArrowDir.Down">
+            <summary>
+            down direction
+            </summary>
+        </member>
+        <member name="F:Swinburneexplorer.ArrowDir.Left">
+            <summary>
+            left direction
+            </summary>
+        </member>
+        <member name="F:Swinburneexplorer.ArrowDir.Right">
+            <summary>
+            right direction
+            </summary>
+        </member>
+        <member name="T:Swinburneexplorer.UI">
+            <summary>
+            UI class used to draw to game window when in the main game
+            </summary>
+        </member>
+        <member name="M:Swinburneexplorer.UI.#ctor">
+            <summary>
+            Constructor for UI class object
+            Initialises properties
+            </summary>
+        </member>
+        <member name="M:Swinburneexplorer.UI.Draw">
+            <summary>
+            Draw UI onto window
+            </summary>
+        </member>
+        <member name="M:Swinburneexplorer.UI.DrawDirectionArrows">
+            <summary>
+            Draw directional arrows onto window
+            </summary>
+        </member>
+        <member name="M:Swinburneexplorer.UI.DrawMinimap">
+            <summary>
+            Draws minimap to screen
+            </summary>
+        </member>
+        <member name="M:Swinburneexplorer.UI.DrawPlayerLocation">
+            <summary>
+            Draws player location to screen
+            </summary>
+        </member>
+        <member name="M:Swinburneexplorer.UI.DrawLocationInformation">
+            <summary>
+            Draw location information to screen
+            </summary>
+        </member>
+        <member name="M:Swinburneexplorer.UI.DrawObjectiveComplete">
+            <summary>
+            Draw objective complete to screen
+            </summary>
+        </member>
+        <member name="M:Swinburneexplorer.UI.DrawObjectives">
+            <summary>
+            Draw objectives to screen
+            </summary>
+        </member>
+        <member name="M:Swinburneexplorer.UI.DrawEnterButton">
+            <summary>
+            Draw enter button to screen
+            </summary>
+        </member>
+        <member name="M:Swinburneexplorer.UI.DrawExitButton">
+            <summary>
+            Draw exit button to screen
+            </summary>
+        </member>
+        <member name="M:Swinburneexplorer.UI.DrawQuitButton">
+            <summary>
+            Draw quit button onto UI
+            </summary>
+        </member>
+        <member name="M:Swinburneexplorer.UI.DrawInfoButton">
+            <summary>
+            Draw information button onto UI
+            </summary>
+        </member>
+        <member name="M:Swinburneexplorer.UI.DrawBuildingInfo">
+            <summary>
+            Draw Building info to screen
+            </summary>
+        </member>
+        <member name="M:Swinburneexplorer.UI.DrawInfoText(System.String,System.Int32,System.Double,System.Double)">
+            <summary>
+            Draw info text to screen
+            </summary>
+            <param name="text"></param>
+            <param name="size"></param>
+            <param name="x"></param>
+            <param name="y"></param>
+        </member>
+        <member name="M:Swinburneexplorer.UI.InitialiseScroll">
+            <summary>
+            Initialse scroll object
+            </summary>
+        </member>
+        <member name="M:Swinburneexplorer.UI.InitialiseArrows">
+            <summary>
+            Initialise arrow objects
+            </summary>
+        </member>
+        <member name="M:Swinburneexplorer.UI.InitialiseButtons">
+            <summary>
+            Initialse button objects
+            </summary>
+        </member>
+        <member name="M:Swinburneexplorer.UI.InitialiseInfoResources">
+            <summary>
+            Initialise building information resources
+            - button
+            - font
+            </summary>
+        </member>
+        <member name="M:Swinburneexplorer.UI.CreateMask(System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Generate an object mask
+            </summary>
+            <param name="x">x coord</param>
+            <param name="y">y coord</param>
+            <param name="width">width of mask</param>
+            <param name="height">height of mask</param>
+            <returns>object mask</returns>
+        </member>
+        <member name="M:Swinburneexplorer.UI.CheckMouseInArrow">
+            <summary>
+            Checks if the mouse is on an arrow
+            </summary>
+            <returns>true or false</returns>
+        </member>
+        <member name="M:Swinburneexplorer.UI.CheckMouseInEnterButton">
+            <summary>
+            Checks if the mouse is on the enter arrow
+            </summary>
+            <returns>true or false</returns>
+        </member>
+        <member name="M:Swinburneexplorer.UI.CheckMouseInEnter2Button">
+            <summary>
+            Checks if the mouse is on the enter2 button
+            </summary>
+            <returns>true or false</returns>
+        </member>
+        <member name="M:Swinburneexplorer.UI.CheckMouseInExit2Button">
+            <summary>
+            Checks if the mouse is on the exit2 button
+            </summary>
+            <returns>true or false</returns>
+        </member>
+        <member name="M:Swinburneexplorer.UI.CheckMouseInInfoButton">
+            <summary>
+            Checks if the mouse is on the info button
+            </summary>
+            <returns>true or false</returns>
+        </member>
+        <member name="M:Swinburneexplorer.UI.CheckMouseInQuitButton">
+            <summary>
+            Checks if the mouse is on the quit button
+            </summary>
+            <returns>true or false</returns>
+        </member>
+        <member name="P:Swinburneexplorer.UI.Arrows">
+            <summary>
+            public getter for Arrows
+            </summary>
+        </member>
+        <member name="P:Swinburneexplorer.UI.EnterButton">
+            <summary>
+            public getter for EnterButton
+            </summary>
+        </member>
+        <member name="P:Swinburneexplorer.UI.ExitButton">
+            <summary>
+            public getter for ExitButton
+            </summary>
+        </member>
+        <member name="P:Swinburneexplorer.UI.EnterButton2">
+            <summary>
+            public getter for EnterButton2
+            </summary>
+        </member>
+        <member name="P:Swinburneexplorer.UI.ExitButton2">
+            <summary>
+            public getter for ExitButton2
+            </summary>
+        </member>
+        <member name="T:Swinburneexplorer.UIButton">
+            <summary>
+            Class is used to create buttons to be drawn onto the UI
+            </summary>
+        </member>
+        <member name="M:Swinburneexplorer.UIButton.#ctor(SplashKitSDK.Rectangle,System.String,System.Int32,System.Int32)">
+            <summary>
+            Intialiser for the UIButton Class
+            </summary>
+            <param name="objectMask"></param>
+            <param name="label"></param>
+            <param name="offsetX"></param>
+            <param name="offsetY"></param>
+        </member>
+        <member name="M:Swinburneexplorer.UIButton.Draw">
+            <summary>
+            Draws object to game screen
+            </summary>
+        </member>
+        <member name="T:Swinburneexplorer.UIObject">
+            <summary>
+            UI Objects are objects that can be placed onto the game screen
+            </summary>
+        </member>
+        <member name="F:Swinburneexplorer.UIObject.GameWindow">
+            <summary>
+            static reference to window object will be drawn onto
+            </summary>
+        </member>
+        <member name="M:Swinburneexplorer.UIObject.#ctor(SplashKitSDK.Rectangle)">
+            <summary>
+            Constructor for when image is set separately
+            </summary>
+            <param name="objectMask"></param>
+        </member>
+        <member name="M:Swinburneexplorer.UIObject.#ctor(SplashKitSDK.Bitmap,SplashKitSDK.Rectangle)">
+            <summary>
+            Constructor to be used in practice.
+            Adds image and set objectMask as
+            </summary>
+            <param name="objectImage"></param>
+            <param name="objectMask"></param>
+        </member>
+        <member name="M:Swinburneexplorer.UIObject.SetPosition">
+            <summary>
+            Set position to where ObjectMask is located
+            </summary>
+        </member>
+        <member name="M:Swinburneexplorer.UIObject.IsHovering(SplashKitSDK.Point2D)">
+            <summary>
+            Check if a point on the screen is over the object's mask
+            </summary>
+            <param name="mousePosition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Swinburneexplorer.UIObject.Draw">
+            <summary>
+            Draw object onto screen
+            </summary>
+        </member>
+        <member name="P:Swinburneexplorer.UIObject.ObjectImage">
+            <summary>
+            Return image of object
+            </summary>
+        </member>
+        <member name="P:Swinburneexplorer.UIObject.Visible">
+            <summary>
+            public getter and setter for _visible property
+            </summary>
+        </member>
+        <member name="P:Swinburneexplorer.UIObject.Position">
+            <summary>
+            Return top-left corner of object
+            </summary>
+        </member>
+        <member name="P:Swinburneexplorer.UIObject.ObjectMask">
+            <summary>
+            Rectangle used as mask for UI clicks
+            </summary>
+        </member>
+        <member name="T:GameController">
+            <summary>
+            This class controls the entire game - holds main function
+            </summary>
+        </member>
+        <member name="F:GameController.gameWindow">
+            <summary>
+            the game window
+            </summary>
+        </member>
+        <member name="F:GameController._player">
+            <summary>
+            the player of the game
+            </summary>
+        </member>
+        <member name="F:GameController._mainMenu">
+            <summary>
+            the main menu class - draws to screen
+            </summary>
+        </member>
+        <member name="F:GameController._ui">
+            <summary>
+            draws to screen when in main game
+            </summary>
+        </member>
+        <member name="F:GameController.theMap">
+            <summary>
+            shows fullscreen map, and draws map to screen
+            </summary>
+        </member>
+        <member name="F:GameController.WINDOW_HEIGHT">
+            <summary>
+            constant for window height
+            </summary>
+        </member>
+        <member name="F:GameController.WINDOW_WIDTH">
+            <summary>
+            constant for window width
+            </summary>
+        </member>
+        <member name="F:GameController.FORWARD">
+            <summary>
+            Constant for forward direction	
+            </summary>
+        </member>
+        <member name="F:GameController.BACKWARD">
+            <summary>
+            Constant for backward direction	
+            </summary>
+        </member>
+        <member name="F:GameController.LEFT">
+            <summary>
+            Constant for left direction	
+            </summary>
+        </member>
+        <member name="F:GameController.RIGHT">
+            <summary>
+            Constant for right direction	
+            </summary>
+        </member>
+        <member name="F:GameController._currentState">
+            <summary>
+            current state of the game	
+            </summary>
+        </member>
+        <member name="M:GameController.Main(System.String[])">
+            <summary>
+            main game loop - responsible to controlling the game
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="P:GameController.Player">
+            <summary>
+            Getter for player
+            </summary>
+        </member>
+        <member name="P:GameController.UI">
+            <summary>
+            Getter for ui
+            </summary>
+        </member>
+    </members>
+</doc>

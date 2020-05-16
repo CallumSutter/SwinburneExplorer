@@ -4,8 +4,13 @@ using System.Text;
 using SplashKitSDK;
 
 namespace Swinburneexplorer {
+	/// <summary>
+	/// UI Objects are objects that can be placed onto the game screen
+	/// </summary>
 	public class UIObject : IDraw {
-		// static reference to window object will be drawn onto
+		/// <summary>
+		/// static reference to window object will be drawn onto
+		/// </summary>
 		protected static Window GameWindow = GameController.gameWindow;
 
 		private Rectangle _objectMask;

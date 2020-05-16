@@ -3,21 +3,64 @@ using SplashKitSDK;
 using Swinburneexplorer;
 using System.Resources;
 
+/// <summary>
+/// This class controls the entire game - holds main function
+/// </summary>
 public class GameController {
+    /// <summary>
+    /// the game window
+    /// </summary>
     public static Window gameWindow;
+    /// <summary>
+    /// the player of the game
+    /// </summary>
     public static Player _player;
+    /// <summary>
+    /// the main menu class - draws to screen
+    /// </summary>
     public static MainMenu _mainMenu;
+    /// <summary>
+    /// draws to screen when in main game
+    /// </summary>
     public static UI _ui;
+    /// <summary>
+    /// shows fullscreen map, and draws map to screen
+    /// </summary>
     public static Map theMap;
+    /// <summary>
+    /// constant for window height
+    /// </summary>
     public const int WINDOW_HEIGHT = 583;
+    /// <summary>
+    /// constant for window width
+    /// </summary>
     public const int WINDOW_WIDTH = 1235;
-    //Constants for directions	
+    /// <summary>
+    /// Constant for forward direction	
+    /// </summary>
     public const int FORWARD = 0;
+    /// <summary>
+    /// Constant for backward direction	
+    /// </summary>
     public const int BACKWARD = 1;
+    /// <summary>
+    /// Constant for left direction	
+    /// </summary>
     public const int LEFT = 2;
+    /// <summary>
+    /// Constant for right direction	
+    /// </summary>
     public const int RIGHT = 3;
+    /// <summary>
+    /// current state of the game	
+    /// </summary>
     public static string _currentState;
 
+
+    /// <summary>
+    /// main game loop - responsible to controlling the game
+    /// </summary>
+    /// <param name="args"></param>
     public static void Main(string[] args) {
         //initialise varaiables
         //new game window

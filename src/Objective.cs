@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace Swinburneexplorer {
+    /// <summary>
+    /// Objective class is used to keep track of player objectives
+    /// </summary>
     public class Objective : IDraw {
         private static bool _isComplete;
         private static string _description;
@@ -239,7 +242,9 @@ namespace Swinburneexplorer {
             }
         }
 
-        //Currently unsued - may or may not be used in the future
+        /// <summary>
+        /// used to draw objective to screen - currently unused
+        /// </summary>
         public void Draw() {
             GameController.gameWindow.DrawText(_description, Color.DarkRed, 200, 200);
         }

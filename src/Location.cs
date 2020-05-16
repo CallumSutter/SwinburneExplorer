@@ -4,6 +4,9 @@ using SplashKitSDK;
 using Swinburneexplorer;
 
 namespace Swinburneexplorer {
+	/// <summary>
+	/// Location class - used to travel between locations, and display locations
+	/// </summary>
 	public class Location {
 		private Bitmap _locationImage;
 		private Location[] _paths;

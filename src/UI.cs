@@ -5,14 +5,31 @@ using System.Resources;
 using SplashKitSDK;
 
 namespace Swinburneexplorer {
-
+	/// <summary>
+	/// enum for arrow directions
+	/// </summary>
 	public enum ArrowDir {
+		/// <summary>
+		/// up direction
+		/// </summary>
 		Up,
+		/// <summary>
+		/// down direction
+		/// </summary>
 		Down,
+		/// <summary>
+		/// left direction
+		/// </summary>
 		Left,
+		/// <summary>
+		/// right direction
+		/// </summary>
 		Right
 	}
 
+	/// <summary>
+	/// UI class used to draw to game window when in the main game
+	/// </summary>
 	public class UI : IDraw {
 		private const double HALF_WIN_WIDTH = GameController.WINDOW_WIDTH / 2.0;
 		private const double HALF_WIN_HEIGHT = GameController.WINDOW_HEIGHT / 2.0;
@@ -120,10 +137,16 @@ namespace Swinburneexplorer {
 			}
 		}
 
+		/// <summary>
+		/// Draws minimap to screen
+		/// </summary>
 		private void DrawMinimap() {
 			GameController.theMap.Draw();
 		}
 
+		/// <summary>
+		/// Draws player location to screen
+		/// </summary>
 		private void DrawPlayerLocation() {
 			//Draws Players location
 			if (GameController._currentState == GameState.Travelling.ToString() || GameController._currentState == GameState.InBuilding.ToString()) {
@@ -134,6 +157,9 @@ namespace Swinburneexplorer {
 			}
 		}
 
+		/// <summary>
+		/// Draw location information to screen
+		/// </summary>
 		private void DrawLocationInformation() {
 			//Draws location name
 			GameController.gameWindow.DrawRectangle(Color.DarkRed, HALF_WIN_WIDTH - 150, 0, 300, 50);
@@ -153,6 +179,9 @@ namespace Swinburneexplorer {
 			GameController.gameWindow.DrawText(_location, Color.DarkRed, HALF_WIN_WIDTH - 120, 20);
 		}
 
+		/// <summary>
+		/// Draw objective complete to screen
+		/// </summary>
 		public void DrawObjectiveComplete() {
 			DrawPlayerLocation();
 			GameController.gameWindow.FillRectangle(Color.Black, 310, 100, 600, 300);
@@ -166,6 +195,9 @@ namespace Swinburneexplorer {
 			}
 		}
 
+		/// <summary>
+		/// Draw objectives to screen
+		/// </summary>
 		private void DrawObjectives() {
 			_scroll.Draw();
 			GameController.gameWindow.DrawText("Objective", Color.DarkRed, GameResources.GetFont("gameFont"), 40, 1010, 40);
@@ -173,6 +205,9 @@ namespace Swinburneexplorer {
 			GameController.gameWindow.DrawText(GameController._player.CurrentObjective.Description2, Color.DarkRed, 970, 100);
 		}
 
+		/// <summary>
+		/// Draw enter button to screen
+		/// </summary>
 		private void DrawEnterButton() {
 			//only draw enter button if building or classroom is avaliable to enter
 			if (GameController._currentState == GameState.InBuilding.ToString()) {
@@ -201,6 +236,9 @@ namespace Swinburneexplorer {
 			}
 		}
 
+		/// <summary>
+		/// Draw exit button to screen
+		/// </summary>
 		private void DrawExitButton() {
 			//only draw exit button 1 if player is not on floor 1 of building or is in a classroom
 			//only draw exit button 2 is player in on fl0or 1 of building
@@ -245,6 +283,9 @@ namespace Swinburneexplorer {
 			}
 		}
 
+		/// <summary>
+		/// Draw Building info to screen
+		/// </summary>
 		public void DrawBuildingInfo()
 		{
 			Bitmap infoBox = GameResources.GetImage("infoBox");
@@ -292,16 +333,29 @@ namespace Swinburneexplorer {
 			}
 		}
 
+		/// <summary>
+		/// Draw info text to screen
+		/// </summary>
+		/// <param name="text"></param>
+		/// <param name="size"></param>
+		/// <param name="x"></param>
+		/// <param name="y"></param>
 		private void DrawInfoText(string text, int size, double x, double y)
 		{
 			GameController.gameWindow.DrawText(text, Color.Black, _infoFont, size, x, y);
 		}
 
+		/// <summary>
+		/// Initialse scroll object
+		/// </summary>
 		private void InitialiseScroll() {
 			_scroll = new UIObject(GameResources.GetImage("scroll"),
 				CreateMask(GameController.WINDOW_WIDTH - GameResources.GetImage("scroll").Width, 0, GameResources.GetImage("scroll").Width, GameResources.GetImage("scroll").Height));
 		}
 
+		/// <summary>
+		/// Initialise arrow objects
+		/// </summary>
 		private void InitialiseArrows()	{
 			_arrows = new ArrowButton[4];
 
@@ -330,6 +384,9 @@ namespace Swinburneexplorer {
 			_arrows[3] = new ArrowButton(arrowMask, 0);
 		}
 
+		/// <summary>
+		/// Initialse button objects
+		/// </summary>
 		private void InitialiseButtons() {
 			Bitmap btnImg = GameResources.GetImage("btnBase");
 			Rectangle btnMask = CreateMask(ARROW_X - 8, ARROW_Y + btnImg.Height / 4, btnImg.Width, btnImg.Height);
@@ -382,6 +439,10 @@ namespace Swinburneexplorer {
 			return mask;
 		}
 
+		/// <summary>
+		/// Checks if the mouse is on an arrow
+		/// </summary>
+		/// <returns>true or false</returns>
 		public ArrowDir? CheckMouseInArrow() {
 			for (uint i = 0; i < 4; i++) {
 				if (_arrows[i].IsHovering(SplashKit.MousePosition())) {
@@ -391,50 +452,85 @@ namespace Swinburneexplorer {
 			return null;
 		}
 
+		/// <summary>
+		/// Checks if the mouse is on the enter arrow
+		/// </summary>
+		/// <returns>true or false</returns>
 		public bool CheckMouseInEnterButton() {
 			return (_enterBtn.IsHovering(SplashKit.MousePosition()));
 		}
 
+		/// <summary>
+		/// Checks if the mouse is on the enter2 button
+		/// </summary>
+		/// <returns>true or false</returns>
 		public bool CheckMouseInEnter2Button() {
 			return (_enterBtn2.IsHovering(SplashKit.MousePosition()));
 		}
 
+		/// <summary>
+		/// Checks if the mouse is on the exit2 button
+		/// </summary>
+		/// <returns>true or false</returns>
 		public bool CheckMouseInExit2Button() {
 			return (_exitBtn2.IsHovering(SplashKit.MousePosition()));
 		}
 
+		/// <summary>
+		/// Checks if the mouse is on the info button
+		/// </summary>
+		/// <returns>true or false</returns>
 		public bool CheckMouseInInfoButton() {
 			return (_infoBtn.IsHovering(SplashKit.MousePosition()));
 		}
 
+		/// <summary>
+		/// Checks if the mouse is on the quit button
+		/// </summary>
+		/// <returns>true or false</returns>
 		public bool CheckMouseInQuitButton() {
 			return (_quitBtn.IsHovering(SplashKit.MousePosition()));
 		}
 
+		/// <summary>
+		/// public getter for Arrows
+		/// </summary>
 		public ArrowButton[] Arrows	{
 			get	{
 				return _arrows;
 			}
 		}
 
+		/// <summary>
+		/// public getter for EnterButton
+		/// </summary>
 		public UIButton EnterButton	{
 			get	{
 				return _enterBtn;
 			}
 		}
 
+		/// <summary>
+		/// public getter for ExitButton
+		/// </summary>
 		public UIButton ExitButton {
 			get {
 				return _exitBtn;
 			}
 		}
 
+		/// <summary>
+		/// public getter for EnterButton2
+		/// </summary>
 		public UIButton EnterButton2 {
 			get {
 				return _enterBtn2;
 			}
 		}
 
+		/// <summary>
+		/// public getter for ExitButton2
+		/// </summary>
 		public UIButton ExitButton2 {
 			get {
 				return _exitBtn2;

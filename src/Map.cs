@@ -4,13 +4,30 @@ using System.Text;
 using SplashKitSDK;
 
 namespace Swinburneexplorer {
+	/// <summary>
+	/// Map class used for drawing the map to the screen
+	/// and handling input when map has been clicked
+	/// </summary>
 	public class Map : IDraw {
+		/// <summary>
+		/// offset x for large map
+		/// </summary>
 		public const int MAP_X_OFFSET = GameController.WINDOW_WIDTH / 2 - 350;
+		/// <summary>
+		/// offset y for large map 
+		/// </summary>
 		public const int MAP_Y_OFFSET = 0;
-
+		/// <summary>
+		/// offset x for map icon
+		/// </summary>
 		public const int MAP_ICON_X_OFFSET = 10;
+		/// <summary>
+		/// offet y for map icon
+		/// </summary>
 		public const int MAP_ICON_Y_OFFSET = 10;
-
+		/// <summary>
+		/// Offset for scroll image
+		/// </summary>
 		public const int SCROLL_OFFSET = 15;
 
 		private Bitmap _mapIco;
@@ -22,6 +39,9 @@ namespace Swinburneexplorer {
 		private Font _mapFont;
 		private Color _textColor = Color.Black;
 
+		/// <summary>
+		/// Initialiser for Map class
+		/// </summary>
 		public Map() {
 			SetMapResources();
 
@@ -32,6 +52,9 @@ namespace Swinburneexplorer {
 			_mapMask.Y = 10;
 		}
 
+		/// <summary>
+		/// Draws map to screen
+		/// </summary>
 		public void Draw() {
 			if (!_fullscreen) {
 				DrawMapIcon();
@@ -98,6 +121,9 @@ namespace Swinburneexplorer {
 			_mapFont = GameResources.GetFont("arial");
 		}
 
+		/// <summary>
+		/// public setter for _fullscreen vlaue
+		/// </summary>
 		public bool Fullscreen {
 			set {
 				_fullscreen = value;

@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace Swinburneexplorer {
+    /// <summary>
+    /// Handles input when map is drawn to fullscreen
+    /// </summary>
     class MapController {
         public static void HandleInput() {
             if (GameController.theMap.CheckMapClicked()) {

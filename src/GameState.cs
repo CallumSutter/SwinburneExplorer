@@ -5,24 +5,39 @@ using SplashKitSDK;
 
 namespace Swinburneexplorer
 {
+    /// <summary>
+    /// Enum that holds a game states
+    /// </summary>
     public enum GameState
     {
-        //Player is at main menu
+        /// <summary>
+        /// Player is at main menu
+        /// </summary>
         MainMenu,
 
-        //Player is moving between locations/main game
+        /// <summary>
+        /// Player is moving between locations/main game
+        /// </summary>
         Travelling,
 
-        //player is in a building
+        /// <summary>
+        /// player is in a building
+        /// </summary>
         InBuilding,
 
-        //player is in a classroom
+        /// <summary>
+        /// player is in a classroom
+        /// </summary>
         InClassroom,
 
-        //Player is looking at the map
+        /// <summary>
+        /// Player is looking at the map
+        /// </summary>
         FullscreenMap,
 
-        //Exiting game
+        /// <summary>
+        /// Exiting game
+        /// </summary>
         Exit,
     }
 }

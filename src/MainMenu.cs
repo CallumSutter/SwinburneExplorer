@@ -4,6 +4,9 @@ using System.Text;
 using SplashKitSDK;
 
 namespace Swinburneexplorer {
+    /// <summary>
+    /// Main Menu class is responsible for drawing to the window when on the main menu
+    /// </summary>
     public class MainMenu : IDraw {
         private static Bitmap _background;
         private static UIButton _playButton;

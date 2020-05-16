@@ -4,6 +4,10 @@ using System.Text;
 
 namespace Swinburneexplorer
 {
+	/// <summary>
+	/// Building class is used as a extension of the location class
+	/// can go up and down floors, and can enter a classroom
+	/// </summary>
     public class Building : Location
     {
         private int _floorCount;
@@ -136,5 +140,5 @@ namespace Swinburneexplorer
 				return _inClassroom;
 			}
 		}
-    }
+	}
 }

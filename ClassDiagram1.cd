@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="Swinburneexplorer.MainMenuController">
+    <Position X="20.5" Y="5.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAKAAAAA=</HashCode>
+      <FileName>src\MainMenuController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Swinburneexplorer.ArrowButton">
+    <Position X="26.5" Y="9.25" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAQAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\ArrowButton.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Swinburneexplorer.Building">
+    <Position X="1.75" Y="17" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIEAAAAQMAAAAACAgABgAoAGAAAAAAAACAIAA=</HashCode>
+      <FileName>src\Building.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Swinburneexplorer.Classroom">
+    <Position X="6.25" Y="17" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\Classroom.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameController">
+    <Position X="11" Y="3.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>hAAAAAAACQAAAgIAAAAACQAAAAAAAAAgAIAABQAAUBA=</HashCode>
+      <FileName>src\GameController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Swinburneexplorer.GameResources">
+    <Position X="31.25" Y="5.25" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>gGQAAAICAQACBgCAAAEQAEAQIAiEAAAwANIAABSAAAg=</HashCode>
+      <FileName>src\GameResources.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Swinburneexplorer.Location">
+    <Position X="1.5" Y="11.5" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AACAIBAAAAACAAEAACAAAAQCAQAAAUAAEAAAAAAgABA=</HashCode>
+      <FileName>src\Location.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Swinburneexplorer.MainMenu" BaseTypeListCollapsed="true">
+    <Position X="17.25" Y="5.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>IACCABQAUAACAhQAAAIAABAAABAIACgBAAACIQQAAxA=</HashCode>
+      <FileName>src\MainMenu.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Swinburneexplorer.Map" BaseTypeListCollapsed="true">
+    <Position X="6.5" Y="5.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>RAAAAABAQAAgAgAAAIEAgAAAAABAAgKAQBAAAAABAAA=</HashCode>
+      <FileName>src\Map.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Swinburneexplorer.MapController">
+    <Position X="9" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\MapController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Swinburneexplorer.Objective" BaseTypeListCollapsed="true">
+    <Position X="6.75" Y="11.5" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAgCgAhAEAAICAACAgAAAAEAAAEAAAAAAACA=</HashCode>
+      <FileName>src\Objective.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Swinburneexplorer.Player">
+    <Position X="2.75" Y="5.25" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAEAAAICAANgQAAAAAAAAAAAACAAAAAAAAA=</HashCode>
+      <FileName>src\Player.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Swinburneexplorer.TravellingController">
+    <Position X="13.75" Y="5.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>ACAAAACAAgAgIIAAAAAAAAAAAAAAKAAkAAIBAAAAAgA=</HashCode>
+      <FileName>src\TravellingController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Swinburneexplorer.UI" BaseTypeListCollapsed="true">
+    <Position X="23.25" Y="5.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AODCEABCNABmqhyAEgQAAAAgAAAAIGMoKCgggQAAAAg=</HashCode>
+      <FileName>src\UI.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Swinburneexplorer.UIButton">
+    <Position X="26.5" Y="12.25" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAgAAABAAAAAAAAAAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>src\UIButton.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Swinburneexplorer.UIObject">
+    <Position X="26.75" Y="3.75" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAgAgDAAAAAAAACABAkAIAAAAgAAAABA=</HashCode>
+      <FileName>src\UIObject.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="Swinburneexplorer.IDraw">
+    <Position X="14.5" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>src\IDraw.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="Swinburneexplorer.GameState">
+    <Position X="11.25" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAIAAAAICAAQAAAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>src\GameState.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Swinburneexplorer.ArrowDir">
+    <Position X="24" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAACACAAAAAAAI=</HashCode>
+      <FileName>src\UI.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

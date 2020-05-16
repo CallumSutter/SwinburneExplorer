@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace Swinburneexplorer {
+    /// <summary>
+    /// Player class used to move between locations
+    /// holds the curernt location and all objectives
+    /// </summary>
     public class Player {
         private Location _location;
         private string _startingLocation;

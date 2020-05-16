@@ -5,6 +5,9 @@ using System.Text;
 
 namespace Swinburneexplorer
 {
+	/// <summary>
+	/// Controls input when in the main menu
+	/// </summary>
 	public static class MainMenuController
 	{
 		/// <summary>

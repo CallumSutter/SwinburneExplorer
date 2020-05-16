@@ -6,11 +6,26 @@ using SplashKitSDK;
 
 namespace Swinburneexplorer
 {
+	/// <summary>
+	/// This class holds the game resources for the game
+	/// </summary>
 	public static class GameResources
 	{
+		/// <summary>
+		/// const for forward direction
+		/// </summary>
 		public const int FORWARD = 0;
+		/// <summary>
+		/// const for backward direction
+		/// </summary>
 		public const int BACKWARD = 1;
+		/// <summary>
+		/// const for left direction
+		/// </summary>
 		public const int LEFT = 2;
+		/// <summary>
+		/// const for right direction
+		/// </summary>
 		public const int RIGHT = 3;
 
 		private static Dictionary<string, Font> _fonts;
@@ -164,6 +179,9 @@ namespace Swinburneexplorer
 			//Console.WriteLine($"Took {sw.ElapsedMilliseconds} to load campus/{locName}.jpg");
 		}
 
+		/// <summary>
+		/// Load images and add them to image dictionary
+		/// </summary>
 		private static void LoadImages() {
 			_images.Add("Arrow", new Bitmap("Arrow", "Arrow.png"));
 			_images.Add("sArrow", new Bitmap("sArrow", "sArrow.png"));
@@ -180,6 +198,9 @@ namespace Swinburneexplorer
 			_images.Add("infoBox", new Bitmap("infoBox", "infoBox.png"));
 		}
 
+		/// <summary>
+		/// Load locations and add them to locations dictionary
+		/// </summary>
 		private static void LoadLocations() {
 			_locations.Add("AD Building", new Location("AD Building")) ;
 			_locations.Add("AGSE Building", new Location("AGSE Building"));
@@ -367,6 +388,9 @@ namespace Swinburneexplorer
 			ConfigureLocations();
 		}
 
+		/// <summary>
+		/// configures all locations and adds buildings to locations
+		/// </summary>
 		private static void ConfigureLocations() {
 			//AGSE
 			GetLocation("AGSE Building").AddConnectingLocation(GetLocation("tunnel2"), BACKWARD);
@@ -1115,6 +1139,9 @@ namespace Swinburneexplorer
             GetLocation("toTATB3").AddConnectingLocation(GetLocation("TB Building"), LEFT);
         }
 
+		/// <summary>
+		/// Loads all sounds
+		/// </summary>
 		private static void LoadSounds()
 		{
 			_sounds.Add("incorrect", new SoundEffect("incorrect", "wrong_direction.wav"));
@@ -1124,12 +1151,18 @@ namespace Swinburneexplorer
 			_sounds.Add("objectiveComplete", new SoundEffect("objectiveComplete", "objectiveComplete.wav"));
 		}
 
+		/// <summary>
+		/// Load all music
+		/// </summary>
 		private static void LoadMusic()
 		{
 			_music.Add("bgm", new Music("bgm", "sogno.mp3"));
 			_music.Add("USSR", new Music("USSR", "USSR.ogg"));
 		}
 
+		/// <summary>
+		/// Load all fonts
+		/// </summary>
 		private static void LoadFonts()
 		{
 			_fonts.Add("gameFont", new Font("gameFont", "gameFont.ttf"));
@@ -1160,7 +1193,7 @@ namespace Swinburneexplorer
 		/// Get a location from list
 		/// </summary>
 		/// <param name="locationName"></param>
-		/// <returns></returns>
+		/// <returns>Location</returns>
 		public static Location GetLocation(string locationName) {
 			try {
 				return _locations[locationName];
@@ -1172,6 +1205,11 @@ namespace Swinburneexplorer
 			return null;
 		}
 
+		/// <summary>
+		/// Get a Building from list
+		/// </summary>
+		/// <param name="buildingname"></param>
+		/// <returns>Building</returns>
 		public static Building GetBuilding(string buildingname) {
 			try {
 				return _buildings[buildingname];
@@ -1183,6 +1221,11 @@ namespace Swinburneexplorer
 			return null;
 		}
 
+		/// <summary>
+		/// Get a sound from list
+		/// </summary>
+		/// <param name="soundName"></param>
+		/// <returns>Sound</returns>
 		public static SoundEffect GetSound(string soundName)
 		{
 			try
@@ -1198,6 +1241,11 @@ namespace Swinburneexplorer
 			return null;
 		}
 
+		/// <summary>
+		/// Get Music from list
+		/// </summary>
+		/// <param name="musicName"></param>
+		/// <returns>Music</returns>
 		public static Music GetMusic(string musicName)
 		{
 			try
@@ -1213,6 +1261,11 @@ namespace Swinburneexplorer
 			return null;
 		}
 
+		/// <summary>
+		/// Get Image from list
+		/// </summary>
+		/// <param name="imgName"></param>
+		/// <returns>image</returns>
 		public static Bitmap GetImage(string imgName)
 		{
 			try
