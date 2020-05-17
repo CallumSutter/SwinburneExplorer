@@ -292,14 +292,20 @@ namespace Swinburneexplorer {
 			GameController.gameWindow.DrawBitmap(infoBox, 
 				HALF_WIN_WIDTH - infoBox.Width / 2, HALF_WIN_HEIGHT - infoBox.Height / 2);
 
-            string text = GameController.Player.Location.GetInfo;
+           
 
 			DrawInfoText(GameController.Player.Location.Name + " Info", 20, HALF_WIN_WIDTH - infoBox.Width / 2 + 25, 
 				HALF_WIN_HEIGHT - infoBox.Height / 2 + 20);
-			
-			// 41 characters p/l with current settings.
-			string text = loc.GetInfo;
-			string[] textSplit = text.Split(' ');
+
+            // 41 characters p/l with current settings.
+            string text = GameController.Player.Location.GetInfo;
+            if (text == null)
+            {
+                return;
+            }
+
+
+            string[] textSplit = text.Split(' ');
 			string toDraw = "";
 			int lines = 0;
 

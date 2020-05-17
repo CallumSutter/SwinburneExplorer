@@ -272,7 +272,7 @@ namespace Swinburneexplorer
             _locations.Add("spw12", new Location("spw12"));
             _locations.Add("stairs", new Location("stairs"));
 			_locations.Add("studentCarPark", new Location("studentCarPark"));
-			_locations.Add("study", new Location("study"));
+			_locations.Add("study", new Location("study", "Is a building that was recently create to create extra space for students to study."));
 			_locations.Add("TA Building", new Location("TA Building", "The TA building contains various biology labs and mainly holds offices and teaching spaces"));
 			_locations.Add("TB Building", new Location("TB Building", "The TB building is where you can find the campus workshop, as well some various teaching spaces, offices, and a student lounge"));
 			_locations.Add("TC Building", new Location("TC Building", "The TC building is where you can find the engineering workshops, teaching spaces, and the department of trades annd engineering technology (PAVE)"));
@@ -340,7 +340,7 @@ namespace Swinburneexplorer
             _locations.Add("toTrain15", new Location("toTrain15"));
             _locations.Add("toWestSide1", new Location("toWestSide1"));
 			_locations.Add("toWestSide2", new Location("toWestSide2"));
-			_locations.Add("Train", new Location("Train"));
+			_locations.Add("Train", new Location("Train", "Train station located inside the uni for easy travel"));
 			_locations.Add("trainPark1", new Location("trainPark1"));
 			_locations.Add("trainPark2", new Location("trainPark2"));
 			_locations.Add("trainPark3", new Location("trainPark3"));
