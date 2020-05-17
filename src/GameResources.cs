@@ -202,17 +202,17 @@ namespace Swinburneexplorer
 		/// Load locations and add them to locations dictionary
 		/// </summary>
 		private static void LoadLocations() {
-			_locations.Add("AD Building", new Location("AD Building")) ;
-			_locations.Add("AGSE Building", new Location("AGSE Building"));
-			_locations.Add("AMDC Building", new Location("AMDC Building"));
-			_locations.Add("AR Building", new Location("AR Building"));
-			_locations.Add("AS Building", new Location("AS Building"));
-			_locations.Add("ATC Building", new Location("ATC Building"));
+			_locations.Add("AD Building", new Location("AD Building", "The AD building is one of the oldest buildings on campus dating back 100 years, and while it has been done up the building still does show its age. ")) ;
+			_locations.Add("AGSE Building", new Location("AGSE Building", "The AGSE building also known as the australian graduate school of entrepreneurship is a building used to cater to new entrepreneurs. And has gone under significant renovations throughout 2017"));
+			_locations.Add("AMDC Building", new Location("AMDC Building", "AMDC also known as the advanced manufacturing and design centre contains a wide range of technology laboratories and houses the 'factory of the future'."));
+			_locations.Add("AR Building", new Location("AR Building", "The AR building also known as the arts building, is used mainly by the arts degree students"));
+			_locations.Add("AS Building", new Location("AS Building", "The AS building also known as the applied science building, is used mainly be the science degree students"));
+			_locations.Add("ATC Building", new Location("ATC Building", "The ATC building also known as the advanced technologies centre aka the cheese grater is the home to research and engineering labs, animation studios and flexible teaching spaces. The building also contains majority of the help desks which students will use to get help during their degree."));
 			_locations.Add("ATC Building (Back)", new Location("ATC Building (Back)"));
 			_locations.Add("backOfAD", new Location("backOfAD"));
-			_locations.Add("EN Building", new Location("EN Building"));
-			_locations.Add("FS Building", new Location("FS Building"));
-			_locations.Add("George Building", new Location("George Building"));
+			_locations.Add("EN Building", new Location("EN Building", "The EN building also known as the engineering building contains various robotic labs for engineering students. It also contains some small lecture theatres for small units. "));
+			_locations.Add("FS Building", new Location("FS Building", "The FS building also known as the fire station, and is home to the design factory melbourne (DFM). Only authorized students can get inside"));
+			_locations.Add("George Building", new Location("George Building", "The george building also known as the GS building, it contains various student amenities and faciltities including lounge areas and club rooms"));
 			_locations.Add("grassPath1", new Location("grassPath1"));
 			_locations.Add("grassPath2", new Location("grassPath2"));
 			_locations.Add("grassPath3", new Location("grassPath3"));
@@ -273,10 +273,10 @@ namespace Swinburneexplorer
             _locations.Add("stairs", new Location("stairs"));
 			_locations.Add("studentCarPark", new Location("studentCarPark"));
 			_locations.Add("study", new Location("study"));
-			_locations.Add("TA Building", new Location("TA Building"));
-			_locations.Add("TB Building", new Location("TB Building"));
-			_locations.Add("TC Building", new Location("TC Building"));
-			_locations.Add("TD Building", new Location("TD Building"));
+			_locations.Add("TA Building", new Location("TA Building", "The TA building contains various biology labs and mainly holds offices and teaching spaces"));
+			_locations.Add("TB Building", new Location("TB Building", "The TB building is where you can find the campus workshop, as well some various teaching spaces, offices, and a student lounge"));
+			_locations.Add("TC Building", new Location("TC Building", "The TC building is where you can find the engineering workshops, teaching spaces, and the department of trades annd engineering technology (PAVE)"));
+			_locations.Add("TD Building", new Location("TD Building", "The TD building is where you can find various lecture theatres, teaching spaces and labs. And is one of the largest tafe buildings."));
             _locations.Add("toAD1", new Location("toAD1"));
             _locations.Add("toAD2", new Location("toAD2"));
             _locations.Add("toAD3", new Location("toAD3"));

@@ -292,13 +292,17 @@ namespace Swinburneexplorer {
 			GameController.gameWindow.DrawBitmap(infoBox, 
 				HALF_WIN_WIDTH - infoBox.Width / 2, HALF_WIN_HEIGHT - infoBox.Height / 2);
 
-			Location loc = new Location("test","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed orci leo, tempus vitae ullamcorper quis, dictum vel ligula. Vivamus nulla est, tincidunt ut arcu sed, cursus ornare ante. Pellentesque aliquam efficitur purus. Duis sit amet dignissim risus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Duis consectetur erat non lorem mollis, pellentesque facilisis nunc suscipit. Fusce vel commodo enim, et cursus lectus. Phasellus in rhoncus odio, sed varius justo. Sed ut lobortis velit. Aenean luctus molestie magna, et faucibus velit cursus sit amet. Donec vel mattis nunc.");
+            string text = GameController.Player.Location.GetInfo;
+			if (text == null)
+			{
+				return;
+			}
+
 
 			DrawInfoText(GameController.Player.Location.Name + " Info", 20, HALF_WIN_WIDTH - infoBox.Width / 2 + 25, 
 				HALF_WIN_HEIGHT - infoBox.Height / 2 + 20);
 			
 			// 41 characters p/l with current settings.
-			string text = loc.GetInfo;
 			string[] textSplit = text.Split(' ');
 			string toDraw = "";
 			int lines = 0;
@@ -312,7 +316,7 @@ namespace Swinburneexplorer {
 					DrawInfoText(toDraw, 15, HALF_WIN_WIDTH - infoBox.Width / 2 + 25, 
 						HALF_WIN_HEIGHT - infoBox.Height / 2 + 43 + lines++ * 15);
 
-					toDraw = "";
+					toDraw = textSplit[i];
 				}
 			}
 
