@@ -316,7 +316,7 @@ namespace Swinburneexplorer {
 					DrawInfoText(toDraw, 15, HALF_WIN_WIDTH - infoBox.Width / 2 + 25, 
 						HALF_WIN_HEIGHT - infoBox.Height / 2 + 43 + lines++ * 15);
 
-					toDraw = textSplit[i];
+					toDraw = textSplit[i ];
 				}
 			}
 
