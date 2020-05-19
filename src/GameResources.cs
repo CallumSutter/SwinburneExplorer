@@ -1218,12 +1218,12 @@ namespace Swinburneexplorer
             //trainPark2
             GetLocation("trainPark2").AddConnectingLocation(GetLocation("trainPark3"), BACKWARD);
             GetLocation("trainPark2").AddConnectingLocation(GetLocation("trainPark1"), LEFT);
-            GetLocation("trainPark2").AddConnectingLocation(GetLocation("trainPark9"), RIGHT);
+            GetLocation("trainPark2").AddConnectingLocation(GetLocation("trainPark8"), RIGHT);
 
             //trainPark3
             GetLocation("trainPark3").AddConnectingLocation(GetLocation("trainPark2"), BACKWARD);
             GetLocation("trainPark3").AddConnectingLocation(GetLocation("trainPark1"), RIGHT);
-            GetLocation("trainPark3").AddConnectingLocation(GetLocation("trainPark9"), LEFT);
+            GetLocation("trainPark3").AddConnectingLocation(GetLocation("trainPark8"), LEFT);
 
             //trainPark4
             GetLocation("trainPark4").AddConnectingLocation(GetLocation("trainPark5"), FORWARD);
