@@ -64,7 +64,7 @@ namespace Swinburneexplorer
 				return;
 			}
 
-			SplashKit.PlayMusic(GetMusic("USSR"),10,(float)0.5);
+			SplashKit.PlayMusic(GetMusic("bgm"),10,(float)0.4);
 		}
 
 		/// <summary>
@@ -1449,7 +1449,7 @@ namespace Swinburneexplorer
 		/// </summary>
 		private static void LoadMusic()
 		{
-			_music.Add("bgm", new Music("bgm", "sogno.mp3"));
+			_music.Add("bgm", new Music("bgm", "pkmn theme remix.mp3"));
 			_music.Add("USSR", new Music("USSR", "USSR.ogg"));
 		}
 

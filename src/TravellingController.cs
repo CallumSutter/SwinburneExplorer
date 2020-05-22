@@ -14,7 +14,7 @@ namespace Swinburneexplorer {
 		/// Sound played when travel valid
 		/// </summary>
 		public static void PlayCorrectSound() {
-			SplashKit.PlaySoundEffect(GameResources.GetSound("correct"), (float)0.8);
+			SplashKit.PlaySoundEffect(GameResources.GetSound("correct"), (float)0.6);
 		}
 
 		/// <summary>
